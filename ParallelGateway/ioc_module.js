@@ -6,11 +6,11 @@ const entityDiscoveryTag = require('@essential-projects/core_contracts').EntityD
 
 const fs = require('fs');
 const path = require('path');
-const errorBoundaryEventBpmn = fs.readFileSync(path.join('bpmn', 'parallel_gateway.bpmn'), 'utf8');
+const parallelGatewayProcess = fs.readFileSync(path.join('bpmn', 'parallel_gateway.bpmn'), 'utf8');
 
 function registerInContainer(container) {
 
-  container.registerObject('errorBoundaryEventProcess', errorBoundaryEventBpmn)
+  container.registerObject('parallelGatewayProcess', parallelGatewayProcess)
     .setTag('bpmn_process', 'internal')
 
   container.register('SampleService', SampleService)
