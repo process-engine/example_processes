@@ -16,8 +16,18 @@ You can find the class in `src/boundary_error/error_boundary_test.ts`
 
 ### If it works:
 
-![alt text](./works.png "Works")
+The console output should look like this:
+```javascript
+{ StartEvent_1: undefined,
+  Task_04xh7ue: { message: 'property not found', errorCode: undefined },
+  BoundaryEvent_14fwi4a: { message: 'property not found', errorCode: undefined } }
+```
 
 ### If it doesn't work:
 
-![alt text](does_not_work.png "Doesn't work")
+The console output should look like this:
+```javascript
+{ StartEvent_1: undefined,
+  Task_04xh7ue: undefined,
+  BoundaryEvent_14fwi4a: undefined }
+```
