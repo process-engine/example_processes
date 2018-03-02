@@ -3,7 +3,7 @@
 const {
   StoreEntity,
   StoreEntityTypeService,
-  ErrorBoundaryError,
+  ErrorBoundaryEvent,
 } = require('./dist/commonjs');
 
 const entityDiscoveryTag = require('@essential-projects/core_contracts').EntityDiscoveryTag;
@@ -23,7 +23,7 @@ function registerInContainer(container) {
   container.register('StoreEntityTypeService', StoreEntityTypeService)
     .dependencies('DatastoreService');
 
-  container.register('ErrorBoundaryError', ErrorBoundaryError)
+  container.register('ErrorBoundaryEvent', ErrorBoundaryEvent)
 }
 
 module.exports.registerInContainer = registerInContainer;
