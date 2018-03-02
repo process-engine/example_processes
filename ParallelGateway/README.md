@@ -12,3 +12,11 @@
 
 It starts the parallel execution of two functions. One should take 1 second, the other 3 seconds.
 When everything is done, an inclusive parallel gateway finishes the process.
+
+## How to verify that it worked
+
+Both parallel running functions return a text after they are done, which is going to be written to `token.history`.
+
+Therefore, once the process has finished, you should be able to retrieve the following two entries from `token.history`:
+- `st_longTask: 'longRunningFunction has finished'`
+- `st_veryLongTask: 'veryLongRunningFunction has finished'`

@@ -2,14 +2,16 @@ import {ISampleService} from './interfaces';
 
 export class SampleService implements ISampleService {
 
-  public async longRunningFunction(): Promise<any> {
+  public async longRunningFunction(): Promise<string> {
     await this.wait(1000);
-    console.log('I just finished a long running task');
+    console.log('longRunningFunction has finished');
+    return 'longRunningFunction has finished';
   }
 
-  public async veryLongRunningFunction(): Promise<any> {
+  public async veryLongRunningFunction(): Promise<string> {
     await this.wait(3000);
-    console.log('I just finished a VERY long running task');
+    console.log('veryLongRunningFunction has finished');
+    return 'veryLongRunningFunction has finished';
   }
 
   private wait(milliseconds): Promise<void> {
