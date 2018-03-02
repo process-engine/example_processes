@@ -1,2 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.8.0"><bpmn:collaboration id="Collaboration_1cidyxu"><bpmn:participant id="Participant_0px403d" name="parallel_gateway" processRef="parallel_gateway" /></bpmn:collaboration><bpmn:process id="parallel_gateway" name="parallel_gateway" isExecutable="false"><bpmn:laneSet><bpmn:lane id="Lane_1xzf0d3" name="Lane"><bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef><bpmn:flowNodeRef>st_longTask</bpmn:flowNodeRef><bpmn:flowNodeRef>st_veryLongTask</bpmn:flowNodeRef><bpmn:flowNodeRef>pg_JoinAfterTasksFinished</bpmn:flowNodeRef><bpmn:flowNodeRef>pg_StartParallelExecution</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_1v6v31b</bpmn:flowNodeRef></bpmn:lane></bpmn:laneSet><bpmn:startEvent id="StartEvent_1" name="parallel_gateway"><bpmn:outgoing>SequenceFlow_1kww3r0</bpmn:outgoing></bpmn:startEvent><bpmn:sequenceFlow id="SequenceFlow_1kww3r0" sourceRef="StartEvent_1" targetRef="pg_StartParallelExecution" /><bpmn:sequenceFlow id="SequenceFlow_01bm6kz" sourceRef="pg_StartParallelExecution" targetRef="st_longTask" /><bpmn:sequenceFlow id="SequenceFlow_0gc55a8" sourceRef="pg_StartParallelExecution" targetRef="st_veryLongTask" /><bpmn:sequenceFlow id="SequenceFlow_0gf9ntr" sourceRef="st_veryLongTask" targetRef="pg_JoinAfterTasksFinished" /><bpmn:sequenceFlow id="SequenceFlow_0taqmhl" sourceRef="st_longTask" targetRef="pg_JoinAfterTasksFinished" /><bpmn:sequenceFlow id="SequenceFlow_10bs6hx" name="" sourceRef="pg_JoinAfterTasksFinished" targetRef="EndEvent_1v6v31b"><bpmn:extensionElements><camunda:executionListener class="" event="" /><camunda:properties /></bpmn:extensionElements></bpmn:sequenceFlow><bpmn:serviceTask id="st_longTask" name="Start long running task"><bpmn:extensionElements><camunda:executionListener class="" event="" /><camunda:properties><camunda:property name="module" value="SampleService" /><camunda:property name="method" value="longRunningFunction" /><camunda:property name="params" value="[]" /></camunda:properties></bpmn:extensionElements><bpmn:incoming>SequenceFlow_01bm6kz</bpmn:incoming><bpmn:outgoing>SequenceFlow_0taqmhl</bpmn:outgoing></bpmn:serviceTask><bpmn:serviceTask id="st_veryLongTask" name="Start very long running task"><bpmn:extensionElements><camunda:executionListener class="" event="" /><camunda:properties><camunda:property name="module" value="SampleService" /><camunda:property name="method" value="veryLongRunningFunction" /><camunda:property name="params" value="[]" /></camunda:properties></bpmn:extensionElements><bpmn:incoming>SequenceFlow_0gc55a8</bpmn:incoming><bpmn:outgoing>SequenceFlow_0gf9ntr</bpmn:outgoing></bpmn:serviceTask><bpmn:parallelGateway id="pg_JoinAfterTasksFinished" name=""><bpmn:extensionElements><camunda:executionListener class="" event="" /><camunda:properties /><camunda:properties><camunda:property name="mapper" value="{st_longTask: token.history.st_longTask,st_veryLongTask: token.history.st_veryLongTask};" /></camunda:properties></bpmn:extensionElements><bpmn:incoming>SequenceFlow_0gf9ntr</bpmn:incoming><bpmn:incoming>SequenceFlow_0taqmhl</bpmn:incoming><bpmn:outgoing>SequenceFlow_10bs6hx</bpmn:outgoing></bpmn:parallelGateway><bpmn:parallelGateway id="pg_StartParallelExecution" name=""><bpmn:extensionElements><camunda:executionListener class="" event="" /><camunda:properties /></bpmn:extensionElements><bpmn:incoming>SequenceFlow_1kww3r0</bpmn:incoming><bpmn:outgoing>SequenceFlow_01bm6kz</bpmn:outgoing><bpmn:outgoing>SequenceFlow_0gc55a8</bpmn:outgoing></bpmn:parallelGateway><bpmn:endEvent id="EndEvent_1v6v31b" name=""><bpmn:incoming>SequenceFlow_10bs6hx</bpmn:incoming></bpmn:endEvent></bpmn:process><bpmndi:BPMNDiagram id="BPMNDiagram_1"><bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu"><bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d"><dc:Bounds x="5" y="-5" width="625" height="318" /></bpmndi:BPMNShape><bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1"><dc:Bounds x="98" y="138" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="75" y="174" width="84" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3"><dc:Bounds x="35" y="-5" width="595" height="318" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id="SequenceFlow_1kww3r0_di" bpmnElement="SequenceFlow_1kww3r0"><di:waypoint x="134" y="156" /><di:waypoint x="197" y="156" /><bpmndi:BPMNLabel><dc:Bounds x="120.5" y="134.5" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_01bm6kz_di" bpmnElement="SequenceFlow_01bm6kz"><di:waypoint x="222" y="131" /><di:waypoint x="222" y="55" /><di:waypoint x="298" y="55" /><bpmndi:BPMNLabel><dc:Bounds x="192" y="86.5" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_0gc55a8_di" bpmnElement="SequenceFlow_0gc55a8"><di:waypoint x="222" y="181" /><di:waypoint x="222" y="240" /><di:waypoint x="298" y="240" /><bpmndi:BPMNLabel><dc:Bounds x="192" y="204" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_0gf9ntr_di" bpmnElement="SequenceFlow_0gf9ntr"><di:waypoint x="398" y="240" /><di:waypoint x="485" y="240" /><di:waypoint x="485" y="181" /><bpmndi:BPMNLabel><dc:Bounds x="396.5" y="218.5" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_0taqmhl_di" bpmnElement="SequenceFlow_0taqmhl"><di:waypoint x="398" y="55" /><di:waypoint x="485" y="55" /><di:waypoint x="485" y="131" /><bpmndi:BPMNLabel><dc:Bounds x="396.5" y="33.5" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id="SequenceFlow_10bs6hx_di" bpmnElement="SequenceFlow_10bs6hx"><di:waypoint x="510" y="156" /><di:waypoint x="574" y="156" /><bpmndi:BPMNLabel><dc:Bounds x="497" y="134.5" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id="EndEvent_1v6v31b_di" bpmnElement="EndEvent_1v6v31b"><dc:Bounds x="574" y="138" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="547" y="177" width="90" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id="ServiceTask_1urgf65_di" bpmnElement="st_longTask"><dc:Bounds x="298" y="15" width="100" height="80" /></bpmndi:BPMNShape><bpmndi:BPMNShape id="ServiceTask_07ys0f8_di" bpmnElement="st_veryLongTask"><dc:Bounds x="298" y="200" width="100" height="80" /></bpmndi:BPMNShape><bpmndi:BPMNShape id="ParallelGateway_0ys6n5j_di" bpmnElement="pg_JoinAfterTasksFinished"><dc:Bounds x="460" y="131" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="440" y="184" width="0" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id="ParallelGateway_0wv5v6m_di" bpmnElement="pg_StartParallelExecution"><dc:Bounds x="197" y="131" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="177" y="184" width="0" height="13" /></bpmndi:BPMNLabel></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+  id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.8.0">
+  <bpmn:collaboration id="Collaboration_1cidyxu">
+    <bpmn:participant id="Participant_0px403d" name="parallel_gateway" processRef="parallel_gateway" /></bpmn:collaboration>
+  <bpmn:process id="parallel_gateway" name="parallel_gateway" isExecutable="false">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="Lane">
+        <bpmn:extensionElements>
+          <camunda:executionListener class="" event="" />
+          <camunda:properties />
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>st_longTask</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>st_veryLongTask</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>pg_JoinAfterTasksFinished</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>pg_StartParallelExecution</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1v6v31b</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="parallel_gateway">
+      <bpmn:outgoing>SequenceFlow_1kww3r0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1kww3r0" sourceRef="StartEvent_1" targetRef="pg_StartParallelExecution" />
+    <bpmn:sequenceFlow id="SequenceFlow_01bm6kz" sourceRef="pg_StartParallelExecution" targetRef="st_longTask" />
+    <bpmn:sequenceFlow id="SequenceFlow_0gc55a8" sourceRef="pg_StartParallelExecution" targetRef="st_veryLongTask" />
+    <bpmn:sequenceFlow id="SequenceFlow_0gf9ntr" sourceRef="st_veryLongTask" targetRef="pg_JoinAfterTasksFinished" />
+    <bpmn:sequenceFlow id="SequenceFlow_0taqmhl" sourceRef="st_longTask" targetRef="pg_JoinAfterTasksFinished" />
+    <bpmn:sequenceFlow id="SequenceFlow_10bs6hx" name="" sourceRef="pg_JoinAfterTasksFinished" targetRef="EndEvent_1v6v31b">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+        <camunda:properties />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="st_longTask" name="Start long running task">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties>
+          <camunda:property name="module" value="SampleService" />
+          <camunda:property name="method" value="longRunningFunction" />
+          <camunda:property name="params" value="[]" /></camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_01bm6kz</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0taqmhl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="st_veryLongTask" name="Start very long running task">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties>
+          <camunda:property name="module" value="SampleService" />
+          <camunda:property name="method" value="veryLongRunningFunction" />
+          <camunda:property name="params" value="[]" /></camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0gc55a8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gf9ntr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="pg_JoinAfterTasksFinished" name="">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+        <camunda:properties />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0gf9ntr</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0taqmhl</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10bs6hx</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="pg_StartParallelExecution" name="">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1kww3r0</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_01bm6kz</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0gc55a8</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="EndEvent_1v6v31b" name="">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_10bs6hx</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="5" y="-5" width="625" height="318" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="98" y="138" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="75" y="174" width="84" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="35" y="-5" width="595" height="318" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1kww3r0_di" bpmnElement="SequenceFlow_1kww3r0">
+        <di:waypoint x="134" y="156" />
+        <di:waypoint x="197" y="156" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="120.5" y="134.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01bm6kz_di" bpmnElement="SequenceFlow_01bm6kz">
+        <di:waypoint x="222" y="131" />
+        <di:waypoint x="222" y="55" />
+        <di:waypoint x="298" y="55" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="192" y="86.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gc55a8_di" bpmnElement="SequenceFlow_0gc55a8">
+        <di:waypoint x="222" y="181" />
+        <di:waypoint x="222" y="240" />
+        <di:waypoint x="298" y="240" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="192" y="204" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gf9ntr_di" bpmnElement="SequenceFlow_0gf9ntr">
+        <di:waypoint x="398" y="240" />
+        <di:waypoint x="485" y="240" />
+        <di:waypoint x="485" y="181" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="396.5" y="218.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0taqmhl_di" bpmnElement="SequenceFlow_0taqmhl">
+        <di:waypoint x="398" y="55" />
+        <di:waypoint x="485" y="55" />
+        <di:waypoint x="485" y="131" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="396.5" y="33.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10bs6hx_di" bpmnElement="SequenceFlow_10bs6hx">
+        <di:waypoint x="510" y="156" />
+        <di:waypoint x="574" y="156" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="497" y="134.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1v6v31b_di" bpmnElement="EndEvent_1v6v31b">
+        <dc:Bounds x="574" y="138" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="547" y="177" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1urgf65_di" bpmnElement="st_longTask">
+        <dc:Bounds x="298" y="15" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_07ys0f8_di" bpmnElement="st_veryLongTask">
+        <dc:Bounds x="298" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ParallelGateway_0ys6n5j_di" bpmnElement="pg_JoinAfterTasksFinished">
+        <dc:Bounds x="460" y="131" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="440" y="184" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ParallelGateway_0wv5v6m_di" bpmnElement="pg_StartParallelExecution">
+        <dc:Bounds x="197" y="131" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="177" y="184" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
