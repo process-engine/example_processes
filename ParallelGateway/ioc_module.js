@@ -10,7 +10,7 @@ const parallelGatewayProcess = fs.readFileSync(path.join('bpmn', 'parallel_gatew
 
 function registerInContainer(container) {
 
-  container.registerObject('parallelGatewayProcess', parallelGatewayProcess)
+  container.registerObject('parallel_gateway', parallelGatewayProcess)
     .setTag('bpmn_process', 'internal')
 
   container.register('SampleService', SampleService)

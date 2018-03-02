@@ -20,6 +20,7 @@ const iocModuleNames = [
   '@essential-projects/event_aggregator',
   '@essential-projects/feature',
   '@essential-projects/http_extension',
+  '@essential-projects/http_integration_testing',
   '@essential-projects/iam',
   '@essential-projects/iam_http',
   '@essential-projects/invocation',
@@ -42,9 +43,11 @@ const iocModules = iocModuleNames.map((moduleName) => {
   return require(`${moduleName}/ioc_module`);
 });
 
-async function start() {
+let container;
+
+module.exports.initialize = async() => {
   
-  const container = new InvocationContainer({
+  container = new InvocationContainer({
     defaults: {
       conventionCalls: ['initialize'],
     },
@@ -64,6 +67,16 @@ async function start() {
   } catch(error) {
     logger.error('Bootstrapper failed to start.', error);
   }
-}
 
-start();
+  return container;
+};
+
+module.exports.createContext = async() => {
+  const iamService = await container.resolveAsync('IamService');
+  const context = await iamService.createInternalContext('system');
+  return context;
+};
+
+module.exports.resolveAsync = async(moduleName) => {
+  return container.resolveAsync(moduleName);
+};
