@@ -14,20 +14,12 @@ This example adds a class and a function which simply throws an error when
 it gets called. 
 You can find the class in `src/boundary_error/error_boundary_test.ts`
 
-### If it works:
+## How to verify that it worked
 
-The console output should look like this:
+You can run a test by typing `npm test`. 
+Then you can see whether it worked by looking in the console.
+The output should be:
+
 ```javascript
-{ StartEvent_1: undefined,
-  Task_04xh7ue: { message: 'testError', errorCode: undefined },
-  BoundaryEvent_14fwi4a: { message: 'testError', errorCode: undefined } }
-```
-
-### If it doesn't work:
-
-The console output should look like this:
-```javascript
-{ StartEvent_1: undefined,
-  Task_04xh7ue: undefined,
-  BoundaryEvent_14fwi4a: undefined }
+{ message: 'testError', errorCode: undefined }
 ```
