@@ -24,14 +24,27 @@ describe('Parallel Gateway execution', function () {
 
     const expectedHistoryEntryForTask1 = 'st_longTask';
     const expectedHistoryEntryForTask2 = 'st_veryLongTask';
+    const expectedHistoryEntryForTask3 = 'st_secondVeryLongTask';
     const expectedTask1Result = 'longRunningFunction has finished';
     const expectedTask2Result = 'veryLongRunningFunction has finished';
+    const expectedTask3Result = 'secondVeryLongRunningFunction has finished';
 
     const expectedHistoryEntryForTokenTestTask = 'st_currentTokenTestPart2';
     const expectedTokenTestTaskResult = 'current token test value';
 
-    should(result).have.keys(expectedHistoryEntryForTask1, expectedHistoryEntryForTask2);
+    const expectedHistoryEntryForSequence3 = 'st_SequenceTestTask3';
+    const expectedSequenceTestTaskResult = 'UPDATED Script Task result for sequence test';
+
+    should(result).have.keys(
+      expectedHistoryEntryForTask1,
+      expectedHistoryEntryForTask2,
+      expectedHistoryEntryForTask3,
+      expectedHistoryEntryForTokenTestTask,
+      expectedHistoryEntryForSequence3);
     should(result[expectedHistoryEntryForTask1]).be.equal(expectedTask1Result);
     should(result[expectedHistoryEntryForTask2]).be.equal(expectedTask2Result);
+    should(result[expectedHistoryEntryForTask3]).be.equal(expectedTask3Result);
+    should(result[expectedHistoryEntryForTokenTestTask]).be.equal(expectedTokenTestTaskResult);
+    should(result[expectedHistoryEntryForSequence3]).be.equal(expectedSequenceTestTaskResult);
   });
 });

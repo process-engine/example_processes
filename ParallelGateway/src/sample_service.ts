@@ -29,6 +29,25 @@ export class SampleService implements ISampleService {
     return 'veryLongRunningFunction has finished';
   }
 
+  public async secondVeryLongRunningFunction(): Promise<string> {
+    await this.wait(3000);
+    logger.info('secondVeryLongRunningFunction has finished');
+    return 'secondVeryLongRunningFunction has finished';
+  }
+
+  public async sequenceTestPart2UpdateToken(currentToken: string): Promise<string> {
+    await this.wait(500);
+    logger.info(`sequenceTestPart2UpdateToken has received current token: ${currentToken}`);
+    const updatedToken: string = `UPDATED ${currentToken}`;
+    logger.info(`updated token: ${updatedToken}`);
+    return updatedToken;
+  }
+
+  public async sequenceTestPart3Delay(): Promise<void> {
+    await this.wait(1700);
+    logger.info('sequenceTestPart3Delay has finished');
+  }
+
   private wait(milliseconds): Promise<void> {
     return new Promise((resolve) => {
       setTimeout(() => {
