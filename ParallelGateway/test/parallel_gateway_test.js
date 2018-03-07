@@ -27,6 +27,9 @@ describe('Parallel Gateway execution', function () {
     const expectedTask1Result = 'longRunningFunction has finished';
     const expectedTask2Result = 'veryLongRunningFunction has finished';
 
+    const expectedHistoryEntryForTokenTestTask = 'st_currentTokenTestPart2';
+    const expectedTokenTestTaskResult = 'current token test value';
+
     should(result).have.keys(expectedHistoryEntryForTask1, expectedHistoryEntryForTask2);
     should(result[expectedHistoryEntryForTask1]).be.equal(expectedTask1Result);
     should(result[expectedHistoryEntryForTask2]).be.equal(expectedTask2Result);
