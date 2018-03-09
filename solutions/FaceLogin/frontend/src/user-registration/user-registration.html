@@ -1,0 +1,10 @@
+<template>
+  <require from="../camera-access/camera-access" ></require>
+    <div class="login-modal">
+      Name: <input name="Nutzername" type="text" value.bind="userName"/>
+      Image:
+      <camera-access view-model.ref="cameraAccess" ></camera-access>
+
+      <button click.trigger="addUser()" >Save user</button>
+  </div>
+</template>
