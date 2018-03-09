@@ -1,4 +1,4 @@
-import {inject, NewInstance} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {HttpClient, HttpResponseMessage} from 'aurelia-http-client';
 import {CameraAccess} from '../camera-access/camera-access';
 
@@ -10,7 +10,7 @@ enum State {
   error,
 }
 
-@inject(NewInstance.of(CameraAccess), HttpClient)
+@inject(HttpClient)
 export class AddUser {
 
   public httpClient: HttpClient;
@@ -26,9 +26,8 @@ export class AddUser {
 
   private cameraAccess: CameraAccess;
 
-  constructor(cameraAccess: CameraAccess, httpClient: HttpClient) {
+  constructor(httpClient: HttpClient) {
 
-    // this.cameraAccess = cameraAccess;
     this.httpClient = httpClient;
   }
 
@@ -42,7 +41,7 @@ export class AddUser {
 
       const parsedResult = JSON.parse(result.response);
       this.state = parsedResult.verified ? State.success : State.failure;
-      console.log(this.state);
+
     }).catch((e: ErrorEvent) => {
 
       this.state = State.error;

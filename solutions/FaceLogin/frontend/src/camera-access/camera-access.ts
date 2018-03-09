@@ -2,10 +2,6 @@
 export class CameraAccess {
 
   public videoElement: HTMLVideoElement;
-
-  constructor() {
-    console.log('how many', Math.random())
-  }
   public attached(): void {
 
     this.getMediaStream()
@@ -46,7 +42,7 @@ export class CameraAccess {
 
     const canvas: HTMLCanvasElement = document.createElement('canvas');
     document.body.appendChild(canvas);
-    console.log(this);
+
     const width: number = this.videoElement.clientWidth;
     const height: number = this.videoElement.clientHeight;
     canvas.width = width;
