@@ -2,23 +2,33 @@
 
 ## How to use it
 
+Before you can use this sample, you need to setup and start an instance of
+the [BPMN Studio](https://github.com/process-engine/bpmn-studio).
+
+After that, you can use the sample by doing the following:
 - Checkout the Branch
-- Go into your Process Engine skeleton and start the database
 - Go into the `ParallelGateway` folder
-- ```npm install && npm run build && npm start```
-- Open `localhost:9000` and start the `ParallelGateway` process
+- Run `npm install && npm run build`
+- Run `npm start` to start the backend application 
+
+This sample implements its own [Skeleton Application](), which will add the
+`ParallelGateway` BPMN to your local database.
+So after setting up your BPMN studio and installting, building and starting
+the `ParallelGateway` app, you are good to go.
+You can now open `localhost:8080` and start the `ParallelGateway` process.
 
 ## What it does
 
-It starts the parallel execution of two functions. One should take 1 second, the other 3 seconds.
-When everything is done, an inclusive parallel gateway finishes the process.
+It runs five exection paths that run in parallel to each other, each simulating
+a different scenario.
 
 ## How to verify that it worked
 
-Both parallel running functions return a text after they are done, which is going to be written to `token.history`.
+All parallel execution paths return a text after they are done, which is going
+to be written to the `token.history`.
 
-The result of both tasks is mapped to the response of the inclusive parallel gateway that follows these tasks.
+The result of each parallel execution path is mapped to the response of the
+parallel join gateway located at the end of the diagram.
 
-Therefore, once the process has finished, you should be able to retrieve the following two entries from the result:
-- `st_longTask: 'longRunningFunction has finished'`
-- `st_veryLongTask: 'veryLongRunningFunction has finished'`
+Therefore, once the process has finished, the final token.history should contain 
+entries for each of the tasks that were run in parallel.
