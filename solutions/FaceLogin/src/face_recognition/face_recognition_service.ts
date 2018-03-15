@@ -25,21 +25,28 @@ export class FaceRecognitionService {
     }).then((detectResponse) => {
 
       const {faceId} = detectResponse.body[0];
-      this.faceRecognitionRepository.addUser(userName, faceId);
-
-      // fs.readFile('./users.json', (err, data) => {
-
-      //   return new Promise((resolve, reject) => {
-      //     if (err) {
-      //       reject(err);
-      //     }
-      //     resolve(data);
-      //   });
-      // });
-    }).then((userFile) => {
-
-      console.log(userFile);
+      return faceId;
     });
+
+  }
+
+  public userMatchesFaceId(userName: string, faceId: string): Promise<boolean> {
+
+    return this.faceRecognitionRepository.getFaceId(userName)
+      .then((userFaceId: string) => {
+
+        if (!userFaceId) {
+          return false;
+        }
+        return this.client.face.verifyWithHttpOperationResponse(faceId, userFaceId);
+
+      }).then((verificationResponse) => {
+
+        if (!verificationResponse) {
+          return false;
+        }
+        return verificationResponse.body.isIdentical;
+      });
 
   }
 }

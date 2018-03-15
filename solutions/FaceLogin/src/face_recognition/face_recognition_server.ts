@@ -1,18 +1,12 @@
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const FaceAnalyzer = require('./face-analyzer');
-// const cors = require('cors');
-
-// const app = express();
-
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as express from 'express';
-import {Express} from 'express';
+import {Express, Request, Response} from 'express';
 import {Logger} from 'loggerhythm';
 import {FaceRecognitionService} from './face_recognition_service';
 
 const logger: Logger = Logger.createLogger('face recognition server');
+const port: number = 3000;
 
 export class FaceRecognitionServer {
 
