@@ -44,8 +44,8 @@ export class FaceRecognitionServer {
       this.faceRecognitionService.userMatchesFaceId(userName, imageDataURL)
         .then((verified: boolean) => {
 
-          res.status(401).send('User could not be verified');
-
+          const unauthorizedCode: number = 401;
+          res.status(unauthorizedCode).send('User could not be verified');
         });
     });
 
@@ -58,7 +58,7 @@ export class FaceRecognitionServer {
     });
 
     this.app.listen(port, () => {
-      logger.info('Facerecognition Server started.');
+      logger.info('Face recognition server started.');
     });
   }
 

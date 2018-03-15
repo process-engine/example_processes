@@ -23,6 +23,7 @@ export class GenerateFaceId {
     error: State.error,
   };
   public state: State;
+  public faceId: string;
 
   private cameraAccess: CameraAccess;
 
