@@ -35,19 +35,12 @@ export class GenerateFaceId {
 
     const dataURL: string = this.cameraAccess.getCurrentImage();
 
-    this.httpClient.post('http://localhost:3000/get-face-id', {
+    this.httpClient.post('http://localhost:3000/generate-face-id', {
       imageDataURL: dataURL,
     }).then((result: HttpResponseMessage) => {
-
-      const parsedResult: {
-        faceId: string,
-      } = JSON.parse(result.response);
-
-      console.log(parsedResult);
-      // this.state = parsedResult.verified ? State.success : State.failure;
+      this.faceId = result.response;
 
     }).catch((e: ErrorEvent) => {
-
       this.state = State.error;
     });
   }

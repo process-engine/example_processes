@@ -27,27 +27,36 @@ export class FaceRecognitionServer {
         limit: '50mb',
       }));
     this.app.use(bodyParser.urlencoded({
-      extended: true
+      extended: true,
     }));
 
-    // this.app.post('/test', (req, res) => {
-    //   const dataURL = req.body.dataURL;
-    //   const faceAnalyzer = new FaceAnalyzer();
-    //   faceAnalyzer.analyze(dataURL).then((result) => {
-    //     console.log(result);
-    //     res.send(result);
-    //   });
-    // });
-
-    this.app.post('/add-user', (req, res) => {
+    this.app.post('/add-user', (req: Request, res: Response) => {
       const {userName, imageDataURL} = req.body;
-      console.log('IMPORTANT', Object.keys(req.body));
       this.faceRecognitionService.addUser(userName, imageDataURL)
         .then(() => {
-          console.log('user added');
+          logger.info('User was added to database.')
         });
     });
-    this.app.listen(3000, () => {
+
+    this.app.post('/login', (req: Request, res: Response) => {
+      const {userName, imageDataURL} = req.body;
+      this.faceRecognitionService.userMatchesFaceId(userName, imageDataURL)
+        .then((verified: boolean) => {
+
+          res.status(401).send('User could not be verified');
+
+        });
+    });
+
+    this.app.post('/generate-face-id', (req: Request, res: Response) => {
+      const {imageDataURL} = req.body;
+      this.faceRecognitionService.generateFaceId(imageDataURL)
+        .then((faceId: string) => {
+          res.send(faceId);
+        });
+    });
+
+    this.app.listen(port, () => {
       logger.info('Facerecognition Server started.');
     });
   }
