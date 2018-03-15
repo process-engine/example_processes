@@ -29,12 +29,13 @@ export class FaceRecognitionServer {
     this.app.use(bodyParser.urlencoded({
       extended: true,
     }));
+    this.app.use('/static', express.static('frontend'));
 
     this.app.post('/add-user', (req: Request, res: Response) => {
       const {userName, imageDataURL} = req.body;
       this.faceRecognitionService.addUser(userName, imageDataURL)
         .then(() => {
-          logger.info('User was added to database.')
+          logger.info('User was added to database.');
         });
     });
 
