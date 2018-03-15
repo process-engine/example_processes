@@ -1,0 +1,18 @@
+<template>
+  <require from="../camera-access/camera-access" ></require>
+  <h3>Face id generation</h3>
+  <p>
+    Willkommen beim Face-Id-Generator.
+    Wir machen Gebrauch von der Webkamera um eine FaceId zu generieren, welche zu Ihrer Identifikation genutzt werden kann.
+
+    Um verifiziert werden zu können benötigen Sie einen Eintrag in der Datenbank.
+    Falls noch nicht geschehen, können sie <a href="/#/user-registration">hier</a> einen Eintrag für sich anlegen.
+  </p>
+    <div class="login-modal">
+      Name: <input name="Nutzername" type="text" value.bind="userName"/>
+      Image:
+      <camera-access view-model.ref="cameraAccess" ></camera-access>
+
+      <button click.trigger="addUser()" >Save user</button>
+  </div>
+</template>
