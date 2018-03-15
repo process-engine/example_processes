@@ -36,4 +36,24 @@ export class FaceRecognitionRepository {
 
   }
 
+  public getFaceId(userName: string): Promise<string> {
+
+    return new Promise((resolve, reject) => {
+
+      fs.readFile('users.json', (readError: Error, data: Buffer) => {
+
+        if (readError) {
+          logger.error('Encountered error reading database:', readError);
+          reject();
+        }
+        const fileString: string = data.toString('utf8');
+        const database: {
+          [faceId: string]: string,
+        } = JSON.parse(fileString);
+
+        resolve(database[userName]);
+      });
+    });
+  }
+
 }
