@@ -36,11 +36,15 @@ export class AddUser {
     const dataURL: string = this.cameraAccess.getCurrentImage();
 
     this.httpClient.post('http://localhost:3000/add-user', {
-      dataURL: dataURL,
+      userName: this.userName,
+      imageDataURL: dataURL,
     }).then((result: HttpResponseMessage) => {
 
-      const parsedResult = JSON.parse(result.response);
-      this.state = parsedResult.verified ? State.success : State.failure;
+      const parsedResult: {
+        faceId: string,
+      } = JSON.parse(result.response);
+
+      // this.state = parsedResult.verified ? State.success : State.failure;
 
     }).catch((e: ErrorEvent) => {
 

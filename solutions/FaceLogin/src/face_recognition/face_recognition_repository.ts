@@ -1,19 +1,36 @@
 import * as fs from 'fs';
-import * as promisify from 'promisify';
 
 export class FaceRecognitionRepository {
 
-  public addUser(userName: string, faceId: string): void {
+  public addUser(userName: string, faceId: string): Promise<void>{
 
-  }
+    return new Promise((resolve, reject) => {
 
-  public getUserByFaceId(faceId: string): string {
-    const promisifiedAccess = promisify(fs.access);
+      fs.readFile('users.json', (readError: Error, data: Buffer) => {
 
-    promisifiedAccess('users.json')
-      .then((result) => {
-        console.log(result);
+        if (readError) {
+          console.log('Encountered error reading database:', readError);
+          reject();
+        }
+        const fileString: string = data.toString('utf8');
+        const database: {
+          [faceId: string]: string,
+        } = JSON.parse(fileString);
+        database[userName] = faceId;
+
+        const indentation: number = 2;
+        const indentedDatabaseString: string = JSON.stringify(database, null, indentation);
+        fs.writeFile('users.json', indentedDatabaseString, (writeError: Error) => {
+
+          if (writeError) {
+            console.log('Encountered error writing to database:', writeError);
+            reject();
+          }
+          return resolve();
+        });
       });
-    return 'test';
+    });
+
   }
+
 }
