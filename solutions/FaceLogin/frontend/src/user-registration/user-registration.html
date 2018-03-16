@@ -12,5 +12,17 @@
     Name: <input name="Nutzername" type="text" value.bind="userName"/>
     <br/>
     <button click.trigger="addUser()" >Save user</button>
+    <br/>
+    <h3>
+      <template if.bind="state === State.loading" >
+        Anfrage wird bearbeitet.
+      </template>
+      <template if.bind="state === State.success" >
+        Nutzer wurde angelegt.
+      </template>
+      <template if.bind="state === State.error" >
+        Anfrage ist gescheitert.
+      </template>
+    </h3>
   </div>
 </template>

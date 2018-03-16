@@ -32,10 +32,16 @@ export class FaceRecognitionServer {
     this.app.use('/static', express.static('frontend'));
 
     this.app.post('/add-user', (req: Request, res: Response) => {
+
       const {userName, imageDataURL} = req.body;
       this.faceRecognitionService.addUser(userName, imageDataURL)
         .then(() => {
+
           logger.info('User was added to database.');
+          res.send('OK');
+        }).catch((err: Error) => {
+
+          res.status(500).send(err.message);
         });
     });
 
@@ -46,6 +52,9 @@ export class FaceRecognitionServer {
 
           const unauthorizedCode: number = 401;
           res.status(unauthorizedCode).send('User could not be verified');
+        }).catch((err: Error) => {
+
+          res.status(500).send(err.message);
         });
     });
 
@@ -53,7 +62,11 @@ export class FaceRecognitionServer {
       const {imageDataURL} = req.body;
       this.faceRecognitionService.generateFaceId(imageDataURL)
         .then((faceId: string) => {
+
           res.send(faceId);
+        }).catch((err: Error) => {
+
+          res.status(500).send(err.message);
         });
     });
 

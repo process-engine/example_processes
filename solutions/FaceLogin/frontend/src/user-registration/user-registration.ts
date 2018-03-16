@@ -3,10 +3,8 @@ import {HttpClient, HttpResponseMessage} from 'aurelia-http-client';
 import {CameraAccess} from '../camera-access/camera-access';
 
 enum State {
-  ready,
   loading,
   success,
-  failure,
   error,
 }
 
@@ -16,10 +14,8 @@ export class AddUser {
   public httpClient: HttpClient;
   public userName: string;
   public State = {
-    ready: State.ready,
     loading: State.loading,
     success: State.success,
-    failure: State.failure,
     error: State.error,
   };
   public state: State;
@@ -34,20 +30,17 @@ export class AddUser {
   public addUser(): void {
 
     const dataURL: string = this.cameraAccess.getCurrentImage();
+    this.state = State.loading;
 
     this.httpClient.post('http://localhost:3000/add-user', {
       userName: this.userName,
       imageDataURL: dataURL,
-    }).then((result: HttpResponseMessage) => {
+    }).then(() => {
 
-      const parsedResult: {
-        faceId: string,
-      } = JSON.parse(result.response);
+      this.state = State.success;
+    }).catch((httpResponse: HttpResponseMessage) => {
 
-      // this.state = parsedResult.verified ? State.success : State.failure;
-
-    }).catch((e: ErrorEvent) => {
-
+      console.log(`Server error: ${httpResponse.response}`);
       this.state = State.error;
     });
   }

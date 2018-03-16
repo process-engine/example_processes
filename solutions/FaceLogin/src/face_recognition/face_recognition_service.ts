@@ -1,7 +1,10 @@
 const FaceAPIClient = require('azure-cognitiveservices-face');
 import * as fs from 'fs';
+import {Logger} from 'loggerhythm';
 import {CognitiveServicesCredentials} from 'ms-rest-azure';
 import {FaceRecognitionRepository} from './face_recognition_repository';
+
+const logger: Logger = Logger.createLogger('face recognition service');
 
 export class FaceRecognitionService {
 
@@ -26,8 +29,10 @@ export class FaceRecognitionService {
   }
 
   public async initialize(): Promise<void> {
+
     const credentials: CognitiveServicesCredentials = new CognitiveServicesCredentials(this.config.apiKey);
-    this.client = new FaceAPIClient(credentials, this.config.endpoint);
+    const endpoint: string = this.config.endpoint.replace('.api.cognitive.microsoft.com', '');
+    this.client = new FaceAPIClient(credentials, endpoint);
   }
 
   public generateFaceId(imageDataURL: string): Promise<string> {
@@ -38,7 +43,13 @@ export class FaceRecognitionService {
       returnFaceId: true,
     }).then((detectResponse) => {
 
+      if (detectResponse.body[0] === undefined) {
+        const noFaceError: Error = new Error('Could not identify face.');
+        logger.error('Could not identify face.', noFaceError);
+        throw noFaceError;
+      }
       const {faceId} = detectResponse.body[0];
+
       return faceId;
     });
 

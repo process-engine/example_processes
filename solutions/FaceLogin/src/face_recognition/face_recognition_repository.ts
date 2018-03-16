@@ -5,7 +5,7 @@ const logger: Logger = Logger.createLogger('Face recognition database');
 
 export class FaceRecognitionRepository {
 
-  public addUser(userName: string, faceId: string): Promise<void>{
+  public addUser(userName: string, faceId: string): Promise<void> {
 
     return new Promise((resolve, reject) => {
 
