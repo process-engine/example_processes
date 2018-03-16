@@ -50,7 +50,7 @@ export class FaceRecognitionService {
       .then((userFaceId: string) => {
 
         if (!userFaceId) {
-          return false;
+          return undefined;
         }
         return this.client.face.verifyWithHttpOperationResponse(faceId, userFaceId);
 
