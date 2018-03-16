@@ -45,4 +45,25 @@ export class GenerateFaceId {
       this.state = State.error;
     });
   }
+
+  public isClipboardSupported(): boolean {
+
+    const clipboardIsSupported: boolean = document.queryCommandSupported('copy');
+
+    return clipboardIsSupported;
+  }
+
+  public copyToClipboard(): void {
+
+    const pseudoInputElement: HTMLInputElement = document.createElement('input');
+    pseudoInputElement.style.opacity = '0';
+    pseudoInputElement.style.position = 'absolute';
+    document.body.appendChild(pseudoInputElement);
+    pseudoInputElement.value = this.faceId;
+    pseudoInputElement.focus();
+    pseudoInputElement.select();
+
+    document.execCommand('copy', false, null);
+    document.body.removeChild(pseudoInputElement);
+  }
 }

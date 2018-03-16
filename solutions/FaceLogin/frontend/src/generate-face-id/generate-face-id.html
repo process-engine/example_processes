@@ -1,6 +1,6 @@
 <template>
   <require from="../camera-access/camera-access" ></require>
-  <h3>Face id generation</h3>
+  <h3>FaceId generieren</h3>
   <p>
     Willkommen beim Face-Id-Generator.  Wir machen Gebrauch von der
     Webkamera um eine FaceId zu generieren, welche zu Ihrer
@@ -9,15 +9,14 @@
     Um verifiziert werden zu können benötigen Sie einen Eintrag in der
     Datenbank.  Falls noch nicht geschehen, können sie <a href="/#/user-registration">hier</a> einen Eintrag für sich anlegen.
   </p>
-    <div class="login-modal">
-      Image:
-      <camera-access view-model.ref="cameraAccess" ></camera-access>
 
-      <button click.trigger="generateFaceId()" >FaceId generieren</button>
-    </div>
-    <p if.bind="faceId" >Ihre FaceId: ${faceId}
+  <camera-access view-model.ref="cameraAccess" ></camera-access>
+    <button class="generate-id-button" click.trigger="generateFaceId()" >FaceId generieren</button>     <button if.bind="faceId && isClipboardSupported()" click.delegate="copyToClipboard()">
+      <span class="icon-paste"></span>
+      Kopieren
+    </button>
 
-      <br/>
-      Kopieren Sie diese Id und fügen Sie sie UserTask zur Verifizierung ein.
-    </p>
+  <p if.bind="faceId" >
+    <h3>${faceId}</h3>
+  </p>
 </template>
