@@ -1,4 +1,4 @@
-import * as FaceAPIClient from 'azure-cognitiveservices-face';
+const FaceAPIClient = require('azure-cognitiveservices-face');
 import * as fs from 'fs';
 import {CognitiveServicesCredentials} from 'ms-rest-azure';
 import {FaceRecognitionRepository} from './face_recognition_repository';
@@ -9,7 +9,7 @@ export class FaceRecognitionService {
     apiKey: string,
     endpoint: string,
   };
-  private client: FaceAPIClient;
+  private client;
   private faceRecognitionRepository: FaceRecognitionRepository;
 
   constructor(faceRecognitionRepository: FaceRecognitionRepository) {
