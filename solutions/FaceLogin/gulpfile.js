@@ -30,6 +30,14 @@ gulp.task('au-build', (done) => {
   }).on('close', done);
 });
 
+gulp.task('au-install', (done) => {
+
+  spawn('npm', ['i'], {
+    cwd: 'frontend/',
+    stdio: 'inherit',
+  }).on('close', done);
+});
+
 buildSystem
   .registerPlugin('typescript', gulptraumTypescriptPlugin, typeScriptConfig)
   .registerTasks(gulp);

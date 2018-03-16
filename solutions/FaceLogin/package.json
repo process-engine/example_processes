@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node bin/start.js",
-    "build": "gulp build && gulp au-build",
-    "postinstall": "minstall ."
+    "postinstall": "gulp au-install",
+    "build": "gulp build && gulp au-build"
   },
   "dependencies": {
     "@essential-projects/bootstrapper": "^1.0.0-rc3",
@@ -48,7 +48,6 @@
     "addict-ioc": "^2.3.7",
     "azure-cognitiveservices-face": "^1.0.0-preview",
     "loggerhythm": "^3.0.0",
-    "minstall": "^3.3.0",
     "ms-rest-azure": "^2.5.4"
   },
   "devDependencies": {
