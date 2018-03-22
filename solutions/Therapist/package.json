@@ -45,6 +45,7 @@
     "@process-engine/process_engine_http": "^1.0.0-rc3",
     "@process-engine/process_repository": "^1.0.0-rc4",
     "addict-ioc": "^2.3.7",
+    "elizabot": "0.0.2",
     "loggerhythm": "^3.0.0"
   },
   "devDependencies": {
