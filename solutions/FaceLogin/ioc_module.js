@@ -26,7 +26,7 @@ function registerInContainer(container) {
 
   container.register(faceRecognitionServiceKey, FaceRecognitionService)
     .dependencies(faceRecognitionRepositoryKey)
-    .configure('face-login:service');
+    .configure('face-login:azure-options');
 
   container.register(faceRecognitionRepositoryKey, FaceRecognitionRepository);
 
