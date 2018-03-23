@@ -6,7 +6,8 @@
 - Go into your Process Engine skeleton and start the database
 - Go into the `ErrorBoundaryEvent` folder
 - ```npm install && npm run build && npm start```
-- Open `localhost:9000` and start the `ErrorBoundaryEvent` process
+- Set up BPMN-Studio and start it
+- Open `localhost:8080` and start the `ErrorBoundaryEvent` process
 
 ## What it does
 
