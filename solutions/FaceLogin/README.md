@@ -12,7 +12,7 @@ Neben dem BPMN-Diagramm und der ProcessEngine beinhaltet dieses
 Projekt eine Aurelia- und eine Server-Applikation, welche in dem
 Beispieldiagramm genutzt werden.
 
-Der Nutzer wird auf eine lokal gehostete Webseite verwiesen, wo er einen [Account anlegen](http://localhost:3000/#/static/user-registration) und seine [FaceId generieren](http://localhost:3000/static/#/generate-face-id) kann (Seiten sind erst nach Ausführen des Setups erreichbar).
+Der Nutzer wird auf eine lokal gehostete Webseite verwiesen, wo er einen [Account anlegen](http://localhost:3000/static/#/user-registration) und seine [FaceId generieren](http://localhost:3000/static/#/generate-face-id) kann (Seiten sind erst nach Ausführen des Setups erreichbar).
 
 Der erste UserTask präsentiert dem Nutzer ein Formular zur Eingabe der Kenndaten.
 Der ServiceTask kontrolliert ob die FaceId des Nutzers zum Eintrag passt.
