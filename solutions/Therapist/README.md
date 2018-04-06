@@ -1,4 +1,5 @@
 # Therapist
+
 Mit diesem Projekt wird eine ProcessEngine-Instanz mitsamt lauffähigem
 Beispieldiagramm gestartet.
 
@@ -11,8 +12,8 @@ Für die Funktion des Chatbots wird
 
 ![Screenshot](diagram_screenshot.png)
 
-
 ## Voraussetzungen
+
 - [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet
 - Datenbank aus [ProcessEngine
 Skeleton](https://github.com/process-engine/skeleton/tree/develop/database)
