@@ -1,4 +1,3 @@
-
 export class CameraAccess {
 
   public videoElement: HTMLVideoElement;

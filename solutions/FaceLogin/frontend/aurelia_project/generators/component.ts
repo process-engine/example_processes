@@ -1,5 +1,5 @@
-import { inject } from 'aurelia-dependency-injection';
-import { Project, ProjectItem, CLIOptions, UI } from 'aurelia-cli';
+import {inject} from 'aurelia-dependency-injection';
+import {Project, ProjectItem, CLIOptions, UI} from 'aurelia-cli';
 
 var path = require('path');
 
@@ -32,9 +32,9 @@ export default class ElementGenerator {
   }
 
   generateJSSource(className) {
-    return `export class ${className} {    
+    return `export class ${className} {
   message: string;
-  
+
   constructor() {
     this.message = 'Hello world';
   }
