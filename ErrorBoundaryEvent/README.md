@@ -1,12 +1,17 @@
 # ErrorBoundaryEvent
 
+## Requirements
+
+- [BPMN Studio](https://github.com/process-engine/bpmn-studio) installed
+ and running
+- [database](https://github.com/process-engine/skeleton/tree/develop/database)
+ for the ProcessEngine installed and running 
+
 ## How to use it
 
 - Checkout the Branch
-- Go into your Process Engine skeleton and start the database
 - Go into the `ErrorBoundaryEvent` folder
 - ```npm install && npm run build && npm start```
-- Set up BPMN-Studio and start it
 - Open `localhost:8080` and start the `ErrorBoundaryEvent` process
 
 ## What it does

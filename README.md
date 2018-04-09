@@ -1,3 +1,3 @@
-# examples_processes
+# Example processes
 This repository contains examples which are demonstrating the Process Engine
 functionality.
