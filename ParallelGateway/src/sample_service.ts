@@ -1,10 +1,8 @@
-import {ISampleService} from './interfaces';
-
 import {Logger} from 'loggerhythm';
 
 const logger: any = Logger.createLogger('parallel_gateway:sample_service');
 
-export class SampleService implements ISampleService {
+export class SampleService {
 
   public async currentTokenTestPart1(): Promise<string> {
     const currentTokenValue: string = 'current token test value';
