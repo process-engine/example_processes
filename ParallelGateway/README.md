@@ -1,11 +1,10 @@
 # ParallelGateway
 
-## How to use it
+## Requirements
+- [BPMN Studio](https://github.com/process-engine/bpmn-studio) installed and running
+- [database](https://github.com/process-engine/skeleton/tree/develop/database) for the ProcessEngine installed and running 
 
-Before you can use this sample, you need to setup and start an instance of
-the [BPMN Studio](https://github.com/process-engine/bpmn-studio).
-
-After that, you can use the sample by doing the following:
+To use the sample, follow these steps:
 - Checkout the Branch
 - Go into the `ParallelGateway` folder
 - Run `npm install && npm run build`
@@ -13,13 +12,13 @@ After that, you can use the sample by doing the following:
 
 This sample implements its own [Skeleton Application](), which will add the
 `ParallelGateway` BPMN to your local database.
-So after setting up your BPMN studio and installting, building and starting
+So after setting up your BPMN studio and installing, building and starting
 the `ParallelGateway` app, you are good to go.
 You can now open `localhost:8080` and start the `ParallelGateway` process.
 
 ## What it does
 
-It runs five exection paths that run in parallel to each other, each simulating
+It runs five execution paths that run in parallel to each other, each simulating
 a different scenario.
 
 ## How to verify that it worked

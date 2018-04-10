@@ -1,10 +1,10 @@
 {
-  "name": "@process-engine/skeleton",
+  "name": "@process-engine/parallel_gateway_sample",
   "publishConfig": {
     "registry": "https://www.npmjs.com"
   },
-  "version": "1.0.0-rc3",
-  "description": "demonstration project for showcasing the process engine",
+  "version": "1.0.0",
+  "description": "demonstration project for showcasing the parallel gatway feature of the process engine",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
