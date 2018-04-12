@@ -1,4 +1,5 @@
 # FaceLogin
+
 Mit diesem Projekt wird eine ProcessEngine-Instanz mitsamt lauffähigem
 Beispieldiagramm gestartet.
 
@@ -19,6 +20,7 @@ Der ServiceTask kontrolliert ob die FaceId des Nutzers zum Eintrag passt.
 Anschließend wird dem Nutzer mittels UserTask Erfolg oder Misserfolg des Logins gemeldet.
 
 ## Voraussetzungen
+
 - API-Schlüssel für Gesichtserkennung, sowie Endpoint bei [Microsoft Azure](https://azure.microsoft.com/de-de/try/cognitive-services/?api=face-api) abrufen und in der Datei `config/development/face-login/azure-options.json` eintragen.
 - [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet
 - Webkamera und Browser mit Zugriff auf diese
