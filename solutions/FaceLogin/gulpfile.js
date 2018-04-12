@@ -24,7 +24,7 @@ const gulp = require('gulp');
 
 gulp.task('au-build', (done) => {
 
-  spawn('au', ['build'], {
+  spawn('node_modules/aurelia-cli/bin/aurelia-cli.js', ['build'], {
     cwd: 'frontend/',
     stdio: 'inherit'
   }).on('close', done);
