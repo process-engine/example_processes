@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+
+nav {
+  width: 100%;
+  height: 50px;
+  background-color: #6a28ff;
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+}
+
+.nav--container {
+  height: 100%;
+  width: 60%;
+  margin: auto;
+}
+
+.nav--list {
+  float:right;
+  height: 100%;
+  margin: 0;
+}
+
+.nav--list-element {
+  display: inline-block;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.nav--button {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white
+}
