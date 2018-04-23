@@ -25,5 +25,5 @@ gestartet
 - Navigieren zum Projektordner: ```cd example_processes/solutions/Therapist```
 - Installieren von Fremdbibliotheken: ```npm i```
 - Starten der Applikation `npm start`:
-- Das Beispieldiagramm steht nun unter dem Namen `Therapist` auf <localhost:8080> in dem
+- Das Beispieldiagramm steht nun unter dem Namen `Therapist` in dem
   BPMN-Studio zur Verfügung.
