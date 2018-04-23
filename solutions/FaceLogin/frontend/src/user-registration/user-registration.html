@@ -1,0 +1,28 @@
+<template>
+  <require from="../camera-access/camera-access" ></require>
+  <h3>Nutzererstellung</h3>
+  <p>
+    Willkommen bei der Nutzererstellung. Hier können Sie einen
+    Datenbankeintrag für sich erstellen, mithilfe dessen der Server
+    Sie verifizieren kann.
+  </p>
+  <div class="login-modal">
+    <camera-access view-model.ref="cameraAccess" ></camera-access>
+    <br/>
+    Name: <input name="Nutzername" type="text" value.bind="userName"/>
+    <br/>
+    <button click.trigger="addUser()" >Save user</button>
+    <br/>
+    <h3>
+      <template if.bind="state === State.loading" >
+        Anfrage wird bearbeitet.
+      </template>
+      <template if.bind="state === State.success" >
+        Nutzer wurde angelegt.
+      </template>
+      <template if.bind="state === State.error" >
+        Anfrage ist gescheitert.
+      </template>
+    </h3>
+  </div>
+</template>
