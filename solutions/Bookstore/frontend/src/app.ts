@@ -11,6 +11,18 @@ export class App {
         route: [''],
         moduleId: 'welcome/welcome'
       },
+      {
+        route: ['author/:author'],
+        moduleId: 'author/author'
+      },
+      {
+        route: ['book/:book'],
+        moduleId: 'book/book'
+      },
+      {
+        route: ['books'],
+        moduleId: 'books/books'
+      },
     ]);
   }
 }

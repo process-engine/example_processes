@@ -1,10 +1,14 @@
 'use strict';
 
 const {
-  CategoryRouter,
-  CategoryService,
-  CategoryRepository,
+  BookRouter,
+  BookService,
+  BookRepository,
+  AuthorRouter,
+  AuthorService,
+  AuthorRepository,
   BookstoreServer,
+  DatabaseService,
 } = require('./dist/commonjs');
 
 const entityDiscoveryTag = require('@essential-projects/core_contracts').EntityDiscoveryTag;
@@ -19,17 +23,31 @@ function registerInContainer(container) {
   container.registerObject('faceLoginProcess', faceLoginBpmn)
     .setTag('bpmn_process', 'internal');
 
-  const categoryRouterKey = 'CategoryRouterKey';
-  const categoryServiceKey = 'CategoryServiceKey';
-  const categoryRepositoryKey = 'CategoryRepositoryKey';
+  const bookRouterKey = 'BookRouterKey';
+  const bookServiceKey = 'BookServiceKey';
+  const bookRepositoryKey = 'BookRepositoryKey';
+
+  const authorRouterKey = 'AuthorRouterKey';
+  const authorServiceKey = 'AuthorServiceKey';
+  const authorRepositoryKey = 'AuthorRepositoryKey';
+
   const bookstoreServerKey = 'BookstoreServerKey';
   const bookstoreRouterTag = 'BookstoreRouterTag'
 
-  const bookstoreRouter = container.register(categoryRouterKey, CategoryRouter)
-        .dependencies(categoryServiceKey, bookstoreServerKey).tags(bookstoreRouterTag);
-  container.register(categoryServiceKey, CategoryService).dependencies(categoryRepositoryKey);
-  container.register(categoryRepositoryKey, CategoryRepository);
+  const databaseServiceKey = 'DatabaseServiceKey';
 
+  container.register(databaseServiceKey, DatabaseService);
+
+  container.register(bookRouterKey, BookRouter)
+    .dependencies(bookServiceKey, bookstoreServerKey).tags(bookstoreRouterTag);
+  container.register(bookServiceKey, BookService).dependencies(bookRepositoryKey);
+  container.register(bookRepositoryKey, BookRepository).dependencies(databaseServiceKey);
+
+
+  container.register(authorRouterKey, AuthorRouter)
+    .dependencies(authorServiceKey, bookstoreServerKey).tags(bookstoreRouterTag);
+  container.register(authorServiceKey, AuthorService).dependencies(authorRepositoryKey);
+  container.register(authorRepositoryKey, AuthorRepository).dependencies(databaseServiceKey);
 
   container.register(bookstoreServerKey, BookstoreServer).singleton();
 }

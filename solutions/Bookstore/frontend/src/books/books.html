@@ -1,0 +1,14 @@
+<template>
+  <div repeat.for="author of authors">
+    <h3>${author}</h3>
+    <template repeat.for="book of books">
+      <ul if.bind="author === book.author">
+        <li>
+          <a href="/#/book/${book.title}">${book.title}</a>
+        </li>
+        <h3 class="book--title"></h3>
+
+      </ul>
+    </template>
+  </div>
+</template>

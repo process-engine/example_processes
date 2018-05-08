@@ -1,17 +1,24 @@
-body {
+html, body {
   margin: 0;
+  height: 100%;
 }
 
 nav {
   width: 100%;
   height: 50px;
+  position: fixed;
   background-color: #6a28ff;
+}
+
+.container {
+
 }
 
 footer {
   width: 100%;
   height: 50px;
-  position: absolute;
+  position: fixed;
+  background-color: #6a28ff;
   bottom: 0;
 }
 
@@ -34,14 +41,74 @@ footer {
 }
 
 .nav--button {
-  display: block;
+  display: inline-block;
   height: 100%;
-  width: 100%;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  color: white
+  color: white;
+}
+
+.nav--button-container {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+
+.nav--dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0 10px;
+  background-color: #eee7ff;
+  box-shadow: 2px 4px #6a28ff;
+  display: none;
+  z-index: 2;
+}
+
+.nav--dropdown-toggle:focus + .nav--dropdown{
+  display:block;
+}
+
+.book--title {
+  font-family: Apple Chancery, cursive;
+  color: #6a28ff;
+  margin-bottom: 0;
+}
+
+.book--title--author {
+  color: black;
+  font-family: auto;
+  font-weight: normal;
+  font-size: 0.6em;
+}
+
+.main {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 70%;
+  padding: 40px 60px;
+}
+
+.sidebar {
+  display: inline-block;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  width: 30%;
+  height: 100%;
+  vertical-align: top;
+  /* background-color: #eee7ff; */
+  float: right;
+  box-sizing: border-box;
+  padding: 20px 20px;
+}
+
+.sidebar--advertisement {
+  border-radius: 5px;
+  min-height: 300px;
+  border: 1px solid #6a28ff;
 }

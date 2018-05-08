@@ -3,9 +3,18 @@
   <nav>
     <div class="nav--container">
       <ul class="nav--list">
-        <nav-button click.trigger="test()" title="Books &#9660" ></nav-button>
-        <nav-button click.trigger="test()" title="Login" ></nav-button>
-        <nav-button click.trigger="test()" title="Register" ></nav-button>
+        <div class="nav--button-container">
+          <button class="nav--dropdown-toggle nav--button" click.delegate="focusButton($event)">Authors &#x25BC;</button>
+          <div id="nav-categories" class="nav--dropdown">
+            <template repeat.for="author of authors">
+              <button mousedown.delegate="goToAuthor(author)">
+                ${author}
+              </button>
+            </template>
+          </div>
+        </div>
+        <button click.delegate="goToBooks()" class="nav--button">Books</button>
+        <button class="nav--button">Login</button>
       </ul>
     </div>
   </nav>

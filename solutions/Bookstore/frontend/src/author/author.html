@@ -1,0 +1,19 @@
+<template>
+  We own ${books.length} titles of the famous author ${author}.
+
+  <h3 if.bind="books === undefined">
+    No books for category '${category}' have been found.
+  </h3>
+  <template repeat.for="book of books">
+    <div>
+      <h3 class="book--title">${book.title} <span class="book--title--author">by ${author}</span> </h3>
+      <hr/>
+      <div class="book--description">
+        <h4>Description: </h4>
+        ${book.description}
+      </div>
+      <button>Add to cart</button>
+      <button click.delegate="goToBook(book.title)">Go to book</button>
+    </div>
+  </template>
+</template>

@@ -28,7 +28,7 @@ export class NavButton {
   }
 
   private hideElement(): void {
-    console.log('hides')
+
     this.toggleElement.style.display = 'none';
   }
 
@@ -39,7 +39,7 @@ export class NavButton {
     setTimeout(() => {
       const eventListener = (event: MouseEvent) => {
         // if event.target is child of toggleelement
-        console.log('fires already')
+
         this.toggle();
         document.removeEventListener('click', eventListener);
       };
