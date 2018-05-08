@@ -16,12 +16,8 @@ const routerDiscoveryTag = require('@essential-projects/core_contracts').RouterD
 
 const fs = require('fs');
 const path = require('path');
-const faceLoginBpmn = fs.readFileSync(path.join('bpmn', 'faceLogin.bpmn'), 'utf8');
 
 function registerInContainer(container) {
-
-  container.registerObject('faceLoginProcess', faceLoginBpmn)
-    .setTag('bpmn_process', 'internal');
 
   const bookRouterKey = 'BookRouterKey';
   const bookServiceKey = 'BookServiceKey';

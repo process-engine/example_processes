@@ -1,4 +1,3 @@
-import {BaseRouter} from '@essential-projects/http_node';
 import * as Express from 'express';
 import {Request, Response} from 'express';
 import {Logger} from 'loggerhythm';
