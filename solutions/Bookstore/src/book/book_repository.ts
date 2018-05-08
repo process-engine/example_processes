@@ -27,7 +27,7 @@ export class BookRepository {
     });
   }
 
-  public async getBooksByAuthor(author: string): Promise<Array<IBook>> {
+  public getBooksByAuthor(author: string): Promise<Array<IBook>> {
 
     const checkAuthorQuery: string = `select exists(select 1 from authors where name='${author}')`;
 
@@ -57,7 +57,12 @@ export class BookRepository {
       }
       return books;
     });
+  }
 
+  public getBooks(): Promise<Array<IBook>> {
 
+    const query: string = 'select * from books;';
+
+    return this.databaseService.query(query);
   }
 }

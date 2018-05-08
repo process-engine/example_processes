@@ -20,4 +20,8 @@ export class BookService {
     return this.bookRepository.getBooksByAuthor(author);
   }
 
+  public getBooks(): Promise<Array<IBook>> {
+
+    return this.bookRepository.getBooks();
+  }
 }

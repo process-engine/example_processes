@@ -12,7 +12,9 @@ export class AuthorRepository {
 
     const query: string = 'SELECT name from authors';
 
-    return this.databaseService.query(query).then((authors: Array<string>) => {
+    return this.databaseService.query(query).then((authors: Array<{
+      name: string;
+    }>) => {
       if (Array.isArray(authors) && authors.length === 0) {
 
         const error = new Error('No authors have been found');
@@ -21,7 +23,11 @@ export class AuthorRepository {
         throw error;
       }
 
-      return authors;
+      return authors.map((author: {
+        name: string,
+      }) => {
+        return author.name;
+      });
     });
   }
 

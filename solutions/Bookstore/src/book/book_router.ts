@@ -23,7 +23,7 @@ export class BookRouter {
     this.router.get('/book/:title', (request: Request, response: Response) => {
 
       try {
-        const title: string = request.params['title'].replace('_', ' ');
+        const title: string = request.params['title'].replace(/_/g, ' ');
 
         this.bookService.getBook(title).then((book: IBook) => {
           response.send(book);
@@ -38,9 +38,23 @@ export class BookRouter {
 
     this.router.get('/books', (request: Request, response: Response) => {
 
-      const author: string = request.query['author'].replace('_', ' ');
+      if (request.query['author'] !== undefined) {
 
-      this.bookService.getBooksByAuthor(author).then((books: Array<IBook>) => {
+        const author: string = request.query['author'].replace(/_/g, ' ');
+
+        this.bookService.getBooksByAuthor(author).then((books: Array<IBook>) => {
+
+          response.send(books);
+        }).catch((e) => {
+
+          const errorCode: number = (e.code !== undefined) ? e.code : 500;
+          logger.error(e.message);
+          response.status(errorCode).send(e.message);
+        });
+        return;
+      }
+
+      this.bookService.getBooks().then((books: Array<IBook>) => {
 
         response.send(books);
       }).catch((e) => {

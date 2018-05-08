@@ -72,6 +72,7 @@ async function start() {
     const routerKeys = container.getKeysByTags('BookstoreRouterTag');
 
     for (const routerKey of routerKeys) {
+
       const router = await container.resolveAsync(routerKey);
       router.start();
     }
