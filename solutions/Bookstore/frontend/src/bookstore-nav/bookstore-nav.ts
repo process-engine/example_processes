@@ -6,6 +6,8 @@ import {Router} from 'aurelia-router';
 export class BookstoreNav {
 
   public authors: Array<string>;
+  public authorsSelected: boolean = false;
+
   private httpClient: HttpClient;
   private router: Router;
 
@@ -43,9 +45,13 @@ export class BookstoreNav {
     this.router.navigate('/books')
   }
 
-  public focusButton(event: MouseEvent) {
+  public goToHome(): void {
+    this.router.navigate('/')
+  }
 
-    (event.target as HTMLButtonElement).focus();
+  public toggleAuthors(): void {
+
+    this.authorsSelected = !this.authorsSelected;
   }
 
 }

@@ -1,13 +1,13 @@
 <template>
-  <require from="./nav-button/nav-button"></require>
   <nav>
     <div class="nav--container">
       <ul class="nav--list">
+        <button class="nav--button" click.delegate="goToHome()">Home</button>
         <div class="nav--button-container">
-          <button class="nav--dropdown-toggle nav--button" click.delegate="focusButton($event)">Authors &#x25BC;</button>
+          <button class="nav--dropdown-toggle nav--button ${authorsSelected ? 'selected' : ''}" click.delegate="toggleAuthors()">Authors &#x25BC;</button>
           <div id="nav-categories" class="nav--dropdown">
             <template repeat.for="author of authors">
-              <button mousedown.delegate="goToAuthor(author)">
+              <button class="nav--dropdown-button" mousedown.delegate="goToAuthor(author)">
                 ${author}
               </button>
             </template>
