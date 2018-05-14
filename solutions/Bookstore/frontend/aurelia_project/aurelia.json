@@ -71,7 +71,7 @@
             ".html",
             ".css"
           ],
-          "stub": true
+          "stub": false
         }
       ]
     },
@@ -138,6 +138,11 @@
             "main": "aurelia-http-client",
             "path": "../node_modules/aurelia-http-client/dist/amd",
             "resources": []
+          },
+          {
+            "name": "aurelia-plugins-dropdown",
+            "path": "../node_modules/aurelia-plugins-dropdown/dist/amd",
+            "main": "aurelia-plugins-dropdown"
           }
         ]
       }

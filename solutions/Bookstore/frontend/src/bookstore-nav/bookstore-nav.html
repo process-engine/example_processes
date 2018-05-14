@@ -2,19 +2,18 @@
   <nav>
     <div class="nav--container">
       <ul class="nav--list">
-        <button class="nav--button" click.delegate="goToHome()">Home</button>
-        <div class="nav--button-container">
-          <button class="nav--dropdown-toggle nav--button ${authorsSelected ? 'selected' : ''}" click.delegate="toggleAuthors()">Authors &#x25BC;</button>
-          <div id="nav-categories" class="nav--dropdown">
+        <aup-dropdown class="nav--button-container" right="false">
+          <div slot="dropdown-toggle">Dropdown</div>
+          <div class="nav--dropdown" slot="dropdown-menu">
             <template repeat.for="author of authors">
               <button class="nav--dropdown-button" mousedown.delegate="goToAuthor(author)">
                 ${author}
               </button>
             </template>
           </div>
-        </div>
+        </aup-dropdown>
+        <button class="nav--button" click.delegate="goToHome()">Home</button>
         <button click.delegate="goToBooks()" class="nav--button">Books</button>
-        <button class="nav--button">Login</button>
       </ul>
     </div>
   </nav>
