@@ -21,8 +21,15 @@ Anschließend wird dem Nutzer mittels UserTask Erfolg oder Misserfolg des Logins
 
 ## Voraussetzungen
 
-- API-Schlüssel für Gesichtserkennung, sowie Endpoint bei [Microsoft Azure](https://azure.microsoft.com/de-de/try/cognitive-services/?api=face-api) abrufen und in der Datei `config/development/face-login/azure-options.json` eintragen.
-- [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet
+- API-Schlüssel für Gesichtserkennung, sowie Endpoint bei [Microsoft
+  Azure](https://azure.microsoft.com/de-de/try/cognitive-services/?api=face-api)
+  abrufen und in der Datei
+  `config/development/face-login/azure-options.json` eintragen. Beim
+  Eintrag `endpoint` wird hierbei der Wert `westus`, `westeurope`,
+  `southeastasia`, `eastus2`, `westcentralus`, `westus2`, `eastus`,
+  `southcentralus`, `northeurope`, `eastasia`, `australiaeast` oder
+  `brazilsouth` erwartet.
+- [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet. Das BPMN-Studio muss die auf `localhost:8000` bereitstehende ProcessEngine nutzen.
 - Webkamera und Browser mit Zugriff auf diese
 - Datenbank aus [ProcessEngine
 Skeleton](https://github.com/process-engine/skeleton/tree/develop/database)
@@ -34,5 +41,5 @@ gestartet
 - Navigieren zum Projektordner: ```cd example_processes/solutions/FaceLogin```
 - Installieren von Fremdbibliotheken und Transpilieren des Projektes: ```npm install && npm run build```
 - Starten der Applikation `npm start`:
-- Das Beispieldiagramm steht nun unter dem Namen `FaceLogin` auf <localhost:8080> in dem
+- Das Beispieldiagramm steht nun unter dem Namen `FaceLogin` in dem
   BPMN-Studio zur Verfügung.
