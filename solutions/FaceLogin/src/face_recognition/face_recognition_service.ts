@@ -12,19 +12,19 @@ export class FaceRecognitionService {
     apiKey: string,
     endpoint: string,
   };
-  private client;
-  private faceRecognitionRepository: FaceRecognitionRepository;
+  private _client;
+  private _faceRecognitionRepository: FaceRecognitionRepository;
 
   constructor(faceRecognitionRepository: FaceRecognitionRepository) {
 
-    this.faceRecognitionRepository = faceRecognitionRepository;
+    this._faceRecognitionRepository = faceRecognitionRepository;
   }
 
   public addUser(userName: string, imageDataURL: string): Promise<void> {
 
     return this.generateFaceId(imageDataURL)
       .then((faceId: string) => {
-        return this.faceRecognitionRepository.addUser(userName, faceId);
+        return this._faceRecognitionRepository.addUser(userName, faceId);
       });
   }
 
@@ -32,14 +32,14 @@ export class FaceRecognitionService {
 
     const credentials: CognitiveServicesCredentials = new CognitiveServicesCredentials(this.config.apiKey);
     const endpoint: string = this.config.endpoint.replace('.api.cognitive.microsoft.com', '');
-    this.client = new FaceAPIClient(credentials, endpoint);
+    this._client = new FaceAPIClient(credentials, endpoint);
   }
 
   public generateFaceId(imageDataURL: string): Promise<string> {
 
     const imageBuffer: Buffer = new Buffer(imageDataURL.split(',')[1], 'base64');
 
-    return this.client.face.detectInStreamWithHttpOperationResponse(imageBuffer as any, {
+    return this._client.face.detectInStreamWithHttpOperationResponse(imageBuffer as any, {
       returnFaceId: true,
     }).then((detectResponse) => {
 
@@ -57,13 +57,13 @@ export class FaceRecognitionService {
 
   public userMatchesFaceId(userName: string, faceId: string): Promise<boolean> {
 
-    return this.faceRecognitionRepository.getFaceId(userName)
+    return this._faceRecognitionRepository.getFaceId(userName)
       .then((userFaceId: string) => {
 
         if (!userFaceId) {
           return undefined;
         }
-        return this.client.face.verifyWithHttpOperationResponse(faceId, userFaceId);
+        return this._client.face.verifyWithHttpOperationResponse(faceId, userFaceId);
 
       }).then((verificationResponse) => {
 

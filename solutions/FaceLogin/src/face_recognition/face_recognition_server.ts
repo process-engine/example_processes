@@ -10,28 +10,28 @@ const port: number = 3000;
 
 export class FaceRecognitionServer {
 
-  private app: Express;
+  private _app: Express;
   private faceRecognitionService: FaceRecognitionService;
 
   constructor(faceRecognitionService: FaceRecognitionService) {
 
-    this.app = express();
+    this._app = express();
     this.faceRecognitionService = faceRecognitionService;
   }
 
   public start(): void {
 
-    this.app.use(cors());
-    this.app.use(bodyParser.json(
+    this._app.use(cors());
+    this._app.use(bodyParser.json(
       {
         limit: '50mb',
       }));
-    this.app.use(bodyParser.urlencoded({
+    this._app.use(bodyParser.urlencoded({
       extended: true,
     }));
-    this.app.use('/static', express.static('frontend'));
+    this._app.use('/static', express.static('frontend'));
 
-    this.app.post('/add-user', (req: Request, res: Response) => {
+    this._app.post('/add-user', (req: Request, res: Response) => {
 
       const {userName, imageDataURL} = req.body;
       this.faceRecognitionService.addUser(userName, imageDataURL)
@@ -45,7 +45,7 @@ export class FaceRecognitionServer {
         });
     });
 
-    this.app.post('/login', (req: Request, res: Response) => {
+    this._app.post('/login', (req: Request, res: Response) => {
       const {userName, imageDataURL} = req.body;
       this.faceRecognitionService.userMatchesFaceId(userName, imageDataURL)
         .then((verified: boolean) => {
@@ -58,7 +58,7 @@ export class FaceRecognitionServer {
         });
     });
 
-    this.app.post('/generate-face-id', (req: Request, res: Response) => {
+    this._app.post('/generate-face-id', (req: Request, res: Response) => {
       const {imageDataURL} = req.body;
       this.faceRecognitionService.generateFaceId(imageDataURL)
         .then((faceId: string) => {
@@ -70,7 +70,7 @@ export class FaceRecognitionServer {
         });
     });
 
-    this.app.listen(port, () => {
+    this._app.listen(port, () => {
       logger.info('Face recognition server started.');
     });
   }
