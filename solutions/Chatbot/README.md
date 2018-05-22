@@ -23,8 +23,8 @@ gestartet
 ## Setup
 
 - Herunterladen des Repositorys: ```git clone git@github.com:process-engine/example_processes.git```
-- Navigieren zum Projektordner: ```cd example_processes/solutions/Therapist```
+- Navigieren zum Projektordner: ```cd example_processes/solutions/Chatbot```
 - Installieren von Fremdbibliotheken: ```npm i```
 - Starten der Applikation `npm start`:
-- Das Beispieldiagramm steht nun unter dem Namen `Therapist` in dem
+- Das Beispieldiagramm steht nun unter dem Namen `chatbot` in dem
   BPMN-Studio zur Verfügung.
