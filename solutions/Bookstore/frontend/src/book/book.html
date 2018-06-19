@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
-    <h3 class="book--title">${book.title} <span class="book--title--author">by ${book.author}</span> </h3>
-
-    <div class="book--description">
-      <h4>Description: </h4>
-      ${book.description}
-    </div>
+  <div class="wrapper container">
+    <h3>${book.title}
+      <span class="author--name">by <a href="#/author/${book.author}">${book.author}</a></span>
+    </h3>
+    <h4>Description: </h4>
+    <p>${book.description}</p>
     <button>Add to cart</button>
   </div>
 </template>
