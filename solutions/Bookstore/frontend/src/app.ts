@@ -9,7 +9,9 @@ export class App {
     config.map([
       {
         route: [''],
-        moduleId: 'welcome/welcome'
+        moduleId: 'welcome/welcome',
+        nav: true,
+        title: 'Home',
       },
       {
         route: ['author/:author'],
@@ -17,12 +19,21 @@ export class App {
       },
       {
         route: ['book/:book'],
-        moduleId: 'book/book'
+        moduleId: 'book/book',
       },
       {
         route: ['books'],
-        moduleId: 'books/books'
+        moduleId: 'books/books',
+        nav: true,
+        title: 'Books',
+      },
+      {
+        route: ['shopping-cart'],
+        moduleId: 'shopping-cart/shopping-cart',
+        nav: true,
+        title: 'Shopping cart',
       },
     ]);
+    console.log(router.navigation)
   }
 }
