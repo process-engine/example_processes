@@ -1,20 +1,19 @@
 <template>
-  <nav>
-    <div class="nav--container">
-      <ul class="nav--list">
-        <aup-dropdown class="nav--button-container" right="false">
-          <div slot="dropdown-toggle">Dropdown</div>
-          <div class="nav--dropdown" slot="dropdown-menu">
-            <template repeat.for="author of authors">
-              <button class="nav--dropdown-button" mousedown.delegate="goToAuthor(author)">
-                ${author}
-              </button>
-            </template>
-          </div>
-        </aup-dropdown>
-        <button class="nav--button" click.delegate="goToHome()">Home</button>
-        <button click.delegate="goToBooks()" class="nav--button">Books</button>
-      </ul>
-    </div>
-  </nav>
+  <div id="header-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<header id="header">
+						<h1><a href="" id="logo">bookstore</a></h1>
+						<nav id="nav">
+							<a href="" class="current-page-item">Home</a>
+							<a href="">Books</a>
+							<a href="">Authors</a>
+              <a href="">Shopping cart</a>
+						</nav>
+					</header>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>

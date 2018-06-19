@@ -1,14 +1,11 @@
 <template>
   <require from="./style.css"></require>
+  <require from="./assets/css/main.css" ></require>
   <require from="./bookstore-nav/bookstore-nav"></require>
-  <require from="./bookstore-sidebar/bookstore-sidebar"></require>
   <require from="./bookstore-footer/bookstore-footer"></require>
-  <bookstore-nav></bookstore-nav>
-  <div class="container">
-    <div class="main">
-      <router-view></router-view>
-    </div>
-    <bookstore-sidebar></bookstore-sidebar>
-  </div>
-  <bookstore-footer></bookstore-footer>
+	<div id="page-wrapper">
+    <bookstore-nav></bookstore-nav>
+    <router-view></router-view>
+    <bookstore-footer></bookstore-footer>
+	</div>
 </template>
