@@ -118,6 +118,11 @@
           "aurelia-templating-binding",
           "text",
           {
+            "name": "aurelia-cookie",
+            "path": "../node_modules/aurelia-cookie/dist/amd",
+            "main": "index"
+          },
+          {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
             "main": "aurelia-templating-resources"
@@ -138,11 +143,6 @@
             "main": "aurelia-http-client",
             "path": "../node_modules/aurelia-http-client/dist/amd",
             "resources": []
-          },
-          {
-            "name": "aurelia-plugins-dropdown",
-            "path": "../node_modules/aurelia-plugins-dropdown/dist/amd",
-            "main": "aurelia-plugins-dropdown"
           }
         ]
       }

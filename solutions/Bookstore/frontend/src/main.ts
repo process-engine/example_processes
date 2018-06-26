@@ -6,7 +6,8 @@ export function configure(aurelia: Aurelia) {
     .standardConfiguration()
     .feature('resources');
 
-  aurelia.use.plugin('aurelia-plugins-dropdown');
+  aurelia.use
+    .plugin('aurelia-cookie');
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
