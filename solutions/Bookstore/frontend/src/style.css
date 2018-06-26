@@ -15,3 +15,23 @@
 .author--name {
   font-size: 0.6em;
 }
+
+/* Overwritten htmlup styles */
+
+#banner {
+  background-image: none !important;
+}
+
+#banner-wrapper {
+  background: #c8d2bc !important;
+}
+
+#header {
+  display: block !important;
+}
+
+@media screen and (max-width: 736px) {
+  #logo {
+    display: none;
+  }
+}
