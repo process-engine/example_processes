@@ -1,5 +1,3 @@
 {
-  "rules": {
-
-  }
+  "extends": "tslint-config-5minds"
 }
