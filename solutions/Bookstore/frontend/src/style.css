@@ -16,6 +16,26 @@
   font-size: 0.6em;
 }
 
+.shopping-cart-label {
+  font-size: 0.7em;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}
+
+.books--banner,
+.author--banner {
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 1,5em;
+}
+
+.books--book-section,
+.author--book-section{
+  background-color: #fff;
+}
+
 /* Overwritten htmlup styles */
 
 #banner {

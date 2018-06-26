@@ -1,20 +1,25 @@
 <template>
-  <div class="wrapper container">
-    <div class="row">
-      <div class="col-3" repeat.for="author of authors">
-        <h3>
-          <a href="/#/author/${author} ">${author}</a>
-        </h3>
-        <div>
-          <ul>
-            <template repeat.for="book of books">
-              <li if.bind="author === book.author" class="books--list-entry">
-                <a href="/#/book/${book.title}">${book.title}</a>
-              </li>
-            </template>
-          </ul>
+  <div class="container books--banner">
+    <h2>Here is a list of all authors and books in our bookstore!</h2>
+  </div>
+  <div class="books--book-section">
+    <div class="wrapper container">
+      <div class="row">
+        <div class="col-6-small col-3-xlarge" repeat.for="author of authors">
+          <h3>
+            <a href="/#/author/${author} ">${author}</a>
+          </h3>
+          <div>
+            <ul>
+              <template repeat.for="book of books">
+                <li if.bind="author === book.author" class="books--list-entry">
+                  <a href="/#/book/${book.title}">${book.title}</a>
+                </li>
+              </template>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </template>
