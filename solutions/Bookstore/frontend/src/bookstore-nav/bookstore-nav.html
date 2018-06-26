@@ -9,6 +9,9 @@
               <template repeat.for="nav of router.navigation">
                 <a class="${nav.isActive ? 'current-page-item' : ''}" href.bind="nav.href">
                   ${nav.title}
+                  <span class="shopping-cart-label" if.bind="nav.title === 'Shopping cart'">
+                    ${shoppingCartLabel}
+                  </span>
                 </a>
               </template>
 						</nav>

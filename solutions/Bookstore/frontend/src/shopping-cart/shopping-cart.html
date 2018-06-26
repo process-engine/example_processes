@@ -1,0 +1,15 @@
+<template>
+  <div class="container shopping-cart--banner">
+    <h2>
+      <template if.bind="cartContents === {}">
+        Your shopping cart is empty. Time to fix that! Go have a look at our <a href="/#/books">books</a>.
+      </template>
+      <template else >
+        Your shopping cart contains ${Object.keys(cartContents)} items.
+      </template>
+    </h2>
+  </div>
+  <div class="wrapper container">
+    Shopping cart
+  </div>
+</template>
