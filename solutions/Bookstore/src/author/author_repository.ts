@@ -1,18 +1,19 @@
 import {DatabaseService} from '../database/database_service';
 
 export class AuthorRepository {
-  private databaseService: DatabaseService;
+
+  private _databaseService: DatabaseService;
 
   constructor(databaseService: DatabaseService) {
 
-    this.databaseService = databaseService;
+    this._databaseService = databaseService;
   }
 
   public getAuthors(): Promise<Array<string>> {
 
     const query: string = 'SELECT name from authors';
 
-    return this.databaseService.query(query).then((authors: Array<{
+    return this._databaseService.query(query).then((authors: Array<{
       name: string;
     }>) => {
       if (Array.isArray(authors) && authors.length === 0) {

@@ -8,17 +8,17 @@ export class Books {
   public books: Array<IBook>;
   public authors: Array<string>;
 
-  private httpClient: HttpClient;
+  private _httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
 
-    this.httpClient = httpClient;
+    this._httpClient = httpClient;
   }
 
   public activate(params: {
     book: string
   }): void {
-    this.httpClient.get(`http://localhost:3000/books`).then((result: HttpResponseMessage) => {
+    this._httpClient.get(`http://localhost:3000/books`).then((result: HttpResponseMessage) => {
 
       const parsedResult = JSON.parse(result.response);
       const isEmptyArray = Array.isArray(parsedResult) && parsedResult.length === 0;
@@ -26,7 +26,7 @@ export class Books {
 
           this.books = parsedResult;
         }
-      return     this.httpClient.get(`http://localhost:3000/authors`)
+      return this._httpClient.get(`http://localhost:3000/authors`);
     }).then((result: HttpResponseMessage) => {
 
         const parsedResult = JSON.parse(result.response);

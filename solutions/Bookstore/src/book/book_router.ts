@@ -8,23 +8,23 @@ const logger: Logger = Logger.createLogger('book_router');
 
 export class BookRouter {
 
-  private router;
-  private bookService: BookService;
+  private _router: Express.Router;
+  private _bookService: BookService;
 
-  constructor(bookService: BookService, router) {
+  constructor(bookService: BookService, router: Express.Router) {
 
-    this.router = router;
-    this.bookService = bookService;
+    this._router = router;
+    this._bookService = bookService;
   }
 
   public start(): void {
 
-    this.router.get('/book/:title', (request: Request, response: Response) => {
+    this._router.get('/book/:title', (request: Request, response: Response) => {
 
       try {
         const title: string = request.params['title'].replace(/_/g, ' ');
 
-        this.bookService.getBook(title).then((book: IBook) => {
+        this._bookService.getBook(title).then((book: IBook) => {
           response.send(book);
         });
 
@@ -35,13 +35,13 @@ export class BookRouter {
       }
     });
 
-    this.router.get('/books', (request: Request, response: Response) => {
+    this._router.get('/books', (request: Request, response: Response) => {
 
       if (request.query['author'] !== undefined) {
 
         const author: string = request.query['author'].replace(/_/g, ' ');
 
-        this.bookService.getBooksByAuthor(author).then((books: Array<IBook>) => {
+        this._bookService.getBooksByAuthor(author).then((books: Array<IBook>) => {
 
           response.send(books);
         }).catch((e) => {
@@ -53,7 +53,7 @@ export class BookRouter {
         return;
       }
 
-      this.bookService.getBooks().then((books: Array<IBook>) => {
+      this._bookService.getBooks().then((books: Array<IBook>) => {
 
         response.send(books);
       }).catch((e) => {

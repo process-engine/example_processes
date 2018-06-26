@@ -7,22 +7,22 @@ const logger: Logger = Logger.createLogger('author_router');
 
 export class AuthorRouter {
 
-  private router;
-  private authorService: AuthorService;
+  private _router: Express.Router;
+  private _authorService: AuthorService;
 
-  constructor(authorService: AuthorService, router) {
+  constructor(authorService: AuthorService, router: Express.Router) {
 
-    this.router = router;
-    this.authorService = authorService;
+    this._router = router;
+    this._authorService = authorService;
   }
 
   public start(): void {
 
-    this.router.get('/authors', (request: Request, response: Response) => {
+    this._router.get('/authors', (request: Request, response: Response) => {
 
       try {
 
-        this.authorService.getAuthors().then((authors: Array<string>) => {
+        this._authorService.getAuthors().then((authors: Array<string>) => {
 
           response.send(authors);
         });

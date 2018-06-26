@@ -2,15 +2,15 @@ import {AuthorRepository} from './author_repository';
 
 export class AuthorService {
 
-  private authorRepository: AuthorRepository;
+  private _authorRepository: AuthorRepository;
 
   constructor(authorRepository: AuthorRepository) {
 
-    this.authorRepository = authorRepository;
+    this._authorRepository = authorRepository;
   }
 
   public getAuthors(): Promise<Array<string>> {
 
-    return this.authorRepository.getAuthors();
+    return this._authorRepository.getAuthors();
   }
 }

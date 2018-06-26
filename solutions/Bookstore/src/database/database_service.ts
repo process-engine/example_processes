@@ -2,11 +2,11 @@ import {Client, QueryResult} from 'pg';
 
 export class DatabaseService {
 
-  private pgClient: Client;
+  private _pgClient: Client;
 
   public async initialize(): Promise<void> {
 
-    this.pgClient = new Client({
+    this._pgClient = new Client({
       user: 'admin',
       host: 'localhost',
       database: 'bookstore',
@@ -14,12 +14,12 @@ export class DatabaseService {
       port: 5433,
     });
 
-    await this.pgClient.connect();
+    await this._pgClient.connect();
   }
 
   public async query(query: string): Promise<any> {
 
-    const result: QueryResult = await this.pgClient.query(query);
+    const result: QueryResult = await this._pgClient.query(query);
     return result.rows;
   }
 

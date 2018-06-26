@@ -3,25 +3,25 @@ import {IBook} from '../interfaces';
 
 export class BookService {
 
-  private bookRepository: BookRepository;
+  private _bookRepository: BookRepository;
 
   constructor(bookRepository: BookRepository) {
 
-    this.bookRepository = bookRepository;
+    this._bookRepository = bookRepository;
   }
 
   public getBook(title: string): Promise<IBook> {
 
-    return this.bookRepository.getBook(title);
+    return this._bookRepository.getBook(title);
   }
 
   public getBooksByAuthor(author: string): Promise<Array<IBook>> {
 
-    return this.bookRepository.getBooksByAuthor(author);
+    return this._bookRepository.getBooksByAuthor(author);
   }
 
   public getBooks(): Promise<Array<IBook>> {
 
-    return this.bookRepository.getBooks();
+    return this._bookRepository.getBooks();
   }
 }

@@ -2,18 +2,19 @@ import {DatabaseService} from '../database/database_service';
 import {IBook} from '../interfaces';
 
 export class BookRepository {
-  private databaseService: DatabaseService;
+
+  private _databaseService: DatabaseService;
 
   constructor(databaseService: DatabaseService) {
 
-    this.databaseService = databaseService;
+    this._databaseService = databaseService;
   }
 
   public getBook(title: string): Promise<IBook> {
 
     const query: string = `select * from books where lower(title)=lower('${title}');`;
 
-    return this.databaseService.query(query).then((book: IBook) => {
+    return this._databaseService.query(query).then((book: IBook) => {
 
       if (book === undefined) {
 
@@ -31,7 +32,7 @@ export class BookRepository {
 
     const checkAuthorQuery: string = `select exists(select 1 from authors where name='${author}')`;
 
-    return this.databaseService.query(checkAuthorQuery).then((authorExists: Array<{
+    return this._databaseService.query(checkAuthorQuery).then((authorExists: Array<{
       exists: boolean,
     }>) => {
 
@@ -44,7 +45,7 @@ export class BookRepository {
 
       const query: string = `select * from books where author='${author}';`;
 
-      return this.databaseService.query(query);
+      return this._databaseService.query(query);
 
     }).then((books: Array<IBook>) => {
 
@@ -63,6 +64,6 @@ export class BookRepository {
 
     const query: string = 'select * from books;';
 
-    return this.databaseService.query(query);
+    return this._databaseService.query(query);
   }
 }
