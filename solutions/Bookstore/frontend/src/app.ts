@@ -34,6 +34,5 @@ export class App {
         title: 'Shopping cart',
       },
     ]);
-    console.log(router.navigation)
   }
 }
