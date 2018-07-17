@@ -7,13 +7,13 @@
       <div class="row">
         <div class="col-6-small col-3-xlarge" repeat.for="author of authors">
           <h3>
-            <a href="/#/author/${author} ">${author}</a>
+            <a href="#/author/${author} ">${author}</a>
           </h3>
           <div>
             <ul>
               <template repeat.for="book of books">
                 <li if.bind="author === book.author" class="books--list-entry">
-                  <a href="/#/book/${book.title}">${book.title}</a>
+                  <a href="#/book/${book.title}">${book.title}</a>
                 </li>
               </template>
             </ul>
