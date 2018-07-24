@@ -29,16 +29,21 @@ const iocModuleNames = [
   '@essential-projects/messagebus_http',
   '@essential-projects/messagebus_adapter_faye',
   '@essential-projects/metadata',
-  '@essential-projects/pki_service',
-  '@process-engine/consumer_api',
+  '@process-engine/consumer_api_core',
+  '@process-engine/iam',
+  '@process-engine/management_api_core',
+  '@process-engine/management_api_http',
   '@process-engine/process_engine',
-  '@process-engine/process_engine_http',
   '@process-engine/process_repository',
+  '@process-engine/flow_node_instance.repository.sequelize',
+  '@process-engine/timers.repository.sequelize',
+  '@process-engine/process_model.repository.sequelize',
   '@essential-projects/security_service',
   '@essential-projects/routing',
   '@essential-projects/timing',
   '@essential-projects/validation',
-];
+  '..',
+]
 
 const iocModules = iocModuleNames.map((moduleName) => {
   return require(`${moduleName}/ioc_module`);
