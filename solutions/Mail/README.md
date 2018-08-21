@@ -66,35 +66,6 @@ mit folgender Konfiguration:
 
 <img src="./images/create_task_get_email_address.png" width="70%" />
 
-
-### Task Resultate in Mapper zusammenführen
-
-Bevor wir mit dem eigentlichen Modellieren weitermachen können, stellt sich
-uns noch ein kleines Problem in den Weg.
-
-**Situation**
-Ein `User Task` hat **niemals** Zugriff auf den Parameter `token.history`!
-Das hat zur Folge, dass der User Task `Confirm Data` keinen direkten Zugriff
-auf die Daten des Service Tasks `Fetch Data` haben kann!
-
-**Lösung**:
-Wie der `ServiceTask`, hat ein `UserTask` immer Zugriff auf den Parameter
-`token.current`.
-
-Mit dieser Information im Hinterkopf, können wir einen Mapper definieren,
-der uns die Ergebnisse aus den beiden vorangegangenen Tasks zusammengefasst
-bereitstellt.
-
-Was nun zu tun ist:
-An der Sequenz **nach** dem UserTask `Get Email Address` muss im Property Panel
-ein Property `mapper` mit folgendem Wert angelegt werden:
-```
-{rates: token.history.ServiceTask_FetchData.result.EUR_USD, email: token.history.UserTask_GetEmailAddress.email}
-```
-
-<img src="./images/add_result_mapper_to_sequence_flow.gif" />
-
-
 ### Bestätigungsüberprüfung
 
 Als Nächstes wird eine Überprüfung angelegt.
