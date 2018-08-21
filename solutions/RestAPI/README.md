@@ -51,13 +51,18 @@ Zum Schluss muss dem [User Task](https://www.process-engine.io/documentation/GLO
 (`Show Data`) nur noch gesagt werden, was er anzeigen soll. Dies geschieht
 wieder über das Property Panel.
 
-Dazu setzen wir `Confirm` als `uiName`, um einen Bestätigungsdialog zu
-verwenden und konfigurieren diesen mit folgender `uiConfig`:
+User Tasks können sowohl Bestätigungsdialoge als auch Formulare anzeigen.
+Da wir hier keine Eingabe vom Nutzer benötigen, erstellen wir einen
+Bestätigungsdialog.
+Dazu erstellen wir die Property `preferredControl` mit dem Wert `confirm`.
+Zusätzlich erstellen wir ein Formularfeld vom Typ `boolean`.
+In dem Feld `Label` können wir unsere Nachricht an den Nutzer eintragen:
+```
+1 EUR = ${token.current}USD
+```
 
-```
-${ "message": "1 EUR = " + token.current + " USD", "layout": [ { "key":
-"confirm", "label": "OK"}] };
-```
+Die gesonderte Syntax `${...}` erlaubt den Zugriff auf Werten des Tokens.
+
 
 <img src="./images/configure-show-data-user-task.png" width="100%" />
 
