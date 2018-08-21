@@ -46,7 +46,7 @@ erstellten Diagramm.
 
 So sieht das Ganze  aus:
 
-{% video controls="controls"%}./images/create-new-diagram.mp4{% endvideo %}
+<img src="./images/create-new-diagram.gif" width="100%" />
 
 ## Modellierung eines Diagramms
 
@@ -67,7 +67,7 @@ Das Ganze sollte so aussehen:
 
 Im folgenden Video, fassen wir die Schritte zusammen:
 
-{% video controls="controls"%}./images/create-hello-world.mp4{% endvideo %}
+<img src="./images/create-hello-world.gif" width="100%" />
 
 ## Umsetzung eines User Task
 
@@ -107,4 +107,4 @@ Wir haben:
 
 Hier ist noch einmal der komplette Ablauf mit Ausführung des Prozesses zu sehen:
 
-{% video controls="controls"%}./images/hello-world_full_example.mp4{% endvideo %}
+<img src="./images/hello-world_full_example.gif" width="100%" />
