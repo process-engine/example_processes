@@ -116,7 +116,7 @@ Setzen der Properties für den
 
 <img src="./images/add_service_task_and_its_properties.png" width="60%" />
 
-Dann kann das ganze getestet werden:
+Dann kann der Prozess getestet werden:
 
 <img src="./images/run-full-process.gif" />
 
