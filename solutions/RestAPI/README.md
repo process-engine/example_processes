@@ -9,7 +9,7 @@ Erstelle dann einen [Service Task](../../GLOSSARY.md#service-task), um
 Daten zu laden und einen [User Task](../../GLOSSARY.md#user-task), um die
 Daten anzuzeigen:
 
-{% video controls="controls"%}../images/getting-started/http-rest-api/create-rest-api-consumer-diagram.mp4{% endvideo %}
+<img src="./images/create-rest-api-consumer-diagram.gif"></img>
 
 Innerhalb des Property Panels lässt sich nun ebenfalls mittels Key-Value Paaren
 der [Service Task](../../GLOSSARY.md#service-task) definieren.
@@ -25,7 +25,7 @@ method    get
 params    ['http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y']
 ```
 
-<img src="../images/getting-started/http-rest-api/configure-fetch-data-service-task.png" width="100%" />
+<img src="./images/configure-fetch-data-service-task.png" width="100%" />
 
 Als Nächstes wird dem [Sequenzfluss](../../GLOSSARY.md#sequenzfluss) von
 dem `Fetch Data` zum `Show Data` Task mitgeteilt, wie das Ergebnis interpretiert
@@ -42,7 +42,7 @@ Um das zu erreichen wird ihm - wieder im Property Panel - die Property
 ```mapper   token.current.result.EUR_USD.val```
 mitgegeben.
 
-<img src="../images/getting-started/http-rest-api/configure-sequence-flow-after-task.png" width="100%" />
+<img src="./images/configure-sequence-flow-after-task.png" width="100%" />
 
 Nach dem Mapping kann der nächste BPMN-Knoten nach dem [Sequenzfluss](../../GLOSSARY.md#sequenzfluss)
 den USD Kurs durch den Zugriff auf `token.current` nutzen.
@@ -59,11 +59,11 @@ ${ "message": "1 EUR = " + token.current + " USD", "layout": [ { "key":
 "confirm", "label": "OK"}] };
 ```
 
-<img src="../images/getting-started/http-rest-api/configure-show-data-user-task.png" width="100%" />
+<img src="./images/configure-show-data-user-task.png" width="100%" />
 
 Zusammengefasst sieht der Konfigurationsvorgang so aus:
 
-{% video controls="controls"%}../images/getting-started/http-rest-api/complete-task-configuration.mp4{% endvideo %}
+<img src="./images/complete-task-configuration.gif"></img>
 
 **Zusammenfassung**
 
@@ -77,4 +77,4 @@ gewünschten Umrechnungskurs anschaulich darstellt
 
 Zeit den Prozess auszuführen:
 
-{% video controls="controls"%}../images/getting-started/http-rest-api/run-final-process.mp4{% endvideo %}
+<img src="./images/run-final-process.gif"></img>
