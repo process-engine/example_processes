@@ -4,20 +4,20 @@ Um den Umgang der ProcessEngine und des BPMN-Studios zu demonstrieren, wird ein
 einfaches Beispiel Diagramm erstellt.
 
 Ziel ist es, ein BPMN-Diagramm mit einem
-[Single User Task](../../GLOSSARY.md#user-task)
+[Single User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 zu erstellen.
 
 Das Diagramm sieht folgendermaßen aus:
 
 <img src="./images/hello-world-diagram.svg" width="100%" />
 
-Dieser [User Task](../../GLOSSARY.md#user-task) wird die folgenden Elemente
+Dieser [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) wird die folgenden Elemente
 enthalten:
 
 1. die Nachricht `Hello World`
 2. eine Schaltfläche zum Bestätigen
 
-Letzteres dient dazu, den [Task](../../GLOSSARY.md#task) zu beenden.
+Letzteres dient dazu, den [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task) zu beenden.
 
 ## Erstellung eines neuen Diagramms
 
@@ -51,14 +51,14 @@ So sieht das Ganze  aus:
 ## Modellierung eines Diagramms
 
 Die Design-Ansicht zeigt uns ein Diagramm mit einer
-[Lane](../../GLOSSARY.md#lane), einem Startevent und einem Endevent.
+[Lane](https://www.process-engine.io/documentation/GLOSSARY.html#lane), einem Startevent und einem Endevent.
 
 Durch das Auswählen eines Elements öffnet sich ein Kontextmenü; dieses Menü
 erlaubt es neue Elemente hinzuzufügen; diese werden direkt mit dem ausgewählten
 Element verbunden.
 
 Der Sequenzfluss vom Startevent zum Endevent wird zunächst entfernt.
-An dem Startpunkt wird ein [UserTask](../../GLOSSARY.md#user-task)
+An dem Startpunkt wird ein [UserTask](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 mit dem Namen `Hello Word` verbunden; an diesem das Endevent.
 
 Das Ganze sollte so aussehen:
@@ -71,7 +71,7 @@ Im folgenden Video, fassen wir die Schritte zusammen:
 
 ## Umsetzung eines User Task
 
-Ein [UserTask](../../GLOSSARY.md#user-task) kann so konfiguriert werden, dass
+Ein [UserTask](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) kann so konfiguriert werden, dass
 dem Benutzer eine grafische Oberfläche präsentiert wird, in der er aufgefordert
 wird ein Formular auszufüllen oder das Angezeigte zu bestätigen.
 
@@ -101,7 +101,7 @@ Was wir getan haben?
 
 Wir haben:
 
-- Einen [User Task](../../GLOSSARY.md#user-task) namens `Hello World` erstellt.
+- Einen [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) namens `Hello World` erstellt.
 - Den Task mit einer Konfiguration für die Oberfläche versehen.
 - Die verschiedenen Ausführungsschritte miteinander verdrahtet.
 
