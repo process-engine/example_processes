@@ -16,7 +16,7 @@ Vorweg müssen ein paar Vorbereitungen getroffen werden.
 
 ### Prozess-Rahmenbedingungen
 
-{% video controls="controls"%}../images/getting-started/sending-emails/preparation-send-email.mp4{% endvideo %}
+<img src="./images/preparation-send-email.gif" />
 
 Den [Pool](../../GLOSSARY.md#pool) und das Startevent zu `Sending mails`
 umbenennen; die [Lane](../../GLOSSARY.md#lane) vergrößern, da mehr Platz
@@ -24,13 +24,13 @@ benötigt wird.
 
 Dazu klickt man doppelt auf den Poolname und gibt `Sending mails` ein.
 
-<img src="../images/getting-started/sending-emails/rename_poolname.png" width="35%" />
+<img src="./images/rename_poolname.png" width="35%" />
 
 Dasselbe wird auch bei dem Startevent gemacht.
 
 Fertig sieht das Ganze so aus:
 
-<img src="../images/getting-started/sending-emails/renamed_poolname_and_startevent.png" width="35%" />
+<img src="./images/renamed_poolname_and_startevent.png" width="35%" />
 
 ### Aus "Show Data" wird "Confirm Data"
 
@@ -42,12 +42,11 @@ abgeändert werden:
 ${ "message": "1 EUR = " + token.current.rates.val + " USD - email: " + token.current.email, "layout": [ { "key": "confirm", "label": "OK"}, { "key": "cancel", "label": "cancel"}] };
 ```
 
-{% video controls="controls"%}../images/getting-started/sending-emails/rename-_show-data_to_confirm-data.mp4{% endvideo
-%}
+<img src="./images/rename-_show-data_to_confirm-data.gif" />
 
 So sieht der Task `Confirm Data` dann am Ende aus:
 
-<img src="../images/getting-started/sending-emails/rename_show_data_to_confirm_data.png" width="80%" />
+<img src="./images/rename_show_data_to_confirm_data.png" width="80%" />
 
 ## Neue Prozessschritte anlegen
 
@@ -60,13 +59,12 @@ Als nächstes erstellt man einen [User Task](../../GLOSSARY.md#user-task)
 mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu auf eine
 E-Mail anzugeben.
 
-{% video controls="controls"%}../images/getting-started/sending-emails/create_task_get_email_address.mp4{%
-endvideo %}
+<img src="./images/create_task_get_email_address.gif" />
 
 Zusammengefasst ergibt sich daraus ein `User Task` namens `Get Email Address`
 mit folgender Konfiguration:
 
-<img src="../images/getting-started/sending-emails/create_task_get_email_address.png" width="70%" />
+<img src="./images/create_task_get_email_address.png" width="70%" />
 
 
 ### Task Resultate in Mapper zusammenführen
@@ -94,7 +92,7 @@ ein Property `mapper` mit folgendem Wert angelegt werden:
 {rates: token.history.ServiceTask_FetchData.result.EUR_USD, email: token.history.UserTask_GetEmailAddress.email}
 ```
 
-{% video controls="controls"%}../images/getting-started/sending-emails/add_result_mapper_to_sequence_flow.mp4{% endvideo %}
+<img src="./images/add_result_mapper_to_sequence_flow.gif" />
 
 
 ### Bestätigungsüberprüfung
@@ -121,7 +119,7 @@ params  [null, token.history.UserTask_GetEmailAddress.email, "EUR to USD convers
 Nach diesem [Task](../../GLOSSARY.md#task) muss der Prozess beendet
 werden.
 
-{% video controls="controls"%}../images/getting-started/sending-emails/confirm-and-send-email.mp4{% endvideo %}
+<img src="./images/confirm-and-send-email.gif" />
 
 
 > TODO: Bild- & Videomaterial aktualisieren, Textstellen anpassen, falls nötig
@@ -129,28 +127,28 @@ werden.
 
 Hinzufügen eines Gateways:
 
-<img src="../images/getting-started/sending-emails/add_gateway.png" width="35%" />
+<img src="./images/add_gateway.png" width="35%" />
 
 Hinzufügen von Flows und einem
 [Service Task](../../GLOSSARY.md#service-task)(`Send email`):
 
-<img src="../images/getting-started/sending-emails/add_flows_with_names.png" width="35%" />
+<img src="./images/add_flows_with_names.png" width="35%" />
 
 Hinzufügen der entsprechenden Überprüfungen:
 
-<img src="../images/getting-started/sending-emails/add_condition_ok.png" width="70%" />
+<img src="./images/add_condition_ok.png" width="70%" />
 
-<img src="../images/getting-started/sending-emails/add_condition_cancel.png" width="70%" />
+<img src="./images/add_condition_cancel.png" width="70%" />
 
 Setzen der Properties für den
 [Service Task](../../GLOSSARY.md#service-task):
 
-<img src="../images/getting-started/sending-emails/add_service_task_and_its_properties.png" width="60%" />
+<img src="./images/add_service_task_and_its_properties.png" width="60%" />
 
 Dann kann das ganze getestet werden:
 
-{% video controls="controls"%}../images/getting-started/sending-emails/run-full-process.mp4{% endvideo %}
+<img src="./images/run-full-process.gif" />
 
 Das fertige Prozessmodell sieht wie folgt aus:
 
-<img src="../images/getting-started/sending-emails/finished_process_diagram.png" width="100%" />
+<img src="./images/finished_process_diagram.png" width="100%" />
