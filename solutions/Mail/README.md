@@ -35,11 +35,11 @@ Fertig sieht das Ganze so aus:
 ### Aus "Show Data" wird "Confirm Data"
 
 Dann muss der `Show Data`-[Task](../../GLOSSARY.md#task) zu `Confirm
-Data` umbenannt werden. Der Wert der `uiConfig` Property muss zu folgendem Wert
+Data` umbenannt werden. Der Wert des `Labels` des Formularfelds muss zu folgendem Wert
 abgeändert werden:
 
 ```
-${ "message": "1 EUR = " + token.current.rates.val + " USD - email: " + token.current.email, "layout": [ { "key": "confirm", "label": "OK"}, { "key": "cancel", "label": "cancel"}] };
+1 EUR = ${token.current.rates.val}USD - email: ${token.current.email}
 ```
 
 <img src="./images/rename-_show-data_to_confirm-data.gif" />
