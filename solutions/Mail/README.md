@@ -55,7 +55,7 @@ Prozessschritte modelliert werden.
 
 ### User Task erstellen und konfigurieren
 
-Als nächstes erstellt man einen [User Task](../../GLOSSARY.md#user-task)
+Als Nächstes erstellt man einen [User Task](../../GLOSSARY.md#user-task)
 mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu auf eine
 E-Mail anzugeben.
 
