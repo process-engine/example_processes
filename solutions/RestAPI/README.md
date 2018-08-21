@@ -5,14 +5,14 @@ dargestellt.
 
 Erstelle dazu ein neues Diagramm, analog zum Hello World Beispiel.
 
-Erstelle dann einen [Service Task](../../GLOSSARY.md#service-task), um
-Daten zu laden und einen [User Task](../../GLOSSARY.md#user-task), um die
+Erstelle dann einen [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task), um
+Daten zu laden und einen [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task), um die
 Daten anzuzeigen:
 
 <img src="./images/create-rest-api-consumer-diagram.gif"></img>
 
 Innerhalb des Property Panels lässt sich nun ebenfalls mittels Key-Value Paaren
-der [Service Task](../../GLOSSARY.md#service-task) definieren.
+der [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task) definieren.
 In unserem Fall soll der `Fetch Data` Task einen `GET - request` auf der
 angegebenen URL ausführen.
 Die Antwort wird anschließend als aktueller Token Wert festgelegt.
@@ -27,12 +27,12 @@ params    ['http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compac
 
 <img src="./images/configure-fetch-data-service-task.png" width="100%" />
 
-Als Nächstes wird dem [Sequenzfluss](../../GLOSSARY.md#sequenzfluss) von
+Als Nächstes wird dem [Sequenzfluss](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss) von
 dem `Fetch Data` zum `Show Data` Task mitgeteilt, wie das Ergebnis interpretiert
-und an den User [Task](../../GLOSSARY.md#task) weitergegeben werden soll.
+und an den User [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task) weitergegeben werden soll.
 
-Die [Sequenzflusszuordnung](../../GLOSSARY.md#sequenzfluss) definiert,
-wie die im vorherigen [Task](../../GLOSSARY.md#task) empfangenen Daten im
+Die [Sequenzflusszuordnung](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss) definiert,
+wie die im vorherigen [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task) empfangenen Daten im
 Token aufbewahrt werden.
 
 In diesem Fall sollen nicht alle Wechselkurse angezeigt werden, sondern
@@ -44,10 +44,10 @@ mitgegeben.
 
 <img src="./images/configure-sequence-flow-after-task.png" width="100%" />
 
-Nach dem Mapping kann der nächste BPMN-Knoten nach dem [Sequenzfluss](../../GLOSSARY.md#sequenzfluss)
+Nach dem Mapping kann der nächste BPMN-Knoten nach dem [Sequenzfluss](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss)
 den USD Kurs durch den Zugriff auf `token.current` nutzen.
 
-Zum Schluss muss dem [User Task](../../GLOSSARY.md#user-task)
+Zum Schluss muss dem [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 (`Show Data`) nur noch gesagt werden, was er anzeigen soll. Dies geschieht
 wieder über das Property Panel.
 
@@ -68,11 +68,11 @@ Zusammengefasst sieht der Konfigurationsvorgang so aus:
 **Zusammenfassung**
 
 In diesem Tutorial haben wir:
-- einen [Service Task](../../GLOSSARY.md#service-task) zum Ausführen des
+- einen [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task) zum Ausführen des
 HTTP GET Requests definiert
 - einen Mapper definiert, der uns den gewünschten Umrechnungskurs aus dem
 Ergebnis des `Service Tasks` holt
-- einen [User Task](../../GLOSSARY.md#user-task) angelegt, der uns den
+- einen [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) angelegt, der uns den
 gewünschten Umrechnungskurs anschaulich darstellt
 
 Zeit den Prozess auszuführen:
