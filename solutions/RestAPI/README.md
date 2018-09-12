@@ -27,26 +27,6 @@ params    ['http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compac
 
 <img src="./images/configure-fetch-data-service-task.png" width="100%" />
 
-Als Nächstes wird dem [Sequenzfluss](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss) von
-dem `Fetch Data` zum `Show Data` Task mitgeteilt, wie das Ergebnis interpretiert
-und an den User [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task) weitergegeben werden soll.
-
-Die [Sequenzflusszuordnung](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss) definiert,
-wie die im vorherigen [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task) empfangenen Daten im
-Token aufbewahrt werden.
-
-In diesem Fall sollen nicht alle Wechselkurse angezeigt werden, sondern
-lediglich der USD Kurs.
-
-Um das zu erreichen wird ihm - wieder im Property Panel - die Property
-```mapper   token.current.result.EUR_USD.val```
-mitgegeben.
-
-<img src="./images/configure-sequence-flow-after-task.png" width="100%" />
-
-Nach dem Mapping kann der nächste BPMN-Knoten nach dem [Sequenzfluss](https://www.process-engine.io/documentation/GLOSSARY.html#sequenzfluss)
-den USD Kurs durch den Zugriff auf `token.current` nutzen.
-
 Zum Schluss muss dem [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 (`Show Data`) nur noch gesagt werden, was er anzeigen soll. Dies geschieht
 wieder über das Property Panel.
