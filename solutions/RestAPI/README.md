@@ -35,13 +35,13 @@ User Tasks können sowohl Bestätigungsdialoge als auch Formulare anzeigen.
 Da wir hier keine Eingabe vom Nutzer benötigen, erstellen wir einen
 Bestätigungsdialog.
 Dazu erstellen wir die Property `preferredControl` mit dem Wert `confirm`.
-Zusätzlich erstellen wir ein Formularfeld vom Typ `boolean`.
+Zusätzlich erstellen wir ein Formularfeld vom Typ `Truth value`.
 In dem Feld `Label` können wir unsere Nachricht an den Nutzer eintragen:
 ```
-1 EUR = ${token.current}USD
+${'1 EUR =' + token.current.result.EUR_USD.val + '$'}
 ```
 
-Die gesonderte Syntax `${...}` erlaubt den Zugriff auf Werten des Tokens.
+Die gesonderte Syntax `${...}` erlaubt den Zugriff auf Werten des Tokens. Mit dem `+`-Operator kann der Inhalt vom Token mit den Zeichenketten `'1 EUR = '` und `'$'` verbunden.
 
 
 <img src="./images/configure-show-data-user-task.png" width="100%" />
