@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.8.0">
+        <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+            <bpmn:extensionElements>
+                <camunda:executionListener class="" event="" />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+                <camunda:properties />
+            </bpmn:extensionElements>
+            <bpmn:participant id="Participant_0px403d" name="Checkout" processRef="Demo_enterJS-Checkout-Start">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:participant>
+            <bpmn:participant id="Participant_1u9pdcb" name="Noob" processRef="Process_0yvntyq">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:participant>
+        </bpmn:collaboration>
+        <bpmn:process id="Demo_enterJS-Checkout-Start" name="Checkout" isExecutable="false">
+            <bpmn:laneSet>
+                <bpmn:lane id="Lane_1b7lr9j" name="Besteller">
+                    <bpmn:extensionElements>
+                        <camunda:executionListener class="" event="" />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                    </bpmn:extensionElements>
+                    <bpmn:flowNodeRef>
+                        StartEvent_1
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        warenkorb
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        Task_0wda4e2
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        ExclusiveGateway_18w3lq3
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        adresse_formular
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        eingabeKorrekt
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        ExclusiveGateway_0goz1dp
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        UserTask_0psue0p
+                    </bpmn:flowNodeRef>
+                    <bpmn:flowNodeRef>
+                        EndEvent_0tb2uqt
+                    </bpmn:flowNodeRef>
+                </bpmn:lane>
+                <bpmn:lane id="Lane_13e1x0x" name="Besitzer" di="[object Object]">
+                    <bpmn:extensionElements>
+                        <camunda:executionListener class="" event="" />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                        <camunda:properties />
+                    </bpmn:extensionElements>
+                </bpmn:lane>
+            </bpmn:laneSet>
+            <bpmn:startEvent id="StartEvent_1" name="Checkout">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:outgoing>
+                    SequenceFlow_0s2dby5
+                </bpmn:outgoing>
+            </bpmn:startEvent>
+            <bpmn:sequenceFlow id="SequenceFlow_0f0cs2x" name="" sourceRef="adresse_formular" targetRef="eingabeKorrekt">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:sequenceFlow>
+            <bpmn:sequenceFlow id="SequenceFlow_0518bg7" name="nein" sourceRef="ExclusiveGateway_0goz1dp" targetRef="UserTask_0psue0p">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">
+                    (Array.isArray(token.history.eingabeKorrekt)? token.history.eingabeKorrekt[token.history.eingabeKorrekt.length-1] === false: token.history.eingabeKorrekt === false)
+                </bpmn:conditionExpression>
+            </bpmn:sequenceFlow>
+            <bpmn:sequenceFlow id="SequenceFlow_0fz0ydc" name="" sourceRef="UserTask_0psue0p" targetRef="ExclusiveGateway_18w3lq3" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:sequenceFlow>
+            <bpmn:sequenceFlow id="SequenceFlow_0s2dby5" sourceRef="StartEvent_1" targetRef="warenkorb" />
+            <bpmn:sequenceFlow id="SequenceFlow_1ef2ox0" name="" sourceRef="warenkorb" targetRef="Task_0wda4e2" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:sequenceFlow>
+            <bpmn:sequenceFlow id="SequenceFlow_0666nov" sourceRef="ExclusiveGateway_18w3lq3" targetRef="adresse_formular" di="[object Object]" />
+            <bpmn:sequenceFlow id="SequenceFlow_08zyhes" sourceRef="ExclusiveGateway_18w3lq3" targetRef="adresse_formular" di="[object Object]" />
+            <bpmn:scriptTask id="warenkorb" name="Erstelle Bücherliste" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0s2dby5
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_1ef2ox0
+                </bpmn:outgoing>
+                <bpmn:script>
+                    <![CDATA[return [{name: 'Structure and Interpretation of Computer Programs', price: 100}, {name: 'Decamerone', price: 30}, {name: 'Guards! Guards!', price: 1} ];]]>
+                </bpmn:script>
+            </bpmn:scriptTask>
+            <bpmn:userTask id="Task_0wda4e2" name="Warenkorb überprüfen" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties>
+                        <camunda:property name="uiName" value="Confirm" />
+                        <camunda:property name="uiConfig" value="${ &#34;message&#34;: &#39;Folgende Bücher sind im Warenkorb: &#60;br/&#62; &#39; + token.current.map((entry)=&#62;(&#39;Titel: &#39; + entry.name + &#39;&#60;br/&#62; Preis: &#39; + entry.price + &#39;€ &#60;br/&#62; &#60;br/&#62;&#39;)), &#34;layout&#34;: [ { &#34;key&#34;: &#34;confirm&#34;, &#34;label&#34;: &#34;OK&#34; } ] };" />
+                    </camunda:properties>
+                    <camunda:formData>
+                        <camunda:formField id="Form_yFEzjze7" label="" defaultValue="" />
+                    </camunda:formData>
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_1ef2ox0
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_02udpre
+                </bpmn:outgoing>
+            </bpmn:userTask>
+            <bpmn:exclusiveGateway id="ExclusiveGateway_18w3lq3" name="" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0fz0ydc
+                </bpmn:incoming>
+                <bpmn:incoming>
+                    SequenceFlow_02udpre
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_0666nov
+                </bpmn:outgoing>
+                <bpmn:outgoing>
+                    SequenceFlow_08zyhes
+                </bpmn:outgoing>
+            </bpmn:exclusiveGateway>
+            <bpmn:userTask id="adresse_formular" name="Adresse eingeben" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties>
+                        <camunda:property name="uiName" value="Form" />
+                    </camunda:properties>
+                    <camunda:formData>
+                        <camunda:formField id="adresse" label="Straße" type="string" defaultValue="" />
+                        <camunda:formField id="hausnummer" label="Hausnummer" type="string" defaultValue="" />
+                    </camunda:formData>
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0666nov
+                </bpmn:incoming>
+                <bpmn:incoming>
+                    SequenceFlow_08zyhes
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_0f0cs2x
+                </bpmn:outgoing>
+            </bpmn:userTask>
+            <bpmn:scriptTask id="eingabeKorrekt" name="Eingaben kontrollieren" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0f0cs2x
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_0mgyfpz
+                </bpmn:outgoing>
+                <bpmn:script>
+                    return !!(token.current.hausnummer.match(/^[0-9]{1,3}[A-Z]?$/))
+                </bpmn:script>
+            </bpmn:scriptTask>
+            <bpmn:exclusiveGateway id="ExclusiveGateway_0goz1dp" name="Eingaben korrekt?">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0mgyfpz
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_0518bg7
+                </bpmn:outgoing>
+            </bpmn:exclusiveGateway>
+            <bpmn:sequenceFlow id="SequenceFlow_02udpre" name="" sourceRef="Task_0wda4e2" targetRef="ExclusiveGateway_18w3lq3" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:sequenceFlow>
+            <bpmn:sequenceFlow id="SequenceFlow_0mgyfpz" sourceRef="eingabeKorrekt" targetRef="ExclusiveGateway_0goz1dp" />
+            <bpmn:userTask id="UserTask_0psue0p" name="Fehler anzeigen" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties>
+                        <camunda:property name="uiName" value="Confirm" />
+                        <camunda:property name="uiConfig" value="${ &#34;message&#34;: &#34;FEHLER: Hausnummer müssen mit max. 3 Ziffern beginnen. Sie dürfen mit einem großen Buchstaben enden. Bitte geben Sie die Daten erneut ein.&#34;, &#34;layout&#34;: [ { &#34;key&#34;: &#34;confirm&#34;, &#34;label&#34;: &#34;OK&#34; } ] };" />
+                    </camunda:properties>
+                    <camunda:formData>
+                        <camunda:formField id="Form_3Xgi0suz" label="" defaultValue="" />
+                    </camunda:formData>
+                </bpmn:extensionElements>
+                <bpmn:incoming>
+                    SequenceFlow_0518bg7
+                </bpmn:incoming>
+                <bpmn:outgoing>
+                    SequenceFlow_0fz0ydc
+                </bpmn:outgoing>
+            </bpmn:userTask>
+            <bpmn:endEvent id="EndEvent_0tb2uqt" name="Bestellung erfolgreich">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:endEvent>
+        </bpmn:process>
+        <bpmn:process id="Process_0yvntyq">
+            <bpmn:scriptTask id="summe" name="Berechne Preis" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+                <bpmn:script>
+                    <![CDATA[return (token.history.warenkorb.reduce(((acc, current) =>
+                    
+                    
+                    
+                     acc + current.price),0))]]>
+                </bpmn:script>
+            </bpmn:scriptTask>
+            <bpmn:exclusiveGateway id="ExclusiveGateway_1yumraf" name="&#62; 100€">
+                <bpmn:documentation>
+                    <![CDATA[(token.history.summe >
+                     100)]]>
+                </bpmn:documentation>
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:exclusiveGateway>
+            <bpmn:exclusiveGateway id="ExclusiveGateway_0z3clpw" name="">
+                <bpmn:documentation>
+                    mapper - {p: token.history.summe}
+                </bpmn:documentation>
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                </bpmn:extensionElements>
+            </bpmn:exclusiveGateway>
+            <bpmn:userTask id="UserTask_1oi8pr5" name="SMS Versand vorbereiten">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties>
+                        <camunda:property name="uiName" value="Confirm" />
+                        <camunda:property name="uiConfig" value="${ &#34;message&#34;: &#34;Der Betrag benötigt eine zusätzliche Bestätigung: Eine SMS wird dazu versendet.&#34;, &#34;layout&#34;: [ { &#34;key&#34;: &#34;confirm&#34;, &#34;label&#34;: &#34;Verstanden&#34; } ] };" />
+                    </camunda:properties>
+                </bpmn:extensionElements>
+            </bpmn:userTask>
+            <bpmn:serviceTask id="Task_05vkde5" name="SMS Verschicken mit Twillio">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties>
+                        <camunda:property name="module" value="HttpService" />
+                        <camunda:property name="method" value="post" />
+                        <camunda:property name="params" value="[&#34;https://api.twilio.com/2010-04-01/Accounts/ACd7bcedb43724b3987c8bac4a23547e8f/Messages&#34;, &#34;From=%2B15853022642&#38;Body=Ein+Kunde+hat+Buecher+im+Wert+von+ueber+100 Euro+bestellt&#38;To=%2B491723478683&#34;, {&#39;headers&#39;: {&#39;Authorization&#39;: &#39;Basic QUNkN2JjZWRiNDM3MjRiMzk4N2M4YmFjNGEyMzU0N2U4ZjpkNGYxOWFlYjkyZDk1MzMzZTg1MTBlYzU4ZDdjMmQ1Mw==&#39;, &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;} } ]" />
+                    </camunda:properties>
+                </bpmn:extensionElements>
+            </bpmn:serviceTask>
+            <bpmn:userTask id="UserTask_1ha23z3" name="Zeige Rechnung" di="[object Object]">
+                <bpmn:extensionElements>
+                    <camunda:executionListener class="" event="" />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties />
+                    <camunda:properties>
+                        <camunda:property name="uiName" value="Confirm" />
+                        <camunda:property name="uiConfig" value="${ &#34;message&#34;: &#34;Die Rechnung beträgt: &#34; + token.current.p + &#34;€.&#34;, &#34;layout&#34;: [ { &#34;key&#34;: &#34;confirm&#34;, &#34;label&#34;: &#34;OK&#34; } ] };" />
+                    </camunda:properties>
+                    <camunda:formData>
+                        <camunda:formField id="Form_hPBUJvKm" label="" defaultValue="" />
+                    </camunda:formData>
+                </bpmn:extensionElements>
+            </bpmn:userTask>
+            <bpmn:userTask id="Task_0i7e9nm" name="Sage Danke!">
+            <bpmn:documentation>
+                <![CDATA[${ "message": "Vielen Dank für Ihren Einkauf.", "layout": [ { "key": "confirm", "label": "OK" } ] };]]>
+            </bpmn:documentation>
+            <bpmn:extensionElements>
+                <camunda:executionListener class="" event="" />
+                <camunda:properties>
+                    <camunda:property name="uiName" value="Confirm" />
+                    <camunda:property name="uiConfig" value="${ &#34;message&#34;: &#34;Vielen Dank für Ihren Einkauf.&#34;, &#34;layout&#34;: [ { &#34;key&#34;: &#34;confirm&#34;, &#34;label&#34;: &#34;OK&#34; } ] };" />
+                </camunda:properties>
+                <camunda:formData>
+                    <camunda:formField id="Form_AppqeaYj" label="" defaultValue="" />
+                </camunda:formData>
+            </bpmn:extensionElements>
+        </bpmn:userTask>
+    </bpmn:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+            <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+                <dc:Bounds x="-9" y="5" width="1989" height="504" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+                <dc:Bounds x="101" y="65" width="36" height="36" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="109" y="101" width="21" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_1bbsjf6_di" bpmnElement="Task_0wda4e2">
+                <dc:Bounds x="342" y="43" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_0585j05_di" bpmnElement="adresse_formular">
+                <dc:Bounds x="602" y="43" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="ExclusiveGateway_0goz1dp_di" bpmnElement="ExclusiveGateway_0goz1dp" isMarkerVisible="true">
+                <dc:Bounds x="912" y="58" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="892" y="37" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0f0cs2x_di" bpmnElement="SequenceFlow_0f0cs2x">
+                <di:waypoint x="702" y="83" />
+                <di:waypoint x="757" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="684.5" y="61.5" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ScriptTask_17mfw10_di" bpmnElement="eingabeKorrekt">
+                <dc:Bounds x="757" y="43" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0518bg7_di" bpmnElement="SequenceFlow_0518bg7">
+                <di:waypoint x="937" y="108" />
+                <di:waypoint x="937" y="193" />
+                <di:waypoint x="786" y="193" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="906" y="114.79569892473118" width="21" height="12" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="UserTask_0psue0p_di" bpmnElement="UserTask_0psue0p">
+                <dc:Bounds x="686" y="153" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0fz0ydc_di" bpmnElement="SequenceFlow_0fz0ydc">
+                <di:waypoint x="686" y="193" />
+                <di:waypoint x="522" y="193" />
+                <di:waypoint x="522" y="108" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="559" y="171.5" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_0s2dby5_di" bpmnElement="SequenceFlow_0s2dby5">
+                <di:waypoint x="137" y="83" />
+                <di:waypoint x="187" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="117" y="61.5" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ScriptTask_0kyzdlj_di" bpmnElement="warenkorb">
+                <dc:Bounds x="187" y="43" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_1ef2ox0_di" bpmnElement="SequenceFlow_1ef2ox0">
+                <di:waypoint x="287" y="83" />
+                <di:waypoint x="342" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="270" y="62" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ScriptTask_0r66a1m_di" bpmnElement="summe">
+                <dc:Bounds x="818" y="1333" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="EndEvent_0tb2uqt_di" bpmnElement="EndEvent_0tb2uqt">
+                <dc:Bounds x="1873" y="65" width="36" height="36" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1865" y="106" width="52" height="25" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="ExclusiveGateway_1yumraf_di" bpmnElement="ExclusiveGateway_1yumraf" isMarkerVisible="true">
+                <dc:Bounds x="1064" y="1348" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1097" y="1326" width="34" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="ExclusiveGateway_18w3lq3_di" bpmnElement="ExclusiveGateway_18w3lq3" isMarkerVisible="true">
+                <dc:Bounds x="497" y="58" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="477" y="111" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0666nov_di" bpmnElement="SequenceFlow_0666nov">
+                <di:waypoint x="547" y="83" />
+                <di:waypoint x="602" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="530" y="62" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_08zyhes_di" bpmnElement="SequenceFlow_08zyhes">
+                <di:waypoint x="547" y="83" />
+                <di:waypoint x="602" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="530" y="62" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="Lane_1b7lr9j_di" bpmnElement="Lane_1b7lr9j">
+                <dc:Bounds x="21" y="5" width="1959" height="252" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Lane_13e1x0x_di" bpmnElement="Lane_13e1x0x">
+                <dc:Bounds x="21" y="257" width="1959" height="252" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_0suzyot_di" bpmnElement="Task_0i7e9nm">
+                <dc:Bounds x="1674" y="1284" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_02udpre_di" bpmnElement="SequenceFlow_02udpre">
+                <di:waypoint x="442" y="83" />
+                <di:waypoint x="497" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="425" y="62" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_0mgyfpz_di" bpmnElement="SequenceFlow_0mgyfpz">
+                <di:waypoint x="857" y="83" />
+                <di:waypoint x="912" y="83" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="884.5" y="61" width="0" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ServiceTask_1cstkfs_di" bpmnElement="Task_05vkde5">
+                <dc:Bounds x="1474" y="1316" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_0ng8czn_di" bpmnElement="UserTask_1oi8pr5">
+                <dc:Bounds x="1220" y="1316" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Participant_1u9pdcb_di" bpmnElement="Participant_1u9pdcb">
+                <dc:Bounds x="-9" y="1225" width="1933" height="328" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="ExclusiveGateway_0z3clpw_di" bpmnElement="ExclusiveGateway_0z3clpw" isMarkerVisible="true">
+                <dc:Bounds x="1395" y="1260" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1330" y="1313" width="90" height="13" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_1ha23z3_di" bpmnElement="UserTask_1ha23z3">
+                <dc:Bounds x="624" y="1392" width="100" height="80" />
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
