@@ -55,8 +55,6 @@ Zusammengefasst sieht der Konfigurationsvorgang so aus:
 In diesem Tutorial haben wir:
 - einen [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task) zum Ausführen des
 HTTP GET Requests definiert
-- einen Mapper definiert, der uns den gewünschten Umrechnungskurs aus dem
-Ergebnis des `Service Tasks` holt
 - einen [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) angelegt, der uns den
 gewünschten Umrechnungskurs anschaulich darstellt
 
