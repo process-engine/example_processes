@@ -96,7 +96,7 @@ muss der UserTask wie folgt konfiguriert werden:
 
    <img src="./images/extensions-selection.png" width="100%" />
 
-1. Ein FormField mit dem Typ Boolean wird benötigt.:w
+1. Ein FormField mit dem Typ Boolean wird benötigt.
 
    Das Label stellt die Nachricht, die der Benutzer bestätigen soll, dar.
 
