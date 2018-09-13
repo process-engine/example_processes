@@ -55,10 +55,12 @@ Dazu erstellen wir:
 1. ein Feld `Label` und tragen unsere Nachricht an den Nutzer ein:
 
    ```
-   ${'1 EUR =' + token.current.result.EUR_USD.val + '$'}
+   ${'1 € =' + token.current.result.EUR_USD.val + '$'}
    ```
 
-   Die gesonderte Syntax `${...}` erlaubt den Zugriff auf Werten des Tokens. Mit dem `+`-Operator kann der Inhalt vom Token mit den Zeichenketten `'1 EUR = '` und `'$'` verbunden.
+   Die gesonderte Syntax `${...}` erlaubt den Zugriff auf Werten des Tokens.
+   Mit dem `+`-Operator kann der Inhalt vom Token mit den Zeichenketten
+   `'1 € = '` und `'$'` verbunden.
 
 Das Ganze sieht so aus:
 
