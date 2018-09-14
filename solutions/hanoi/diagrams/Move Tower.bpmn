@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="BPMN Studio" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+    <bpmn:extensionElements>
+      <camunda:formData />
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_0px403d" name="Move Tower" processRef="Move Tower" />
+  </bpmn:collaboration>
+  <bpmn:process id="Move Tower" name="Move Tower" isExecutable="true">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="Lane">
+        <bpmn:extensionElements>
+          <camunda:formData />
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>StartEvent_1mox3jl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Get_Data</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1kjni67</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1ctd8mo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0eie6q6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0wf6aot</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04mzp3i</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1mox3jl" name="Start Event">
+      <bpmn:outgoing>SequenceFlow_0t03wpb</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0t03wpb" sourceRef="StartEvent_1mox3jl" targetRef="Get_Data" />
+    <bpmn:userTask id="Get_Data" name="Initialize" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="From" label="Please provide a position where the tower starts" type="long" defaultValue="" />
+          <camunda:formField id="To" label="Please put in where the tower gets moved first" type="long" defaultValue="" />
+          <camunda:formField id="Buffer" label="Please set the position where the tower should end" type="long" defaultValue="" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0t03wpb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0nj1x7h</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0nj1x7h" sourceRef="Get_Data" targetRef="Task_1kjni67" />
+    <bpmn:scriptTask id="Task_1kjni67" name="Prepare Flip Params">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0nj1x7h</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0y0tosc</bpmn:outgoing>
+      <bpmn:script>return {from: token.current.form_fields.From, to: token.current.form_fields.To, buffer: token.current.form_fields.Buffer}</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0y0tosc" sourceRef="Task_1kjni67" targetRef="Task_1ctd8mo" />
+    <bpmn:callActivity id="Task_1ctd8mo" name="Flip Tower" calledElement="Flip Tower">
+      <bpmn:incoming>SequenceFlow_0y0tosc</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1xmqcxq</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:endEvent id="EndEvent_0eie6q6" name="End Event">
+      <bpmn:incoming>SequenceFlow_0gt3tuk</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0gt3tuk" sourceRef="Task_04mzp3i" targetRef="EndEvent_0eie6q6" />
+    <bpmn:sequenceFlow id="SequenceFlow_1xmqcxq" sourceRef="Task_1ctd8mo" targetRef="Task_0wf6aot" />
+    <bpmn:scriptTask id="Task_0wf6aot" name="Prepare Flip Params">
+      <bpmn:incoming>SequenceFlow_1xmqcxq</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0g0iq8y</bpmn:outgoing>
+      <bpmn:script>return {from: token.history.Get_Data.form_fields.To, to: token.history.Get_Data.form_fields.Buffer}</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0g0iq8y" sourceRef="Task_0wf6aot" targetRef="Task_04mzp3i" />
+    <bpmn:callActivity id="Task_04mzp3i" name="Flip Tower" calledElement="Flip Tower">
+      <bpmn:incoming>SequenceFlow_0g0iq8y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gt3tuk</bpmn:outgoing>
+    </bpmn:callActivity>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="5" y="4" width="1006" height="203" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="35" y="4" width="976" height="203" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1mox3jl_di" bpmnElement="StartEvent_1mox3jl">
+        <dc:Bounds x="83" y="69" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0eie6q6_di" bpmnElement="EndEvent_0eie6q6">
+        <dc:Bounds x="931" y="69" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="924" y="105" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0t03wpb_di" bpmnElement="SequenceFlow_0t03wpb">
+        <di:waypoint x="119" y="87" />
+        <di:waypoint x="169" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_060gvw2_di" bpmnElement="Get_Data">
+        <dc:Bounds x="169" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0nj1x7h_di" bpmnElement="SequenceFlow_0nj1x7h">
+        <di:waypoint x="269" y="87" />
+        <di:waypoint x="319" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ScriptTask_0tiizml_di" bpmnElement="Task_1kjni67">
+        <dc:Bounds x="319" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0y0tosc_di" bpmnElement="SequenceFlow_0y0tosc">
+        <di:waypoint x="419" y="87" />
+        <di:waypoint x="469" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="CallActivity_0ee4pgr_di" bpmnElement="Task_1ctd8mo">
+        <dc:Bounds x="469" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_01jf9ws_di" bpmnElement="Task_04mzp3i">
+        <dc:Bounds x="775" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gt3tuk_di" bpmnElement="SequenceFlow_0gt3tuk">
+        <di:waypoint x="875" y="87" />
+        <di:waypoint x="931" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xmqcxq_di" bpmnElement="SequenceFlow_1xmqcxq">
+        <di:waypoint x="569" y="87" />
+        <di:waypoint x="619" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ScriptTask_0trmvvp_di" bpmnElement="Task_0wf6aot">
+        <dc:Bounds x="619" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0g0iq8y_di" bpmnElement="SequenceFlow_0g0iq8y">
+        <di:waypoint x="719" y="87" />
+        <di:waypoint x="775" y="87" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
