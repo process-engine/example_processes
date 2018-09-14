@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.8.0">
+  <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+    <bpmn:extensionElements>
+      <camunda:formData />
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_0px403d" name="HTTP REST API" processRef="HTTP REST API" />
+  </bpmn:collaboration>
+  <bpmn:process id="HTTP REST API" name="HTTP REST API" isExecutable="true">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="Lane">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0mk7l1m</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1snx2nr</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1msdzuo</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="HTTP REST API">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+        <camunda:properties />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>SequenceFlow_1ymq7uy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1ymq7uy" sourceRef="StartEvent_1" targetRef="Task_0mk7l1m" />
+    <bpmn:serviceTask id="Task_0mk7l1m" name="Fetch Data">
+      <bpmn:extensionElements>
+        <camunda:formData />
+        <camunda:properties>
+          <camunda:property name="module" value="HttpService" />
+          <camunda:property name="method" value="get" />
+          <camunda:property name="params" value="[&#39;http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&#38;compact=y&#39;]" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ymq7uy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_043p5kp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_043p5kp" name="" sourceRef="Task_0mk7l1m" targetRef="Task_1msdzuo">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="EndEvent_1snx2nr" name="">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="" />
+        <camunda:properties />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_15vmfjq</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_15vmfjq" sourceRef="Task_1msdzuo" targetRef="EndEvent_1snx2nr" />
+    <bpmn:userTask id="Task_1msdzuo" name="Show Data" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="Form_glVW7imb" label="${&#39;1 EUR = &#39; + token.current.result.EUR_USD.val + &#39;$&#39;}" type="boolean" defaultValue="" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="preferredControl" value="confirm" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_043p5kp</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_15vmfjq</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="5" y="4" width="581" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="101" y="65" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="109" y="101" width="21" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="35" y="4" width="551" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ymq7uy_di" bpmnElement="SequenceFlow_1ymq7uy">
+        <di:waypoint x="137" y="83" />
+        <di:waypoint x="182" y="83" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159.5" y="61.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0qqfijr_di" bpmnElement="Task_0mk7l1m">
+        <dc:Bounds x="182" y="43" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_043p5kp_di" bpmnElement="SequenceFlow_043p5kp">
+        <di:waypoint x="282" y="83" />
+        <di:waypoint x="322" y="83" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="302" y="61.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0arkqb5_di" bpmnElement="Task_1msdzuo">
+        <dc:Bounds x="322" y="43" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1snx2nr_di" bpmnElement="EndEvent_1snx2nr">
+        <dc:Bounds x="466" y="65" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="484" y="104" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_15vmfjq_di" bpmnElement="SequenceFlow_15vmfjq">
+        <di:waypoint x="422" y="83" />
+        <di:waypoint x="466" y="83" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="444" y="61" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
