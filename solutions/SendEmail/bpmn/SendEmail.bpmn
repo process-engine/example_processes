@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="BPMN Studio" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+    <bpmn:extensionElements>
+      <camunda:formData />
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_0px403d" name="Sending Mails" processRef="Sending Mails" />
+  </bpmn:collaboration>
+  <bpmn:process id="Sending Mails" name="Sending Mails" isExecutable="true">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="Lane">
+        <bpmn:extensionElements>
+          <camunda:formData />
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>StartEvent_1mox3jl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0eie6q6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0lzhr7s</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0o8z11w</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>usertask_confirm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>usertask_email_input</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1mox3jl" name="Send Email">
+      <bpmn:outgoing>SequenceFlow_1jdocur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1jdocur" sourceRef="StartEvent_1mox3jl" targetRef="usertask_email_input" />
+    <bpmn:sequenceFlow id="SequenceFlow_0eqbwpf" name="" sourceRef="usertask_email_input" targetRef="usertask_confirm" />
+    <bpmn:endEvent id="EndEvent_0eie6q6" name="End Event">
+      <bpmn:incoming>SequenceFlow_08nhk0q</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0vmsg8v</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0lzhr7s" name="">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ayvfc3</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_08nhk0q</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1sey329</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_08nhk0q" name="cancel" sourceRef="ExclusiveGateway_0lzhr7s" targetRef="EndEvent_0eie6q6">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">token.history.usertask_confirm.form_fields.confirmation === 'false'</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1sey329" name="ok" sourceRef="ExclusiveGateway_0lzhr7s" targetRef="Task_0o8z11w">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">token.history.usertask_confirm.form_fields.confirmation === 'true'</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0vmsg8v" name="" sourceRef="Task_0o8z11w" targetRef="EndEvent_0eie6q6" />
+    <bpmn:serviceTask id="Task_0o8z11w" name="Send Email">
+      <bpmn:extensionElements>
+        <camunda:formData />
+        <camunda:properties>
+          <camunda:property name="module" value="MailService" />
+          <camunda:property name="method" value="send" />
+          <camunda:property name="params" value="[null, token.history.usertask_email_input.form_fields.email, &#34;Hellos world&#34;]" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1sey329</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0vmsg8v</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1ayvfc3" sourceRef="usertask_confirm" targetRef="ExclusiveGateway_0lzhr7s" />
+    <bpmn:userTask id="usertask_confirm" name="Confirm Data" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="confirmation" label="${&#39;Do you want to send a mail to &#39; + token.history.usertask_email_input.form_fields.email + &#39;?&#39;}" type="boolean" defaultValue="" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="preferredControl" value="confirm" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0eqbwpf</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ayvfc3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="usertask_email_input" name="Enter Email Address and content" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="email" label="Please enter your Email address:" type="string" defaultValue="" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1jdocur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0eqbwpf</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="-6" y="-16" width="919" height="318" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="24" y="-16" width="889" height="318" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1mox3jl_di" bpmnElement="StartEvent_1mox3jl">
+        <dc:Bounds x="83" y="69" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="74" y="105" width="57" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0eie6q6_di" bpmnElement="EndEvent_0eie6q6">
+        <dc:Bounds x="809" y="69" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="801" y="45" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jdocur_di" bpmnElement="SequenceFlow_1jdocur">
+        <di:waypoint x="119" y="87" />
+        <di:waypoint x="181" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0eqbwpf_di" bpmnElement="SequenceFlow_0eqbwpf">
+        <di:waypoint x="281" y="87" />
+        <di:waypoint x="360" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1l8rt21_di" bpmnElement="usertask_email_input">
+        <dc:Bounds x="181" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_19lmw0b_di" bpmnElement="usertask_confirm">
+        <dc:Bounds x="360" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0lzhr7s_di" bpmnElement="ExclusiveGateway_0lzhr7s" isMarkerVisible="true">
+        <dc:Bounds x="553.5" y="62" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_08nhk0q_di" bpmnElement="SequenceFlow_08nhk0q">
+        <di:waypoint x="604" y="87" />
+        <di:waypoint x="809" y="87" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="691" y="69" width="32" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1sey329_di" bpmnElement="SequenceFlow_1sey329">
+        <di:waypoint x="579" y="112" />
+        <di:waypoint x="579" y="197" />
+        <di:waypoint x="658" y="197" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="588" y="152" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0vmsg8v_di" bpmnElement="SequenceFlow_0vmsg8v">
+        <di:waypoint x="758" y="197" />
+        <di:waypoint x="827" y="197" />
+        <di:waypoint x="827" y="105" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="788" y="179" width="10" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1b958nk_di" bpmnElement="Task_0o8z11w">
+        <dc:Bounds x="658" y="157" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ayvfc3_di" bpmnElement="SequenceFlow_1ayvfc3">
+        <di:waypoint x="460" y="87" />
+        <di:waypoint x="554" y="87" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
