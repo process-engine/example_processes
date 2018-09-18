@@ -1,7 +1,6 @@
 # Emails versenden
 
-Das Beispiel "Verwendung einer REST API" wird um den Versand von Emails
-erweitert, um die geladenen Daten zu versenden.
+In diesem Beispiel wird ein Prozess für den Versand von Emails modelliert.
 
 Dazu muss der Prozess um die folgenden drei
 [Tasks](../../GLOSSARY.md#task) erweitert werden:
@@ -10,63 +9,42 @@ Dazu muss der Prozess um die folgenden drei
 1. Die Anforderung einer Bestätigung
 1. Den Versand einer Email mit dem Wechselkurs
 
-## Vorbereitungen
+## Prozessschritte anlegen
 
-Vorweg müssen ein paar Vorbereitungen getroffen werden.
+Wir erstellen ein Diagramm mit folgenden Bestandteilen:
 
-### Prozess-Rahmenbedingungen
+1. Startevent
+1. User Task: `Enter Email Address`
+1. User Task: `Confirm Email Address`
+1. XOR-Gateway, welches unterscheidet, ob im vorherigen Usertask
+   bestätigt wurde
+1. Servicetask `Send Email`
+1. Endevent
 
-<img src="./images/preparation-send-email.gif" />
+Im Folgenden wird Erstellung und Konfiguration dieser Elemente gezeigt.
 
-Den [Pool](../../GLOSSARY.md#pool) und das Startevent zu `Sending mails`
-umbenennen; die [Lane](../../GLOSSARY.md#lane) vergrößern, da mehr Platz
-benötigt wird.
+### User Task zur Eingabe der Emailadresse
 
-Dazu klickt man doppelt auf den Poolname und gibt `Sending mails` ein.
+Zu Beginn erstellt man einen [User Task](../../GLOSSARY.md#user-task)
+mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu
+auf eine E-Mail anzugeben.
 
-<img src="./images/rename_poolname.png" width="35%" />
-
-Dasselbe wird auch bei dem Startevent gemacht.
-
-Fertig sieht das Ganze so aus:
-
-<img src="./images/renamed_poolname_and_startevent.png" width="35%" />
-
-### Aus "Show Data" wird "Confirm Data"
-
-Dann muss der `Show Data`-[Task](../../GLOSSARY.md#task) zu `Confirm
-Data` umbenannt werden. Der Wert des `Labels` des Formularfelds muss zu folgendem Wert
-abgeändert werden:
-
-```
-1 EUR = ${token.current.rates.val}USD - email: ${token.current.email}
-```
-
-<img src="./images/rename-_show-data_to_confirm-data.gif" />
-
-So sieht der Task `Confirm Data` dann am Ende aus:
-
-<img src="./images/rename_show_data_to_confirm_data.png" width="80%" />
-
-## Neue Prozessschritte anlegen
-
-Nun, da die Vorbereitungen erledigt sind, können die weiteren notwendigen
-Prozessschritte modelliert werden.
-
-### User Task erstellen und konfigurieren
-
-Als Nächstes erstellt man einen [User Task](../../GLOSSARY.md#user-task)
-mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu auf eine
-E-Mail anzugeben.
+Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich den
+User Task und das Formularfeld zu benennen.  Wir bezeichnen den User
+Task als `usertask_enter_email` und das Formularfeld als `email`.
 
 <img src="./images/create_task_get_email_address.gif" />
 
-Zusammengefasst ergibt sich daraus ein `User Task` namens `Get Email Address`
-mit folgender Konfiguration:
+Es ergibt sich mit folgender Konfiguration:
 
 <img src="./images/create_task_get_email_address.png" width="70%" />
 
-### Bestätigungsüberprüfung
+### Usertask für Bestätigungsdialog
+
+Ein weiterer User Task soll dem Nutzer die Möglichkeit geben, den
+Prozess abzubrechen.
+
+### XOR-Gate
 
 Als Nächstes wird eine Überprüfung angelegt.
 
@@ -76,6 +54,8 @@ Confirm oder Cancel ausgewählt wurde; wir benutzen ein `Gateway` dafür.
 Diese Auswahl hat Einfluss auf den weiteren Prozessweg. Cancel beendet den
 Prozess; Confirm löst den `Send email`-[Task](../../GLOSSARY.md#task)
 aus.
+
+### Servicetask für Versand der Email
 
 Der letzte Prozessschritt ist der `Send
 email`-[Task](../../GLOSSARY.md#task). Dieser muss die folgenden
@@ -91,35 +71,3 @@ Nach diesem [Task](../../GLOSSARY.md#task) muss der Prozess beendet
 werden.
 
 <img src="./images/confirm-and-send-email.gif" />
-
-
-> TODO: Bild- & Videomaterial aktualisieren, Textstellen anpassen, falls nötig
-
-
-Hinzufügen eines Gateways:
-
-<img src="./images/add_gateway.png" width="35%" />
-
-Hinzufügen von Flows und einem
-[Service Task](../../GLOSSARY.md#service-task)(`Send email`):
-
-<img src="./images/add_flows_with_names.png" width="35%" />
-
-Hinzufügen der entsprechenden Überprüfungen:
-
-<img src="./images/add_condition_ok.png" width="70%" />
-
-<img src="./images/add_condition_cancel.png" width="70%" />
-
-Setzen der Properties für den
-[Service Task](../../GLOSSARY.md#service-task):
-
-<img src="./images/add_service_task_and_its_properties.png" width="60%" />
-
-Dann kann der Prozess getestet werden:
-
-<img src="./images/run-full-process.gif" />
-
-Das fertige Prozessmodell sieht wie folgt aus:
-
-<img src="./images/finished_process_diagram.png" width="100%" />
