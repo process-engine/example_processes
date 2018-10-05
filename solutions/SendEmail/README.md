@@ -2,7 +2,6 @@
 
 In diesem Beispiel wird ein Prozess für den Versand von Emails modelliert.
 
-
 ## Prozessschritte anlegen
 
 Wir erstellen ein Diagramm mit folgenden Bestandteilen:
@@ -25,7 +24,7 @@ Im Folgenden wird Erstellung und Konfiguration dieser Elemente gezeigt.
 Zu Beginn erstellt man einen
 [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu
-auf eine E-Mail anzugeben.
+auf eine Email anzugeben.
 
 Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich, den
 User Task und das Formularfeld zu benennen.  Wir bezeichnen den User
