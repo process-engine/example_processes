@@ -35,7 +35,7 @@ enter your Email address:`.
 
 <img src="./images/create_task_get_email_address.gif" />
 
-Es ergibt sich mit folgender Konfiguration:
+Es ergibt sich folgende Konfiguration:
 
 <img src="./images/create_task_get_email_address.png" width="70%" />
 
