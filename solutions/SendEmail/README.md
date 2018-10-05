@@ -2,12 +2,6 @@
 
 In diesem Beispiel wird ein Prozess für den Versand von Emails modelliert.
 
-Dazu muss der Prozess um die folgenden drei
-[Tasks](../../GLOSSARY.md#task) erweitert werden:
-
-1. Die Abfrage der Email-Adresse
-1. Die Anforderung einer Bestätigung
-1. Den Versand einer Email mit dem Wechselkurs
 
 ## Prozessschritte anlegen
 
