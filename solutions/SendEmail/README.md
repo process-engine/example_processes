@@ -81,6 +81,8 @@ Der andere Fluss trägt die Condition
 `token.history.usertask_enter_email.form_fields.email === "false"` und
 führt zu dem Service Task zum Versand der Mail.
 
+<img src="./images/create_gateway.gif" />
+
 ### [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task) für Versand der Email
 
 Der letzte Prozessschritt ist der `Send
@@ -93,10 +95,7 @@ method  send
 params  [null, token.history.usertask_enter_email.form_fields.email, "Regarding Hello World", "Hello World!"]
 ```
 
-Nach diesem
-[Task](https://www.process-engine.io/documentation/GLOSSARY.html#task)
-muss der Prozess beendet werden.
-
+<img src="./images/create_service_task.gif" />
 
 ## Vollständige Konfiguration
 
