@@ -56,7 +56,7 @@ Innerhalb der `${...}`-Syntax können wir auf Inhalte des Tokens
 zugreifen. `token.history.usertask_enter_email.form_fields.email`
 erlaubt uns den Zugriff auf den Wert, welchen der Nutzer in dem
 vorherigen User Task mit der Id `usertask_enter_email` eingibt. Mit
-dem `+`-Zeichen kann dieser Wert mit dem Text verbunden werden.
+dem `+`-Zeichen kann dieser Wert mit Zeichenketten verbunden werden.
 
 <img src="./images/create_task_confirm_data.gif" />
 
