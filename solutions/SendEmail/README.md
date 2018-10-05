@@ -25,7 +25,9 @@ auf eine E-Mail anzugeben.
 
 Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich den
 User Task und das Formularfeld zu benennen.  Wir bezeichnen den User
-Task als `usertask_enter_email` und das Formularfeld als `email`.
+Task als `usertask_enter_email` und das Formularfeld als `email`.  Bei
+dem Formularfeld fügen wir ein Label hinzu mit dem Inhalt `Please
+enter your Email address:`.
 
 <img src="./images/create_task_get_email_address.gif" />
 
@@ -35,8 +37,21 @@ Es ergibt sich mit folgender Konfiguration:
 
 ### [User Task](../../GLOSSARY.md#user-task) für Bestätigungsdialog
 
-Ein weiterer [User Task](../../GLOSSARY.md#user-task) soll dem Nutzer die Möglichkeit geben, den
-Prozess abzubrechen.
+Ein weiterer [User Task](../../GLOSSARY.md#user-task) soll dem Nutzer
+die Möglichkeit geben, den Prozess abzubrechen.  Wir erstellen den
+User Task mit der Id `usertask_email_confirm` und dem Namen `Confirm
+Data`.  Für User Tasks zur Bestätigung benötigen wir zudem die
+Property `preferredControl` mit dem Wert `confirm` und ein
+Formularfeld vom Typ `Truth value`.  Als Label benutzen wir `${"Do you
+want to send an email to " +
+token.history.usertask_enter_email.form_fields.email +
+"?"}`. Innerhalb der `${...}`-Syntax können wir auf Inhalte des Tokens
+zugreifen. `token.history.usertask_enter_email.form_fields.email`
+erlaubt uns den Zugriff auf den Wert, welchen der Nutzer in dem
+vorherigen User Task mit der Id `usertask_enter_email` eingibt. Mit
+dem `+`-Zeichen kann dieser Wert mit den Text verbunden werden.
+
+<img src="./images/create_task_confirm_data.gif" />
 
 ### [XOR-Gateway](../../GLOSSARY.md#gateway)
 
@@ -49,6 +64,15 @@ Diese Auswahl hat Einfluss auf den weiteren Prozessweg. Cancel beendet den
 Prozess; Confirm löst den `Send email`-[Task](../../GLOSSARY.md#task)
 aus.
 
+Die Fallunterscheidung erfolgt bei der Konfiguration der
+Sequenzflüsse, die dem XOR-Gateway folgen.
+
+Einer der Flüsse führt zum Endevent mit der Condition
+`token.history.usertask_enter_email.form_fields.email === "true"`.
+Der andere Fluss trägt die Condition
+`token.history.usertask_enter_email.form_fields.email === "false"` und
+führt zu dem Service Task zum Versand der Mail.
+
 ### [Service Task](../../GLOSSARY.md#service-task) für Versand der Email
 
 Der letzte Prozessschritt ist der `Send
@@ -58,10 +82,12 @@ Eigenschaften erhalten:
 ```
 module  MailService
 method  send
-params  [null, token.history.UserTask_GetEmailAddress.email, "EUR to USD conversion rate", "1 EUR = " + token.history.ServiceTask_FetchData.result.EUR_USD.val + " USD"]
+params  [null, token.history.usertask_enter_email.email, "Regarding Hello World", "Hello World!"]
 ```
 
 Nach diesem [Task](../../GLOSSARY.md#task) muss der Prozess beendet
 werden.
 
-<img src="./images/confirm-and-send-email.gif" />
+
+Hier ist eine Aufnahme der kompletten Konfiguration des Prozesses:
+<img src="./images/complete_configuration.gif" />
