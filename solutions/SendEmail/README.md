@@ -12,22 +12,22 @@ Wir erstellen ein Diagramm mit folgenden Bestandteilen:
    : `Enter Email Address`
 1. [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
    : `Confirm Email Address`
-1. [XOR-Gateway](https://www.process-engine.io/documentation/GLOSSARY.html#gateway),
-   welches unterscheidet, ob im vorherigen Usertask bestätigt wurde
+1. [XOR-Gateway](https://www.process-engine.io/documentation/GLOSSARY.html#gateway)
+   : unterscheidet, ob im vorherigen Usertask bestätigt wurde
 1. [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task)
-   `Send Email`
+   : `Send Email`
 1. [Endevent](https://www.process-engine.io/documentation/GLOSSARY.html#event)
 
 Im Folgenden wird Erstellung und Konfiguration dieser Elemente gezeigt.
 
-### [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)User Task zur Eingabe der Emailadresse
+### [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task) zur Eingabe der Emailadresse
 
 Zu Beginn erstellt man einen
 [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu
 auf eine E-Mail anzugeben.
 
-Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich den
+Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich, den
 User Task und das Formularfeld zu benennen.  Wir bezeichnen den User
 Task als `usertask_enter_email` und das Formularfeld als `email`.  Bei
 dem Formularfeld fügen wir ein Label hinzu mit dem Inhalt `Please
@@ -50,11 +50,13 @@ zudem die Property `preferredControl` mit dem Wert `confirm` und ein
 Formularfeld vom Typ `Truth value`.  Als Label benutzen wir `${"Do you
 want to send an email to " +
 token.history.usertask_enter_email.form_fields.email +
-"?"}`. Innerhalb der `${...}`-Syntax können wir auf Inhalte des Tokens
+"?"}`.
+
+Innerhalb der `${...}`-Syntax können wir auf Inhalte des Tokens
 zugreifen. `token.history.usertask_enter_email.form_fields.email`
 erlaubt uns den Zugriff auf den Wert, welchen der Nutzer in dem
 vorherigen User Task mit der Id `usertask_enter_email` eingibt. Mit
-dem `+`-Zeichen kann dieser Wert mit den Text verbunden werden.
+dem `+`-Zeichen kann dieser Wert mit dem Text verbunden werden.
 
 <img src="./images/create_task_confirm_data.gif" />
 
@@ -88,13 +90,15 @@ muss die folgenden Eigenschaften erhalten:
 ```
 module  MailService
 method  send
-params  [null, token.history.usertask_enter_email.email, "Regarding Hello World", "Hello World!"]
+params  [null, token.history.usertask_enter_email.form_fields.email, "Regarding Hello World", "Hello World!"]
 ```
 
 Nach diesem
 [Task](https://www.process-engine.io/documentation/GLOSSARY.html#task)
 muss der Prozess beendet werden.
 
+
+## Vollständige Konfiguration
 
 Hier ist eine Aufnahme der kompletten Konfiguration des Prozesses:
 <img src="./images/complete_configuration.gif" />
