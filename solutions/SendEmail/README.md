@@ -6,20 +6,20 @@ In diesem Beispiel wird ein Prozess für den Versand von Emails modelliert.
 
 Wir erstellen ein Diagramm mit folgenden Bestandteilen:
 
-1. [Startevent](https://www.process-engine.io/documentation/GLOSSARY.html#event)
+1. [Start Event](https://www.process-engine.io/documentation/GLOSSARY.html#event)
 1. [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
    : `Enter Email Address`
 1. [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
    : `Confirm Email Address`
-1. [XOR-Gateway](https://www.process-engine.io/documentation/GLOSSARY.html#gateway)
-   : unterscheidet, ob im vorherigen Usertask bestätigt wurde
+1. [Exclusive Gateway](https://www.process-engine.io/documentation/GLOSSARY.html#gateway)
+   : unterscheidet, ob im vorherigen User Task bestätigt wurde
 1. [Service Task](https://www.process-engine.io/documentation/GLOSSARY.html#service-task)
    : `Send Email`
-1. [Endevent](https://www.process-engine.io/documentation/GLOSSARY.html#event)
+1. [End Event](https://www.process-engine.io/documentation/GLOSSARY.html#event)
 
 Im Folgenden wird Erstellung und Konfiguration dieser Elemente gezeigt.
 
-### UserTask zur Eingabe der Emailadresse
+### User Task zur Eingabe der Emailadresse
 
 Zu Beginn erstellt man einen
 [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
@@ -27,9 +27,10 @@ mit dem Namen `Get Email Address`. Dieser fordert den User per UI dazu
 auf eine Email anzugeben.
 
 Da wir auf die Eingabe des Nutzers zugreifen werden, lohnt es sich, den
-User Task und das Formularfeld zu benennen.  Wir bezeichnen den User
-Task als `usertask_enter_email` und das Formularfeld als `email`.  Bei
-dem Formularfeld fügen wir ein Label hinzu mit dem Inhalt `Please
+User Task und das Formularfeld zu benennen.
+Wir bezeichnen den User Task als `usertask_enter_email` und das
+Formularfeld als `email`.
+Bei dem Formularfeld fügen wir ein Label hinzu mit dem Inhalt `Please
 enter your Email address:`.
 
 <img src="./images/create_task_get_email_address.gif" />
@@ -38,10 +39,10 @@ Es ergibt sich folgende Konfiguration:
 
 <img src="./images/create_task_get_email_address.png" width="70%" />
 
-### UserTask für Bestätigungsdialog
+### User Task für Bestätigungsdialog
 
 Ein weiterer
-[UserTask](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
+[User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
 soll dem Nutzer die Möglichkeit geben, den Prozess abzubrechen.
 
 Wir erstellen den User Task mit der Id `usertask_email_confirm` und
@@ -56,12 +57,12 @@ ${"Do you want to send an email to " + token.history.usertask_enter_email.form_f
 Innerhalb der `${...}`-Syntax können wir auf Inhalte des Tokens
 zugreifen. `token.history.usertask_enter_email.form_fields.email`
 erlaubt uns den Zugriff auf den Wert, welchen der Nutzer in dem
-vorherigen User Task mit der Id `usertask_enter_email` eingibt. Mit
-dem `+`-Zeichen kann dieser Wert mit Zeichenketten verbunden werden.
+vorherigen User Task mit der Id `usertask_enter_email` eingibt.
+Mit dem `+`-Zeichen kann dieser Wert mit Zeichenketten verbunden werden.
 
 <img src="./images/create_task_confirm_data.gif" />
 
-### XOR-Gateway (Exklusiver Pfad)
+### Exclusive Gateway (Exklusiver Pfad)
 
 Als Nächstes wird eine Überprüfung angelegt.
 
@@ -69,13 +70,12 @@ Es ist zu prüfen, ob in dem `Confirm Data`-Task
 Confirm oder Cancel ausgewählt wurde; wir benutzen ein `Gateway` dafür.
 
 Diese Auswahl hat Einfluss auf den weiteren Prozessweg. Cancel beendet
-den Prozess; Confirm löst den `Send
-email`-Task aus.
+den Prozess; Confirm löst den `Send email`-Task aus.
 
 Die Fallunterscheidung erfolgt bei der Konfiguration der
-Sequenzflüsse, die dem XOR-Gateway folgen.
+Sequenzflüsse, die dem Exclusive Gateway folgen.
 
-Einer der Flüsse führt zum Endevent mit der Condition
+Einer der Flüsse führt zum End Event mit der Condition
 
 `token.history.usertask_enter_email.form_fields.email === "true"`.
 
@@ -89,8 +89,8 @@ und führt zu dem Service Task zum Versand der Mail.
 
 ### Service Task für den Versand der Email
 
-Der letzte Prozessschritt ist der `Send
-email`-Task. Dieser muss die folgenden Eigenschaften erhalten:
+Der letzte Prozessschritt ist der `Send email`-Task.
+Dieser muss die folgenden Eigenschaften erhalten:
 
 ```plain
 module  MailService
