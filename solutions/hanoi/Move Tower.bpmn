@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="BPMN Studio" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+    <bpmn:extensionElements>
+      <camunda:formData />
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_0px403d" name="Execute tower problem" processRef="Move Tower" />
+  </bpmn:collaboration>
+  <bpmn:process id="Move Tower" name="Move Tower" isExecutable="true">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="Lane">
+        <bpmn:extensionElements>
+          <camunda:formData />
+        </bpmn:extensionElements>
+        <bpmn:flowNodeRef>Task_1dey5hp</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>tower_repository</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ANFANG</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>prepare_param</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ENDE</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent_1mox3jl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0eie6q6</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1mox3jl" name="Start Event">
+      <bpmn:outgoing>SequenceFlow_1jdocur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:callActivity id="Task_1dey5hp" name="Flip tower" calledElement="Flip tower">
+      <bpmn:incoming>SequenceFlow_1oct855</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0m7og9y</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:scriptTask id="tower_repository" name="Create towers" camunda:resultVariable="">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1jdocur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1mvc82y</bpmn:outgoing>
+      <bpmn:script>return [['1', '2', '3'], [], []];</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:userTask id="ANFANG" name="Print towers" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="Form_zmX8d3Sem" label="${JSON.stringify(token)}" type="boolean" defaultValue="" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="preferredControl" value="confirm" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1mvc82y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1fbiqs5</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:scriptTask id="prepare_param" name="Prepare parameters" camunda:resultVariable="">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1fbiqs5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1oct855</bpmn:outgoing>
+      <bpmn:script>return {tower: token.history.tower_repository, fromIndex: 0, toIndex: 1};</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="EndEvent_0eie6q6" name="End Event">
+      <bpmn:incoming>SequenceFlow_0jrq2j0</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="ENDE" name="Print towers" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="Form_zmX8d3Se" label="${JSON.stringify(token)}" type="boolean" defaultValue="" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="preferredControl" value="confirm" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0m7og9y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0jrq2j0</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1jdocur" sourceRef="StartEvent_1mox3jl" targetRef="tower_repository" />
+    <bpmn:sequenceFlow id="SequenceFlow_1fbiqs5" sourceRef="ANFANG" targetRef="prepare_param" />
+    <bpmn:sequenceFlow id="SequenceFlow_1mvc82y" name="" sourceRef="tower_repository" targetRef="ANFANG">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0m7og9y" sourceRef="Task_1dey5hp" targetRef="ENDE" />
+    <bpmn:sequenceFlow id="SequenceFlow_1oct855" sourceRef="prepare_param" targetRef="Task_1dey5hp" />
+    <bpmn:sequenceFlow id="SequenceFlow_0jrq2j0" sourceRef="ENDE" targetRef="EndEvent_0eie6q6" />
+    <bpmn:textAnnotation id="TextAnnotation_1vjyjnx">
+      <bpmn:text>Diagrams started with Call Activities cannot access token.history, but only token.current</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1gf1055">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:text>Here we create our towers.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1on85do" sourceRef="tower_repository" targetRef="TextAnnotation_1gf1055" />
+    <bpmn:association id="Association_1r63c3i" sourceRef="prepare_param" targetRef="TextAnnotation_1vjyjnx" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="75" y="105" width="1093" height="349" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="105" y="105" width="1063" height="349" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1mox3jl_di" bpmnElement="StartEvent_1mox3jl">
+        <dc:Bounds x="156" y="267" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="147" y="303" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0eie6q6_di" bpmnElement="EndEvent_0eie6q6">
+        <dc:Bounds x="1094" y="267" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1087" y="303" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jdocur_di" bpmnElement="SequenceFlow_1jdocur">
+        <di:waypoint x="192" y="285" />
+        <di:waypoint x="293" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fbiqs5_di" bpmnElement="SequenceFlow_1fbiqs5">
+        <di:waypoint x="545" y="285" />
+        <di:waypoint x="588" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0vbg1fx_di" bpmnElement="ANFANG">
+        <dc:Bounds x="445" y="245" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1mvc82y_di" bpmnElement="SequenceFlow_1mvc82y">
+        <di:waypoint x="393" y="285" />
+        <di:waypoint x="445" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ScriptTask_180once_di" bpmnElement="tower_repository">
+        <dc:Bounds x="293" y="245" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1gf1055_di" bpmnElement="TextAnnotation_1gf1055">
+        <dc:Bounds x="329" y="126" width="100" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1on85do_di" bpmnElement="Association_1on85do">
+        <di:waypoint x="353" y="245" />
+        <di:waypoint x="373" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0m7og9y_di" bpmnElement="SequenceFlow_0m7og9y">
+        <di:waypoint x="841" y="285" />
+        <di:waypoint x="920" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="CallActivity_14grg94_di" bpmnElement="Task_1dey5hp">
+        <dc:Bounds x="741" y="245" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ScriptTask_0hrca92_di" bpmnElement="prepare_param">
+        <dc:Bounds x="588" y="245" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1oct855_di" bpmnElement="SequenceFlow_1oct855">
+        <di:waypoint x="688" y="285" />
+        <di:waypoint x="741" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1vjyjnx_di" bpmnElement="TextAnnotation_1vjyjnx">
+        <dc:Bounds x="588" y="117" width="100" height="112" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1r63c3i_di" bpmnElement="Association_1r63c3i">
+        <di:waypoint x="638" y="245" />
+        <di:waypoint x="638" y="229" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1wqm2yg_di" bpmnElement="ENDE">
+        <dc:Bounds x="920" y="245" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0jrq2j0_di" bpmnElement="SequenceFlow_0jrq2j0">
+        <di:waypoint x="1020" y="285" />
+        <di:waypoint x="1094" y="285" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
