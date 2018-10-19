@@ -69,3 +69,20 @@ Zur modularen Lösung erstellen wir drei Prozesse:
 1. **Move Tower** erstellt die Ausgangslage und verschiebt den Turm
    von Position `0` zu `2`. Dies erreichen wir, indem wir zweifach
    **Flip Tower** aufrufen.
+
+## Datenrepräsentation
+
+Im Mangel einer Lagerhalle mit Stapeltürmen voller Buchstaben brauchen
+wir eine Datenrepräsentation der Türme. Wir stellen den Zustand der
+Türme mit JavaScript-Arrays dar. Ein Array mit der Länge 3
+repräsentiert die drei Position. Jede Position beinhaltet ein weiteres
+Array mit den Elementen des Turmes.
+
+Der folgende Zustand:
+```
+   B
+C  A
+-  -  -
+0  1  2
+```
+wird mit `[[],["C"],["B", "A"]]` dargestellt.
