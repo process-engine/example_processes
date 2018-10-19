@@ -43,11 +43,12 @@ C  A
 Nach kurzer Betrachtung kommt man zur folgenden Lösung:
 
 ```
-A                                   C                                   A
-B       -> B       ->    B    ->    B    ->    B    ->       B ->       B
-C          C  A       C  A          A          A  C       A  C          C
--  -  -    -  -  -    -  -  -    -  -  -    -  -  -    -  -  -    -  -  -
-0  1  2    0  1  2    0  1  2    0  1  2    0  1  2    0  1  2    0  1  2
+A       |         |         |    C    |         |         |       A
+B       | B       |    B    |    B    |    B    |       B |       B
+C       | C  A    | C  A    |    A    |    A  C |    A  C |       C
+-  -  - | -  -  - | -  -  - | -  -  - | -  -  - | -  -  - | -  -  -
+0  1  2 | 0  1  2 | 0  1  2 | 0  1  2 | 0  1  2 | 0  1  2 | 0  1  2
+        ⤻         ⤻         ⤻         ⤻         ⤻         ⤻
 ```
 
 Die naive BPMN-Implementierung würde einfach eine Reihe von Tasks
