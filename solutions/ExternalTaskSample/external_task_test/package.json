@@ -1,0 +1,17 @@
+{
+  "name": "external_task_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@essential-projects/http": "^2.1.0",
+    "@process-engine/external_task_api_client": "feature~add_external_task_worker",
+    "@process-engine/external_task_api_contracts": "feature~add_external_task_worker",
+    "moment": "^2.22.2"
+  }
+}
