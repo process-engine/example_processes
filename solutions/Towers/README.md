@@ -124,7 +124,7 @@ Um komfortabel auf diese Startparameter zugreifen zu können, vergeben
 wir eine neue ID `startevent_arguments`.
 
 
-# Take Element ScriptTask
+## `Take Element`-ScriptTask
 
 Die eigentliche Funktionalität bewältigen wir mit ScriptTasks.
 
@@ -154,7 +154,7 @@ return (() => {
 Der Programmcode muss in das Feld `Script` im PropertyPanel eingefügt
 werden.
 
-## Put Element ScriptTask
+## `Put Element`-ScriptTask
 
 Wir erstellen einen weiteren ScriptTask mit dem Name `Put element
 onto another tower`. Wir müssen das zuvor entfernte Element noch auf
