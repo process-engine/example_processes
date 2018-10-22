@@ -1,11 +1,13 @@
 # Towers
 
 Einer der wichtigsten Faktoren von BPMN ist die Modularität. Indem wir
-komplexe Vorgänge auf mehrere Diagramme verteilen erreichen wir mehr
+komplexe Vorgänge auf mehrere Diagramme verteilen, erreichen wir mehr
 Ordnung und Austauschbarkeit.
 
 Das hier vorgestellte Beispiel demonstriert das Zusammensetzen
 mehrerer Diagramme zur Lösung eines Problemes.
+
+## Szenario
 
 In unserem Szenario wollen wir einen Stapelturm von Elementen
 verschieben. Die Reihenfolge der Elemente soll gleich bleiben. Die
@@ -59,6 +61,8 @@ zur Position `1` verschoben werden soll?  Und wie sähe das Diagramm
 aus, wenn der Turm nicht nur drei Elemente hoch wäre, sondern
 hunderte?
 
+## Lösungsidee
+
 Zur modularen Lösung erstellen wir drei Prozesse:
 
 1. **Move Element** erlaubt das Bewegen des obersten Element eines
@@ -87,8 +91,7 @@ C  A
 ```
 wird mit `[["C"], ["B", "A"], []]` dargestellt.
 
-
-# Move Element
+# **Move Element**-Diagramm
 
 Die technische Grundlage für das Turmproblem ist die Möglichkeit das
 oberste Element eines Turmes auf einen anderen Turm (oder auf die
@@ -170,7 +173,7 @@ Der ScriptTask wird mit dem EndEvent verknüpft. Was hier als letzter
 Tokenwert zurückgegeben wird, wird auch der resultierende Wert beim
 Aufruf der CallActivity sein.
 
-# Flip Tower
+# **Flip Tower**-Diagramm
 
 Wie bereits festgestellt, können wir das Verschieben eines Turmes mit
 einem Prozess zum Umdrehen vereinfachen. Dieser Prozess wird Elemente
@@ -275,7 +278,7 @@ ScriptTask mit dem Name `Prepare Parameters` führt.  Der Flow wird mit
 `no` bezeichnet und soll die Condition
 `token.history.servicetask_check_if_done === false` tragen.
 
-# Move Tower
+# **Move Tower**-Diagramm
 
 Mithilfe der beiden anderen Diagramme können wir nun den `Move
 Tower`-Prozess modellieren.
@@ -320,6 +323,9 @@ Schritten:
 1. CallActivity `Flip Tower` zum Umdrehen eines Turmes
 1. UserTask `Confirm Towers` zum Darstellen des neuen Zustandes
 
+
+### ScriptTask `Prepare parameters`
+
 Der ScriptTask enthält den Code:
 
 ```js
@@ -333,8 +339,13 @@ return {
 > Zur Erinnerung: Beim **Flip Tower**-Diagramm haben wir dieses
 > Format zur Übersicht per Text-Annotation vermerkt.
 
+### CallActivity `Flip Tower`
+
 Die CallActivity erhält die ID `callactivity_flip_tower` und verweist
 auf den **Flip-Tower**-Prozess.
+
+
+### UserTask `Confirm Towers`
 
 Der Confirm-UserTask soll das Ergebnis der CallActivity anzeigen. Im
 Label des FormFields steht also wieder
