@@ -54,7 +54,7 @@
       <bpmn:outgoing>SequenceFlow_1mvc82y</bpmn:outgoing>
       <bpmn:script>return [['1', '2', '3'], [], []];</bpmn:script>
     </bpmn:scriptTask>
-    <bpmn:userTask id="ANFANG" name="Print towers" camunda:formKey="Form Key">
+    <bpmn:userTask id="ANFANG" name="Confirm towers" camunda:formKey="Form Key">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="Form_zmX8d3Sem" label="${JSON.stringify(token.current)}" type="boolean" defaultValue="" />
@@ -81,7 +81,7 @@
       <bpmn:incoming>SequenceFlow_1oct855</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0m7og9y</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:userTask id="MITTE" name="Print towers" camunda:formKey="Form Key">
+    <bpmn:userTask id="MITTE" name="Confirm towers" camunda:formKey="Form Key">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="Form_zmX8d3Sem" label="${JSON.stringify(token.current)}" type="boolean" defaultValue="" />
@@ -108,7 +108,7 @@
       <bpmn:incoming>SequenceFlow_14ke7y6</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1jqsbij</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:userTask id="ENDE" name="Print towers" camunda:formKey="Form Key">
+    <bpmn:userTask id="ENDE" name="Confirm towers" camunda:formKey="Form Key">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="Form_zmX8d3Se" label="${JSON.stringify(token.current)}" type="boolean" defaultValue="" />
