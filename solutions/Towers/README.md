@@ -98,6 +98,8 @@ oberste Element eines Turmes auf einen anderen Turm (oder auf die
 leere Position `[]`) zu verschieben.
 Diese Funktion modellieren wir mit dem Diagramm **Move Element**.
 
+<img src="./images/move_element.png" />
+
 ## StartEvent
 
 Dieses Diagramm wird über eine CallActivity aufgerufen. Normalerweise
@@ -180,6 +182,8 @@ einem Prozess zum Umdrehen vereinfachen. Dieser Prozess wird Elemente
 von einer Position `fromIndex` zu einer Position `toIndex`
 verschieben, bis der `fromIndex`-Turm leer ist.
 
+<img src="./images/flip_tower.png" />
+
 ## StartEvent
 
 Genau wie der `Move Element`-Prozess wird auch dieser Prozess über
@@ -236,7 +240,7 @@ return token.history.start_arguments.tower[token.history.startevent_arguments.fr
 ```
 
 Wir versehen den ScriptTask mit der ID `servicetask_check_if_done` und
-dem Name `Check if original Tower is empty`.
+dem Name `Check if original tower is empty`.
 
 ## ExclusiveGateway
 
@@ -293,6 +297,8 @@ Der Ablauf sieht folgendermaßen aus:
 
 Als kleinen Zusatz stellen wir wiederholt den Zustand der Türme in Textform dar,
 damit wir sehen können, dass es wirklich funktioniert.
+
+<img src="./images/flip_tower.png" />
 
 ## Türme erstellen (ScriptTask)
 
