@@ -380,3 +380,13 @@ return {
   toIndex: 2,
 };
 ```
+
+# Fazit
+
+Mit diesem Beispiel haben wir gelernt, wie wir Prozesse über
+CallActivities miteinander verknüpfen und so komplexe Probleme
+übersichtlich behandeln.
+
+Und hier sehen wir die Prozesse in Ausführung:
+
+<img src="./images/execution.gif" />
