@@ -95,8 +95,6 @@ oberste Element eines Turmes auf einen anderen Turm (oder auf die
 leere Position `[]`) zu verschieben.
 Diese Funktion modellieren wir mit dem Diagramm **Move Element**.
 
-
-
 ## StartEvent
 
 Dieses Diagramm wird über eine CallActivity aufgerufen. Normalerweise
@@ -125,7 +123,7 @@ wir eine neue ID `startevent_arguments`.
 
 Die eigentliche Funktionalität bewältigen wir mit ScriptTasks.
 
-Wir hängen einen neuen ScriptTask an das StartEvent mit dem Namen
+Wir hängen einen neuen ScriptTask an das StartEvent mit dem Name
 `Take element of one tower` und der ID `scripttask_take_element`.
 
 
@@ -153,7 +151,7 @@ werden.
 
 ## Put Element ScriptTask
 
-Wir erstellen einen weiteren ScriptTask mit dem Namen `Put element
+Wir erstellen einen weiteren ScriptTask mit dem Name `Put element
 onto another tower`. Wir müssen das zuvor entfernte Element noch auf
 den Turm an der Stelle `toIndex` hinzufügen.
 
@@ -174,5 +172,105 @@ Aufruf der CallActivity sein.
 
 # Flip Tower
 
+Wie bereits festgestellt, können wir das Verschieben eines Turmes mit
+einem Prozess zum Umdrehen vereinfachen. Dieser Prozess wird Elemente
+von einer Position `fromIndex` zu einer Position `toIndex`
+verschieben, bis der `fromIndex`-Turm leer ist.
+
+## StartEvent
+
+Genau wie der `Move Element`-Prozess wird auch dieser Prozess über
+eine CallActivity aufgerufen. Für unsere Übersicht behaften wir auch
+hier das StartEvent mit einer TextAnnotation, welche Aufschluss über
+die erwarteten Übergabeparameter gibt:
+
+```
+Expects:
+{
+  tower: Array<Array<string>>,
+  fromIndex: number,
+  toIndex: number,
+}
+```
+
+Zudem benennen wir die ID des StartEvents zu `startevent_arguments` um
+für einen erleichterten Zugriff auf die Parameter.
+
+## Bewegen eines Elements (ScriptTask + CallActivity)
+
+Bevor wir die CallActivity aufrufen, müssen zunächst die
+Übergabeparameter vorbereitet werden. CallActivities übernehmen als
+Parameter immer den aktuellsten Tokenwert.
+
+Zunächst erstellen wir daher einen ScriptTask mit folgendem Code:
+```
+return {
+  tower: token.history.start_arguments.tower,
+  fromIndex: token.history.start_arguments.fromIndex,
+  toIndex: token.history.start_arguments.toIndex,
+}
+```
+
+Wir vergeben den Name `Prepare parameters`.
+
+
+Anschließend erstellen wir die CallActivity. Wir verlinken das zuvor
+erstellte `Move-Element`-Diagramm und setzen den Name auf `Move
+Element` und die ID auf `callactivity_move_element`.
+
+## Kontrolle der Abbruchsbedingung (ScriptTask)
+
+Mit einem weiteren ScriptTask kontrollieren wir, ob wir den
+gewünschten Endzustand erreicht haben.
+
+Der Prozess soll dann stoppen, wenn der Ausgangsturm an der Position
+`fromIndex` leer ist. Dies können wir mit folgendem Programmcode
+überprüfen:
+
+```
+return token.history.start_arguments.tower[token.history.startevent_arguments.fromIndex].length === 0;
+```
+
+Wir versehen den ScriptTask mit der ID `servicetask_check_if_done` und
+dem Name `Check if original Tower is empty`.
+
+## ExclusiveGateway
+
+Dem ScriptTask folgend erstellen wir ein Gateway mit dem Name `Is
+original tower empty?`.
+
+### Abbruch (ScriptTask + EndEvent)
+
+Wenn der vorherige ScriptTask `true` zurückgibt, also der Ausgangsturm
+leer ist, möchten wir den Prozess beenden. Zuvor müssen wir allerdings
+die Parameter zur Ausgabe aufbereiten. Der Prozess `Flip Tower` wird
+als CallActivity aufgerufen und wir müssen im letzten Knoten das
+Ergebnis aufbereiten, da dieses auch als Ergebnis beim Aufruf der
+CallActivity angezeigt wird.
+
+Wir erstellen einen ScriptTask, wobei wir im PropertyPanel bei
+`Script` den folgenden Code eingeben:
+
+```
+return token.history.callactivity_move_element;
+```
+
+Der ScriptTask erhält den Name `Return Towers`.
+
+
+Wir fügen zudem einen Flow vom Gateway zum ScriptTask mit der Condition
+`token.history.servicetask_check_if_done === true` und dem Name `yes`
+(als Antwort auf die Frage, ob der Turm leer ist) zu.
+
+Der ScriptTask wird mit einem EndEvent verbunden.
+
+### Schleife
+
+Bis die Abbruchsbedingung erfüllt ist, wollen wir weitere Elemente bewegen.
+
+Ausgehend vom Gateway erstellen wir einen Flow, welcher zurück zum
+ScriptTask mit dem Name `Prepare Parameters` führt.  Der Flow wird mit
+`no` bezeichnet und soll die Condition
+`token.history.servicetask_check_if_done === false` tragen.
 
 # Move Tower
