@@ -298,7 +298,7 @@ Der Ablauf sieht folgendermaßen aus:
 Als kleinen Zusatz stellen wir wiederholt den Zustand der Türme in Textform dar,
 damit wir sehen können, dass es wirklich funktioniert.
 
-<img src="./images/flip_tower.png" />
+<img src="./images/move_tower.png" />
 
 ## Türme erstellen (ScriptTask)
 
