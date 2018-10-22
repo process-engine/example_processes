@@ -266,7 +266,8 @@ Der ScriptTask wird mit einem EndEvent verbunden.
 
 ### Schleife
 
-Bis die Abbruchsbedingung erfüllt ist, wollen wir weitere Elemente bewegen.
+Bis die Abbruchsbedingung erfüllt ist wollen wir weitere Elemente
+bewegen.
 
 Ausgehend vom Gateway erstellen wir einen Flow, welcher zurück zum
 ScriptTask mit dem Name `Prepare Parameters` führt.  Der Flow wird mit
@@ -274,3 +275,85 @@ ScriptTask mit dem Name `Prepare Parameters` führt.  Der Flow wird mit
 `token.history.servicetask_check_if_done === false` tragen.
 
 # Move Tower
+
+Mithilfe der beiden anderen Diagramme können wir nun den `Move
+Tower`-Prozess modellieren.
+
+Der Ablauf sieht folgendermaßen aus:
+
+1. Wir erstellen die Ausgangssituation (`[["A", "B", "C"], [], []]`),
+1. wir stellen den Turm auf den Kopf von Position `0` zu Position `1`
+   (`[[], ["C", "B", "A"], []]`)
+1. und machen dasselbe nochmal von Position `1` zu Position `2` (`[[],
+   [], ["A", "B", "C"]]`).
+
+Als kleinen Zusatz stellen wir wiederholt den Zustand der Türme in Textform dar,
+damit wir sehen können, dass es wirklich funktioniert.
+
+## Türme erstellen (ScriptTask)
+
+Wir erstellen die Türme mit einem ScriptTask mit dem Code:
+
+```
+return [['A', 'B', 'C'], [], []];
+```
+
+Der ScriptTask erhält von uns den Name `Create Towers` und die ID
+`scripttask_create_towers`.
+
+## Zustand darstellen
+
+Wir möchten dem Anwender gerne den Startzustand präsentieren.  Wir
+erreichen dies mit einem Confirm-UserTask und dem Wert
+`${JSON.stringify(token.current)}` als Label fürs Formfield.
+
+> Das **Hello World**-Beispiel zeigt Confirm-UserTasks im Detail.
+
+## Turm umdrehen (ScriptTask + CallActivity + UserTask)
+
+Das Umdrehen eines Turms besteht in unserer Modellierung aus drei
+Schritten:
+
+1. ScriptTask `Prepare parameters` zum Vorbereiten für die
+   CallActivity
+1. CallActivity `Flip Tower` zum Umdrehen eines Turmes
+1. UserTask `Confirm Towers` zum Darstellen des neuen Zustandes
+
+Der ScriptTask enthält den Code:
+
+```
+return {
+  tower: token.history.scripttask_create_towers,
+  fromIndex: 0,
+  toIndex: 1,
+};
+```
+
+> Zur Erinnerung: Beim **Flip Tower**-Diagramm haben wir dieses
+> Format zur Übersicht per Text-Annotation vermerkt.
+
+Die CallActivity erhält die ID `callactivity_flip_tower` und verweist
+auf den **Flip-Tower**-Prozess.
+
+Der Confirm-UserTask soll das Ergebnis der CallActivity anzeigen. Im
+Label des FormFields steht also wieder
+`${JSON.stringify(token.current)}`.
+
+## Turm erneut umdrehen
+
+Jetzt muss der Turm erneut umgedreht werden: dieses Mal jedoch von
+Position `1` auf `2`.
+
+Wir bauen diesselbe Struktur mit ScriptTask, CallActivity und UserTask
+auf. Der einzige Unterschied in der Modellierung sind die übergebenen
+Parameter.
+
+Dieses Mal fügen wir als `Script` beim ScriptTask Folgendes hinzu:
+
+```
+return {
+  tower: token.history.callactivity_flip_tower,
+  fromIndex: 1,
+  toIndex: 2,
+};
+```
