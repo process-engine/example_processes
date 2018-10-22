@@ -5,7 +5,7 @@ komplexe Vorgänge auf mehrere Diagramme verteilen, erreichen wir mehr
 Ordnung und Austauschbarkeit.
 
 Das hier vorgestellte Beispiel demonstriert das Zusammensetzen
-mehrerer Diagramme zur Lösung eines Problemes.
+mehrerer Diagramme zur Lösung eines Problems.
 
 ## Szenario
 
@@ -31,7 +31,7 @@ Wir wollen den Turm von der Position `0` zu Position `2` verschieben:
 0  1  2
 ```
 
-Es ist jedoch nur möglich, das oberste Element des Turmes zu
+Es ist jedoch nur möglich, das oberste Element des Turms zu
 bewegen. So können wir etwa `A` von `0` auf `1` verschieben:
 
 ```
@@ -80,7 +80,7 @@ Im Mangel einer Lagerhalle mit Stapeltürmen voller Buchstaben brauchen
 wir eine Datenrepräsentation der Türme. Wir stellen den Zustand der
 Türme mit JavaScript-Arrays dar. Ein Array mit der Länge 3
 repräsentiert die drei Position. Jede Position beinhaltet ein weiteres
-Array mit den Elementen des Turmes.
+Array mit den Elementen des Turms.
 
 Der folgende Zustand:
 ```
@@ -94,7 +94,7 @@ wird mit `[["C"], ["B", "A"], []]` dargestellt.
 # **Move Element**-Diagramm
 
 Die technische Grundlage für das Turmproblem ist die Möglichkeit das
-oberste Element eines Turmes auf einen anderen Turm (oder auf die
+oberste Element eines Turms auf einen anderen Turm (oder auf die
 leere Position `[]`) zu verschieben.
 Diese Funktion modellieren wir mit dem Diagramm **Move Element**.
 
@@ -200,7 +200,7 @@ Expects:
 }
 ```
 
-Zudem benennen wir die ID des StartEvents zu `startevent_arguments` um
+Zudem benennen wir die ID des StartEvents `startevent_arguments`
 für einen erleichterten Zugriff auf die Parameter.
 
 ## Bewegen eines Elements (ScriptTask + CallActivity)
@@ -263,7 +263,7 @@ Wir erstellen einen ScriptTask, wobei wir im PropertyPanel bei
 return token.history.callactivity_move_element;
 ```
 
-Der ScriptTask erhält den Name `Return Towers`.
+Der ScriptTask erhält den Name `Return towers`.
 
 
 Wir fügen zudem einen Flow vom Gateway zum ScriptTask mit der Condition
@@ -278,7 +278,7 @@ Bis die Abbruchsbedingung erfüllt ist wollen wir weitere Elemente
 bewegen.
 
 Ausgehend vom Gateway erstellen wir einen Flow, welcher zurück zum
-ScriptTask mit dem Name `Prepare Parameters` führt.  Der Flow wird mit
+ScriptTask mit dem Name `Prepare parameters` führt.  Der Flow wird mit
 `no` bezeichnet und soll die Condition
 `token.history.servicetask_check_if_done === false` tragen.
 
@@ -305,10 +305,10 @@ damit wir sehen können, dass es wirklich funktioniert.
 Wir erstellen die Türme mit einem ScriptTask mit dem Code:
 
 ```js
-return [['A', 'B', 'C'], [], []];
+return [["A", "B", "C"], [], []];
 ```
 
-Der ScriptTask erhält von uns den Name `Create Towers` und die ID
+Der ScriptTask erhält von uns den Name `Create towers` und die ID
 `scripttask_create_towers`.
 
 ## Zustand darstellen
@@ -326,8 +326,8 @@ Schritten:
 
 1. ScriptTask `Prepare parameters` zum Vorbereiten für die
    CallActivity
-1. CallActivity `Flip Tower` zum Umdrehen eines Turmes
-1. UserTask `Confirm Towers` zum Darstellen des neuen Zustandes
+1. CallActivity `Flip Tower` zum Umdrehen eines Turms
+1. UserTask `Confirm towers` zum Darstellen des neuen Zustands
 
 
 ### ScriptTask `Prepare parameters`
@@ -351,7 +351,7 @@ Die CallActivity erhält die ID `callactivity_flip_tower` und verweist
 auf den **Flip-Tower**-Prozess.
 
 
-### UserTask `Confirm Towers`
+### UserTask `Confirm towers`
 
 Der Confirm-UserTask soll das Ergebnis der CallActivity anzeigen. Im
 Label des FormFields steht also wieder
