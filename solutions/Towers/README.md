@@ -124,7 +124,7 @@ Um komfortabel auf diese Startparameter zugreifen zu können, vergeben
 wir eine neue ID `startevent_arguments`.
 
 
-## `Take Element`-ScriptTask
+## ScriptTask `Take element of one tower`
 
 Die eigentliche Funktionalität bewältigen wir mit ScriptTasks.
 
@@ -154,7 +154,7 @@ return (() => {
 Der Programmcode muss in das Feld `Script` im PropertyPanel eingefügt
 werden.
 
-## `Put Element`-ScriptTask
+## ScriptTask `Put element onto another tower`
 
 Wir erstellen einen weiteren ScriptTask mit dem Name `Put element
 onto another tower`. Wir müssen das zuvor entfernte Element noch auf
@@ -203,7 +203,7 @@ Expects:
 Zudem benennen wir die ID des StartEvents `startevent_arguments`
 für einen erleichterten Zugriff auf die Parameter.
 
-## Bewegen eines Elements (ScriptTask + CallActivity)
+## ScriptTask `Prepare parameters`
 
 Bevor wir die CallActivity aufrufen, müssen zunächst die
 Übergabeparameter vorbereitet werden. CallActivities übernehmen als
@@ -225,11 +225,13 @@ return {
 Wir vergeben den Name `Prepare parameters`.
 
 
+## CallActivity `Move Element`
+
 Anschließend erstellen wir die CallActivity. Wir verlinken das zuvor
 erstellte `Move-Element`-Diagramm und setzen den Name auf `Move
 Element` und die ID auf `callactivity_move_element`.
 
-## Kontrolle der Abbruchsbedingung (ScriptTask)
+## ScriptTask `Check if original tower is empty`
 
 Mit einem weiteren ScriptTask kontrollieren wir, ob wir den
 gewünschten Endzustand erreicht haben.
@@ -250,7 +252,7 @@ dem Name `Check if original tower is empty`.
 Dem ScriptTask folgend erstellen wir ein Gateway mit dem Name `Is
 original tower empty?`.
 
-### Abbruch (ScriptTask + EndEvent)
+### ScriptTask `Return towers`
 
 Wenn der vorherige ScriptTask `true` zurückgibt, also der Ausgangsturm
 leer ist, möchten wir den Prozess beenden. Zuvor müssen wir allerdings
@@ -314,7 +316,7 @@ return [["A", "B", "C"], [], []];
 Der ScriptTask erhält von uns den Name `Create towers` und die ID
 `scripttask_create_towers`.
 
-## Zustand darstellen
+## UserTask `Confirm towers`
 
 Wir möchten dem Anwender gerne den Startzustand präsentieren.  Wir
 erreichen dies mit einem Confirm-UserTask und dem Wert
@@ -322,7 +324,7 @@ erreichen dies mit einem Confirm-UserTask und dem Wert
 
 > Das **Hello World**-Beispiel zeigt Confirm-UserTasks im Detail.
 
-## Turm umdrehen (ScriptTask + CallActivity + UserTask)
+## Turm umdrehen
 
 Das Umdrehen eines Turms besteht in unserer Modellierung aus drei
 Schritten:
