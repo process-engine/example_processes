@@ -213,9 +213,9 @@ Zunächst erstellen wir daher einen ScriptTask mit folgendem Code:
 
 ```js
 return {
-  tower: token.history.start_arguments.tower,
-  fromIndex: token.history.start_arguments.fromIndex,
-  toIndex: token.history.start_arguments.toIndex,
+  tower: token.history.startevent_arguments.tower,
+  fromIndex: token.history.startevent_arguments.fromIndex,
+  toIndex: token.history.startevent_arguments.toIndex,
 }
 ```
 
@@ -236,7 +236,7 @@ Der Prozess soll dann stoppen, wenn der Ausgangsturm an der Position
 überprüfen:
 
 ```js
-return token.history.start_arguments.tower[token.history.startevent_arguments.fromIndex].length === 0;
+return token.history.startevent_arguments.tower[token.history.startevent_arguments.fromIndex].length === 0;
 ```
 
 Wir versehen den ScriptTask mit der ID `servicetask_check_if_done` und
