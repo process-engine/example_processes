@@ -135,7 +135,7 @@ Folgender Programmcode entfernt ein Element von dem Turm an der Stelle
 `fromIndex`. Sowohl der aktualisierte Zustand der Türme, als auch das
 entfernte Element werden zurückgegeben.
 
-```
+```js
 return (() => {
   const {tower, fromIndex} = token.history.startevent_arguments;
   const element = tower[fromIndex].pop();
@@ -157,7 +157,7 @@ den Turm an der Stelle `toIndex` hinzufügen.
 
 Hier fügen wir bei `Script` diesen Programmcode ein:
 
-```
+```js
 return (() => {
   const {tower, element} = token.history.scripttask_take_element;
   const {toIndex} = token.history.startevent_arguments;
@@ -203,7 +203,8 @@ Bevor wir die CallActivity aufrufen, müssen zunächst die
 Parameter immer den aktuellsten Tokenwert.
 
 Zunächst erstellen wir daher einen ScriptTask mit folgendem Code:
-```
+
+```js
 return {
   tower: token.history.start_arguments.tower,
   fromIndex: token.history.start_arguments.fromIndex,
@@ -227,7 +228,7 @@ Der Prozess soll dann stoppen, wenn der Ausgangsturm an der Position
 `fromIndex` leer ist. Dies können wir mit folgendem Programmcode
 überprüfen:
 
-```
+```js
 return token.history.start_arguments.tower[token.history.startevent_arguments.fromIndex].length === 0;
 ```
 
@@ -251,7 +252,7 @@ CallActivity angezeigt wird.
 Wir erstellen einen ScriptTask, wobei wir im PropertyPanel bei
 `Script` den folgenden Code eingeben:
 
-```
+```js
 return token.history.callactivity_move_element;
 ```
 
@@ -294,7 +295,7 @@ damit wir sehen können, dass es wirklich funktioniert.
 
 Wir erstellen die Türme mit einem ScriptTask mit dem Code:
 
-```
+```js
 return [['A', 'B', 'C'], [], []];
 ```
 
@@ -321,7 +322,7 @@ Schritten:
 
 Der ScriptTask enthält den Code:
 
-```
+```js
 return {
   tower: token.history.scripttask_create_towers,
   fromIndex: 0,
@@ -350,7 +351,7 @@ Parameter.
 
 Dieses Mal fügen wir als `Script` beim ScriptTask Folgendes hinzu:
 
-```
+```js
 return {
   tower: token.history.callactivity_flip_tower,
   fromIndex: 1,
