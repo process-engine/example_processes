@@ -219,6 +219,9 @@ return {
 }
 ```
 
+> Zur Erinnerung: Beim **Move Element**-Diagramm haben wir dieses Format zur
+> Übersicht per Text-Annotation vermerkt.
+
 Wir vergeben den Name `Prepare parameters`.
 
 
@@ -300,7 +303,7 @@ damit wir sehen können, dass es wirklich funktioniert.
 
 <img src="./images/move_tower.png" />
 
-## Türme erstellen (ScriptTask)
+## ScriptTask `Create towers`
 
 Wir erstellen die Türme mit einem ScriptTask mit dem Code:
 
@@ -363,7 +366,7 @@ Jetzt muss der Turm erneut umgedreht werden: dieses Mal jedoch von
 Position `1` auf `2`.
 
 Wir bauen diesselbe Struktur mit ScriptTask, CallActivity und UserTask
-auf. Der einzige Unterschied in der Modellierung sind die übergebenen
+wie zuvor auf. Der einzige Unterschied in der Modellierung sind die übergebenen
 Parameter.
 
 Dieses Mal fügen wir als `Script` beim ScriptTask Folgendes hinzu:
