@@ -1,0 +1,94 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "0f6e81be24127d595d19617cf5340b34edebbcce"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "ExternalTaskWorkerSample/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
+          "ProcessEngine.ExternalTaskAPI.Client": "0.1.0"
+        },
+        "runtime": {
+          "ExternalTaskWorkerSample.dll": {}
+        }
+      },
+      "Foundation.IAM.Contracts/1.2.0": {
+        "runtime": {
+          "lib/netstandard1.6/Foundation.IAM.Contracts.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/11.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
+      "ProcessEngine.ExternalTaskAPI.Client/0.1.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
+          "ProcessEngine.ExternalTaskAPI.Contracts": "4.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ProcessEngine.ExternalTaskAPI.Client.dll": {
+            "assemblyVersion": "0.1.0.0",
+            "fileVersion": "0.1.0.0"
+          }
+        }
+      },
+      "ProcessEngine.ExternalTaskAPI.Contracts/4.1.0": {
+        "dependencies": {
+          "Foundation.IAM.Contracts": "1.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ProcessEngine.ExternalTaskAPI.Contracts.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ExternalTaskWorkerSample/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Foundation.IAM.Contracts/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lPDLiwl3wxeY7au6mTdjOX+fGqg1+4qXddZdHdjIDa2N1wqwLM1FnwHZtyE0C0FW3I8Xcrxa/oPDzcTutLrQfg==",
+      "path": "foundation.iam.contracts/1.2.0",
+      "hashPath": "foundation.iam.contracts.1.2.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "path": "newtonsoft.json/11.0.2",
+      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "ProcessEngine.ExternalTaskAPI.Client/0.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-442Uj7/HNxB8We36kjSvFPjLsrMPCmaN6+xMMAb6IiAsqlUDM6zxzHBg8FKeXSSIriqeCTASuE2LSGP+0k6Urw==",
+      "path": "processengine.externaltaskapi.client/0.1.0",
+      "hashPath": "processengine.externaltaskapi.client.0.1.0.nupkg.sha512"
+    },
+    "ProcessEngine.ExternalTaskAPI.Contracts/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N3otQu5bF7C8/bvbTnJw5+91jjuSSK20ZU5adDU+/LOrZDeeQtgq22AXDUiLBh7yrFuXbs9pfHaG7QKw4OcxHw==",
+      "path": "processengine.externaltaskapi.contracts/4.1.0",
+      "hashPath": "processengine.externaltaskapi.contracts.4.1.0.nupkg.sha512"
+    }
+  }
+}
