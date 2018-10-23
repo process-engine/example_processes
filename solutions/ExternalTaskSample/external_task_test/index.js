@@ -28,8 +28,12 @@ async function main() {
 
   const handleTask = async (externalTask) => {
     console.log(externalTask);
+
     await sleep(40000);
-    return new ExternalTaskFinished(externalTask.id, { prop: 'Fertig' });
+
+    const result = { testproperty: 'Fertig', testproperty2: 10 };
+
+    return new ExternalTaskFinished(externalTask.id, result);
   };
 
   externalTaskWorker.waitForAndHandle(
