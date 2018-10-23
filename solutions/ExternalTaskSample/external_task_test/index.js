@@ -1,4 +1,4 @@
-const { HttpClient } = require('@essential-projects/http');
+const {HttpClient} = require('@essential-projects/http');
 const {
   ExternalTaskApiClientService,
   ExternalTaskApiExternalAccessor,
@@ -31,7 +31,10 @@ async function main() {
 
     await sleep(40000);
 
-    const result = { testproperty: 'Fertig', testproperty2: 10 };
+    const result = { 
+      testproperty: 'Fertig',
+      testproperty2: 10 
+    };
 
     return new ExternalTaskFinished(externalTask.id, result);
   };
@@ -41,8 +44,7 @@ async function main() {
     topicName,
     maxNumberOfTasksToGet,
     longPollingTimeoutInMs,
-    handleTask
-  );
+    handleTask);
 }
 
 async function sleep(milliseconds) {
