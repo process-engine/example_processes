@@ -19,16 +19,14 @@
         private static async Task RunWorker()
         {
             IIdentity identity = new TestIdentity();
-            var client = new HttpClient();
+            HttpClient client = new HttpClient();
 
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress = new Uri("http://localhost:8000");
 
             IExternalTaskAPI externalTaskApi = new ExternalTaskApiClientService(client);
-            ExternalTaskWorker testObject = new ExternalTaskWorker(externalTaskApi);
+            ExternalTaskWorker externalTaskWorker = new ExternalTaskWorker(externalTaskApi);
 
-            await testObject.WaitForHandle<TestPayload>(identity, "TestTopic", 10, 10000, async (externalTask) =>
+            await externalTaskWorker.WaitForHandle<TestPayload>(identity, "TestTopic", 10, 10000, async (externalTask) =>
             {
                 Console.WriteLine(JsonConvert.SerializeObject(externalTask));
 
