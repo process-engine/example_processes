@@ -7,7 +7,7 @@ class TowerService {
 
   constructor() {
     this.towers = [['A', 'B', 'C'], [], []];
-    console.log('Started Tower \n'+ JSON.stringify(this.towers));
+    this._displayTowers('This is the start position.');
   }
 
   async takeElement(externalTask) {
@@ -15,7 +15,7 @@ class TowerService {
     const fromIndex = externalTask.payload;
     const element = this.towers[fromIndex].pop();
 
-    console.log('Taken one element of tower. The tower now looks like this.' + JSON.stringify(this.towers));
+    this._displayTowers(`Take element ${element} from ${fromIndex}.`);
     return new ExternalTaskFinished(externalTask.id, element);
   }
 
@@ -23,15 +23,15 @@ class TowerService {
 
     const {element, toIndex} = externalTask.payload;
     this.towers[toIndex].push(element);
-    console.log('Added one element. The tower now looks like this.' + JSON.stringify(this.towers));
+
+    this._displayTowers(`Put element ${element} to ${toIndex}.`);
     return new ExternalTaskFinished(externalTask.id);
   }
 
   async showTowers(externalTask) {
-    console.log('Showing towers: ' + JSON.stringify(this.towers))
+
     return new ExternalTaskFinished(externalTask.id, JSON.stringify(this.towers));
   }
-
 
   async checkIfEmpty(externalTask) {
 
@@ -41,19 +41,35 @@ class TowerService {
     return new ExternalTaskFinished(externalTask.id, towerIsEmpty);
   }
 
-  _displayTowers() {
+  _displayTowers(subtitle) {
 
     const lines = [];
-    let i = 0;
-    let thereAreMoreElements = this.towers.find((tower) => {
-      return
-    });
-    while (thereAreMoreElements) {
-
-      thereAreMoreElements = this.towers.find((tower) => {
-        tower[i]
-      });
+    for (let i = 1; true; i++) {
+      let newLine = this.towers.reduce((acc, cur) => {
+        const lastElement = cur[cur.length - i];
+        if (lastElement === undefined) {
+          return `${acc}  `;
+        }
+        return `${acc} ${lastElement}`;
+      }, '');
+      if (newLine.trim() === '') {
+        break;
+      }
+      lines.push(newLine);
     }
+    let output = lines.reduceRight((acc, cur) => {
+      return acc + '\n' + cur
+    },'');
+    const underscore =' ' + '-'.repeat(this.towers.length * 2 - 1);
+    const numbers = Array.from(this.towers.keys())
+      .reduce((acc, cur) => acc + ' ' + cur);
+
+    output = output + '\n'
+      + underscore + '\n '
+      + numbers + '\n'
+      + subtitle + '\n\n';
+
+    console.log(output);
   }
 }
 
