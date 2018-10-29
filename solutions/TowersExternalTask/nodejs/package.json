@@ -1,0 +1,17 @@
+{
+  "name": "towers_external_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@essential-projects/http": "^2.1.0",
+    "@process-engine/external_task_api_client": "0.3.0",
+    "@process-engine/external_task_api_contracts": "0.3.0",
+    "moment": "^2.22.2"
+  }
+}
