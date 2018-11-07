@@ -24,16 +24,17 @@ async def handle_external_task(task):
 
 async def main():
     """This is the main() of our external task sample."""
-    external_task_client = ExternalTaskApiClientService("http://localhost:8000")
+    external_task_client = ExternalTaskApiClientService(
+        "https://testidentityserver.westeurope.cloudapp.azure.com")
 
     worker = ExternalTaskWorker(external_task_client)
 
-    await worker.waitForHandle(
+    await worker.wait_for_handle(
         identity={"token": "ZHVtbXlfdG9rZW4="},
         topic="TestTopic",
-        maxTasks=10,
-        longPollingTimeout=10_000,
-        handleAction=handle_external_task
+        max_tasks=10,
+        long_polling_timeout=10_000,
+        handle_action=handle_external_task
     )
 
 asyncio.run(main())
