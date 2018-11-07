@@ -31,8 +31,8 @@ async def handle_external_task(task):
 
 
 async def main_loop(worker):
-    """This will be the place to call the waitForHandle() of the ExternalTaskWorker"""
-    return await worker.waitForHandle(
+    """This will be the place to call the wait_for_handle() of the ExternalTaskWorker"""
+    return await worker.wait_for_handle(
         identity={"token": "ZHVtbXlfdG9rZW4="},
         topic="TestTopic",
         max_tasks=10,
