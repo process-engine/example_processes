@@ -14,7 +14,31 @@ Prozess so keinen Wert.
 Wir erweitern das Beispiel so, dass der Zustand der Türme extern
 verwaltet wird. Dies erreichen wir mit ExternalTasks.
 
-## Programmierteil
+## Programmierteil (nodejs)
+
+In diesem Teil erklären wir, ohne ins Detail zu gehen,
+die Implementierung eines ExternalTasks mit nodejs.
+
+ExternalTasks sind nicht an nodejs gebunden.
+
+Zunächst erstellen wir ein NodeProjekt.
+
+Installieren `@process-engine/external_task_api_client`.
+
+Aus dem installierten Paket beziehen wir die Klassen:
+
+```js
+const {
+  ExternalTaskApiClientService,
+  ExternalTaskApiExternalAccessor,
+  ExternalTaskWorker,
+} = require('@process-engine/external_task_api_client');
+```
+
+
+ExternalTaskApiClientService
+ExternalTaskApiExternalAccessor
+ExternalTaskWorker
 
 ### TurmService
 
