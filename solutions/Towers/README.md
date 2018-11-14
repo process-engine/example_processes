@@ -65,7 +65,7 @@ hunderte?
 
 Zur modularen Lösung erstellen wir drei Prozesse:
 
-1. **Move Element** erlaubt das Bewegen des obersten Element eines
+1. **Move Element** erlaubt das Bewegen des obersten Elements eines
    Turms auf die oberste Stelle einer anderen Position.
 1. **Flip Tower** dreht den Turm auf den Kopf und bewegt ihn
    dabei. Dieser Vorgang ist sehr einfach umzusetzen, da wir immer nur das
@@ -128,7 +128,7 @@ wir eine neue ID `startevent_arguments`.
 
 Die eigentliche Funktionalität bewältigen wir mit ScriptTasks.
 
-Wir hängen einen neuen ScriptTask an das StartEvent mit dem Name
+Wir hängen einen neuen ScriptTask an das StartEvent mit dem Namen
 `Take element of one tower` und der ID `scripttask_take_element`.
 
 
@@ -156,7 +156,7 @@ werden.
 
 ## ScriptTask `Put element onto another tower`
 
-Wir erstellen einen weiteren ScriptTask mit dem Name `Put element
+Wir erstellen einen weiteren ScriptTask mit dem Namen `Put element
 onto another tower`. Wir müssen das zuvor entfernte Element noch auf
 den Turm an der Stelle `toIndex` hinzufügen.
 
@@ -222,13 +222,13 @@ return {
 > Zur Erinnerung: Beim **Move Element**-Diagramm haben wir dieses Format zur
 > Übersicht per Text-Annotation vermerkt.
 
-Wir vergeben den Name `Prepare parameters`.
+Wir vergeben den Namen `Prepare parameters`.
 
 
 ## CallActivity `Move Element`
 
 Anschließend erstellen wir die CallActivity. Wir verlinken das zuvor
-erstellte `Move-Element`-Diagramm und setzen den Name auf `Move
+erstellte `Move-Element`-Diagramm und setzen den Namen auf `Move
 Element` und die ID auf `callactivity_move_element`.
 
 ## ScriptTask `Check if original tower is empty`
@@ -245,11 +245,11 @@ return token.history.startevent_arguments.tower[token.history.startevent_argumen
 ```
 
 Wir versehen den ScriptTask mit der ID `servicetask_check_if_done` und
-dem Name `Check if original tower is empty`.
+dem Namen `Check if original tower is empty`.
 
 ## ExclusiveGateway
 
-Dem ScriptTask folgend erstellen wir ein Gateway mit dem Name `Is
+Dem ScriptTask folgend erstellen wir ein Gateway mit dem Namen `Is
 original tower empty?`.
 
 ### ScriptTask `Return towers`
@@ -268,11 +268,11 @@ Wir erstellen einen ScriptTask, wobei wir im PropertyPanel bei
 return token.history.callactivity_move_element;
 ```
 
-Der ScriptTask erhält den Name `Return towers`.
+Der ScriptTask erhält den Namen `Return towers`.
 
 
 Wir fügen zudem einen Flow vom Gateway zum ScriptTask mit der Condition
-`token.history.servicetask_check_if_done === true` und dem Name `yes`
+`token.history.servicetask_check_if_done === true` und dem Namen `yes`
 (als Antwort auf die Frage, ob der Turm leer ist) zu.
 
 Der ScriptTask wird mit einem EndEvent verbunden.
@@ -283,7 +283,7 @@ Bis die Abbruchsbedingung erfüllt ist wollen wir weitere Elemente
 bewegen.
 
 Ausgehend vom Gateway erstellen wir einen Flow, welcher zurück zum
-ScriptTask mit dem Name `Prepare parameters` führt.  Der Flow wird mit
+ScriptTask mit dem Namen `Prepare parameters` führt.  Der Flow wird mit
 `no` bezeichnet und soll die Condition
 `token.history.servicetask_check_if_done === false` tragen.
 
@@ -313,7 +313,7 @@ Wir erstellen die Türme mit einem ScriptTask mit dem Code:
 return [["A", "B", "C"], [], []];
 ```
 
-Der ScriptTask erhält von uns den Name `Create towers` und die ID
+Der ScriptTask erhält von uns den Namen `Create towers` und die ID
 `scripttask_create_towers`.
 
 ## UserTask `Confirm towers`
