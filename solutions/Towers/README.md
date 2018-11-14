@@ -171,9 +171,9 @@ return (() => {
 })();
 ```
 
-Der ScriptTask wird mit dem EndEvent verknüpft. Was hier als letzter
-Tokenwert zurückgegeben wird, wird auch der resultierende Wert beim
-Aufruf der CallActivity sein.
+Der ScriptTask wird mit dem EndEvent verknüpft. Der Wert, der am
+EndEvent ankommt, wird auch als Ergebnis der CallActivity
+zurückgegeben.
 
 # **Flip Tower**-Diagramm
 
