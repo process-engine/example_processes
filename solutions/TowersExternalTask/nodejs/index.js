@@ -24,7 +24,7 @@ const identity = {
 const maxNumberOfTasksToGet = 1;
 const longPollingTimeoutInMs = 10000;
 
-  const towerService = new TowerService();
+const towerService = new TowerService();
 
 function registerTask(topicName, callback) {
   externalTaskWorker.waitForAndHandle(
