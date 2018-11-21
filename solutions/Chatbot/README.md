@@ -19,4 +19,4 @@ Für die Funktion des Chatbots wird
 - Navigieren zum Projektordner: ```cd example_processes/solutions/Chatbot```
 - Installieren von Fremdbibliotheken: ```npm i```
 - Starten der Applikation `npm start`:
-- Importieren des BPMN-Diagramms ```bpmn/chatbot.bpmn``` mit BPMN-Studio
+- Importieren des BPMN-Diagramms `bpmn/chatbot.bpmn` mit BPMN-Studio
