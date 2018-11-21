@@ -8,8 +8,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/start.js",
-    "build": "gulp build"
+    "start": "node chatbot.js"
   },
   "dependencies": {
     "@essential-projects/http": "^2.2.1",
