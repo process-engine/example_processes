@@ -46,7 +46,8 @@
     "@essential-projects/timing": "^1.0.0-rc3",
     "@essential-projects/validation": "^1.0.0-rc3",
     "addict-ioc": "^2.2.11",
-    "loggerhythm": "^3.0.0"
+    "loggerhythm": "^3.0.0",
+    "event-stream": "3.3.4"
   },
   "devDependencies": {
     "gulptraum": "^2.2.2",
