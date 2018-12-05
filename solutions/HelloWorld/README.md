@@ -4,16 +4,30 @@ Um den Umgang der ProcessEngine und des BPMN-Studios zu demonstrieren, wird ein
 einfaches Beispiel-Diagramm erstellt.
 
 Ziel ist es, ein BPMN-Diagramm mit einem
-[Single User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
-zu erstellen.
+[User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
+zur `Hello World`-Ausgabe zu erstellen.
+
+[User Tasks](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
+erlauben das Erstellen von Formularen und Bestätigungsdialogen. Wir
+verwenden sie um Prozesse durch Nutzereingaben zu steuern
+oder dem Anwender Ausgaben eines Prozesses zu präsentieren.
+
+## Lernziele
+
+- Anlegen eines Diagramms
+- Erstellen und Konfigurieren eines Confirm
+[User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
+- Ausführen des Prozesses
+
+## Aufbau
 
 Das Diagramm sieht folgendermaßen aus:
 
 <img src="./images/hello-world-diagram.svg" width="100%" />
 
-Dieser
+Bei Ausführung wird der
 [User Task](https://www.process-engine.io/documentation/GLOSSARY.html#user-task)
-wird die folgenden Elemente enthalten:
+folgende Elemente enthalten:
 
 1. die Nachricht `Hello World`
 2. eine Schaltfläche zum Bestätigen
