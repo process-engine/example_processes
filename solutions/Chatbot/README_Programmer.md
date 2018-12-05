@@ -1,6 +1,6 @@
 # Chatbot - Anleitung für Programmierer
 
-Es liegt im Aufgabenbereich des Softwareentwicklers die benötigten
+Es liegt im Aufgabenbereich des Softwareentwicklers, die benötigten
 Dienste für das Diagramm bereitzustellen.
 
 Prozessmodellierer können ExternalTasks in die Diagramme einbauen um
@@ -29,9 +29,10 @@ JavaScript-Lauftzeitumgebung `nodejs` installiert sein.
 Zunächst muss ein Projekt erstellt werden mit dem Befehl: `npm init`.
 
 Auf dem Projektpfad müssen die benötigten Programmbibliotheken
-erstellt werden: `npm i --save elizabot @essential-projects/http
-@process-engine/external_task_api_client
-@process-engine/external_task_api_contracts`
+erstellt werden:
+```
+npm i --save elizabot @essential-projects/http @process-engine/external_task_api_client @process-engine/external_task_api_contracts
+```
 
 Es muss eine JavaScript-Datei erstellt werden, etwa mit dem Namen `chatbot.js`.
 
@@ -148,13 +149,19 @@ const chatbotResponse = async (externalTask) => {
 ```
 
 Laut Prozessmodellierung steht in `externalTask.payload` die Eingabe
-des Nutzers.  `chatbot.transform(humanRequest)` generiert die Antwort
-des Chatbots.  `return new ExternalTaskFinished(externalTask.id,
-chatbotAnswer);` gibt den Wert zurück.  Er steht in der
-Prozessmodellierung als Wert des Tokens an Stelle des ExternalTasks
-zur Verfügung.
+des Nutzers.
+
+`chatbot.transform(humanRequest)` generiert die Antwort des Chatbots.
+
+`return new ExternalTaskFinished(externalTask.id, chatbotAnswer);`
+gibt den Wert zurück. Er steht in der Prozessmodellierung als
+Tokenwert des ExternalTasks zur Verfügung.
 
 ## Ausführung
 
 Nun kann das Programm ausgeführt werden mit dem Befehl `node
-chatbot.js`.
+chatbot.js`. Hierdurch wird lediglich der ExternalTask in dem
+Diagramm ausführbar.
+
+Der eigentliche Prozess wird anhand des Diagramms im BPMN-Studio
+ausgeführt.
