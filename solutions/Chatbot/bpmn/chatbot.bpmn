@@ -57,7 +57,7 @@
       <bpmn:incoming>SequenceFlow_1z0j7q4</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_19cmsfv</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_08jt867" name="Verabschiedet Nutzer sich?">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_08jt867" name="Verabschiedet sich Nutzer?">
       <bpmn:extensionElements>
         <camunda:formData />
       </bpmn:extensionElements>

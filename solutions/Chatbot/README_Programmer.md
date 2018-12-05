@@ -11,7 +11,7 @@ In diesem Beispiel wird ein minimaler Task definiert und registriert.
 
 Von Seiten der Prozessmodellierung kommen folgende Anforderungen:
 
-- der Task soll unter dem TopicName `Chatbot` verfügbar sein,
+- der Task soll unter dem Topic `Chatbot` verfügbar sein,
 - als Payload erhält der Task die menschliche Nutzereingabe, auf die
   der Chatbot reagieren soll,
 - der Chatbot soll eine Antwort generieren und zurückgeben.
@@ -61,7 +61,7 @@ Die eigentliche Funktionalität des Chatbots programmieren wir nicht
 selber und verwenden stattdessen
 [elizabot](https://github.com/tkafka/node-elizabot).
 
-Die anderen Bibliotheken dienen dem Registrieren des Tasks.
+Die anderen Bibliotheken dienen dem Registrieren des ExternalTasks.
 
 ### Erstellung des HttpClients
 
@@ -75,10 +75,10 @@ httpClient.config = {
 }
 ```
 
-Wir erstellen über Konstruktoraufruf eine Instanz des HttpClient und
-konfigurieren die Adresse, auf welcher die ProcessEngine ausgeführt
-wird. Wenn auf demselben Rechner das BPMN-Studio gestartet wird, steht
-die ProcessEngine unter `http://localhost:8000` zur Verfügung.
+Wir erstellen eine Instanz des HttpClient und konfigurieren die
+Adresse, unter welcher die ProcessEngine erreichbar ist. Wenn auf
+demselben Rechner das BPMN-Studio gestartet wird, steht die
+ProcessEngine unter `http://localhost:8000` zur Verfügung.
 
 ### ExternalAccessor / ExternalTaskAPIService / ExternalTaskWorker
 
@@ -88,12 +88,14 @@ const externalTaskAPIService = new ExternalTaskApiClientService(externalAccessor
 const externalTaskWorker = new ExternalTaskWorker(externalTaskAPIService);
 ```
 
-Über den ExternalAccessor können wir den HTTPClient registrieren.
-Zudem erstellen wir einen ExternalTaskAPIService und verbinden einen
-ExternalTaskWorker mit ihm.
+Wir erstellen einen externen Accessor, welcher den zuvor erstellten
+HttpClient als Parameter injected bekommt. Dieser externe Accessor
+wird von einem ExternalTaskApiClient benutzt um auf die ProcessEngine
+zuzugreifen.
 
-Der ExternalTaskWorker kann die Funktion des Chatbots übernehmen und
-der ProcessEngine zur Verfügung stellen.
+Zuletzt erstellen wir eine neue Instanz des ExternalTaskWorkers,
+welcher die zuvor erstellte Instanz des ExternalTaskApiClients benutzt
+um regelmäßig nach verfügbaren ExternalTasks zu schauen.
 
 ### Einstellungen
 
@@ -155,7 +157,7 @@ des Nutzers.
 
 `return new ExternalTaskFinished(externalTask.id, chatbotAnswer);`
 gibt den Wert zurück. Er steht in der Prozessmodellierung als
-Tokenwert des ExternalTasks zur Verfügung.
+Payload des ExternalTasks zur Verfügung.
 
 ## Ausführung
 

@@ -39,7 +39,7 @@ Wir wollen mit dem ExclusiveGateway eine Möglichkeit bieten, abhängig
 von der Nutzereingabe, den Prozess zu beenden.
 
 Daher erstellen wir folgend auf den UserTask ein ExclusiveGateway mit
-der Beschriftung `Verabschiedet Nutzer sich?`.
+der Beschriftung `Verabschiedet sich Nutzer?`.
 
 ### Prozessende
 
@@ -52,7 +52,7 @@ Nun verbinden wir das ExclusiveGateway mit dem Verabschiedungstask.
 
 <img src="./images/flow_finished.png" width="80%" />
 
-Der Verbindung-Flow trägt die Condition
+Der verbindende Sequenz-Flow erhält die Condition
 `token.current.form_fields.request.toLowerCase().match('bye|goodbye|quit|exit')`.
 `token.current` referenziert den `Anfrage formulieren`-UserTask.
 Entsprechend der Gateway-Beschriftung wird in der Abfrage überprüft,
@@ -68,12 +68,12 @@ Hierbei handelt es sich um die Schnittstelle zu dem bereitgestellten Dienst.
 <img src="./images/external_task_config.png" width="50%" />
 
 Wir stellen ein, dass es sich um einen ExternalTask handelt. Zudem
-definieren wir den Topicname `Chatbot` und übergeben als Payload
+setzen wir als Topic `Chatbot` und übergeben als Payload
 `token.current.form_fields.request` (die Anfrage des Nutzers).
 
-Diese Angaben sind wichtig für den Programmierer. Er benötigt den
-TopicName zum Registrieren des TaskWorkers und den Payload um auf
-dessen Basis eine Antwort generieren zu können.
+Diese Angaben sind wichtig für den Programmierer. Er benötigt das
+Topic um den ExternalTaskWorker auf dieses zu subscriben und den
+Payload um auf dessen Basis eine Antwort generieren zu können.
 
 Ausgehend vom Gateway erstellen wir einen Flow zum ServiceTask mit der
 Beschriftung `Nein` und der Condition

@@ -3,8 +3,8 @@
 Bei dem hier modellierten Prozess wird das Gespräch mit einem
 Chatbot eröffnet.
 
-Das Beispiel besteht nicht nur aus dem Diagramm, sondern auch einem
-Programm für den Chatbot.
+Das Beispiel besteht nicht nur aus dem Diagramm, sondern auch aus
+einem Programm für den Chatbot.
 
 Es bildet sich die Brücke zwischen _Prozessmodellierung_ und
 _Softwareentwicklung_.
@@ -16,12 +16,12 @@ Anleitung geteilt.
 
 ## Lernziele
 
-- Aufrufen von ExternalTasks
 - Bereitstellen von ExternalTasks
+- Aufrufen von ExternalTasks
 
-## Aufsetzen des Demoprojektes
+## Aufsetzen des Demoprojekts
 
-- Herunterladen des Repositorys: `git clone git@github.com:process-engine/example_processes.git`
+- Herunterladen des Repositories: `git clone git@github.com:process-engine/example_processes.git`
 - Navigieren zum Projektordner: `cd example_processes/solutions/Chatbot`
 - Installieren von Fremdbibliotheken: `npm i`
 - Starten der Applikation: `npm start`
