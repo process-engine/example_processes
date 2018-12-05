@@ -1,6 +1,21 @@
 # Emails versenden
 
-In diesem Beispiel wird ein Prozess für den Versand von Emails modelliert.
+Die ProcessEngine bietet die Möglichkeit des Emailversands. Emails
+sind eine wertvolle Kommunikationsmöglichkeit bei der
+Prozessmodellierung.
+
+Dieser Prozess demonstriert den Nutzen des MailService.
+
+Das Ergebnis einer Nutzereingabe bestätigt oder verhindert den
+Emailversand. Mit dem Einführen der Entscheidungspfade lehrt das
+Beispiel komplexere Prozessabläufe zu modellieren.
+
+## Lernziele
+
+- UserTask als Formular
+- Nutzen des MailService
+- Einführung des ExclusiveGateway
+
 
 ## Prozessschritte anlegen
 
