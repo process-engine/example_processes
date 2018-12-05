@@ -26,3 +26,9 @@ Anleitung geteilt.
 - Installieren von Fremdbibliotheken: `npm i`
 - Starten der Applikation: `npm start`
 - Importieren des BPMN-Diagramms `example_processes/solutions/Chatbot/bpmn/chatbot.bpmn` mit BPMN-Studio
+
+## Ausführung
+
+Hier eine kurze Aufnahme vom Chatbot in Aktion:
+
+<img src="./images/chatbot.gif" width="100%" />
