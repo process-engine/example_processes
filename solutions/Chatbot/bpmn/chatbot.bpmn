@@ -55,7 +55,7 @@
     <bpmn:endEvent id="EndEvent_18a8615">
       <bpmn:incoming>SequenceFlow_050l6kr</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Task_19qalj5" name="Therapeut ansprechen" camunda:type="external" camunda:topic="Chatbot">
+    <bpmn:serviceTask id="Task_19qalj5" name="Chatbot ansprechen" camunda:type="external" camunda:topic="Chatbot">
       <bpmn:extensionElements>
         <camunda:properties>
           <camunda:property name="payload" value="token.current.form_fields.request" />
