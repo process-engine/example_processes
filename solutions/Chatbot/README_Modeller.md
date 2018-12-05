@@ -15,7 +15,16 @@ Modellierern und Programmierern.
 
 ## Aufbau
 
-## UserTask (Anfrage formulieren)
+Das fertige Diagramm sieht so aus:
+
+<img src="./images/finished_diagram.png" width="100%" />
+
+Im Folgenden werden die Elemente des Diagramms und ihre Konfiguration
+vorgestellt.
+
+### UserTask (Anfrage formulieren)
+
+<img src="./images/anfrage_formulieren_config.png" width="50%" />
 
 In diesem UserTask wird der Anwender um eine Anfrage gebeten. Wir
 erstellen ein Formular mit einem Feld vom Typ `Text` und der ID
@@ -41,6 +50,8 @@ verbunden.
 
 Nun verbinden wir das ExclusiveGateway mit dem Verabschiedungstask.
 
+<img src="./images/flow_finished.png" width="80%" />
+
 Der Verbindung-Flow trägt die Condition
 `token.current.form_fields.request.toLowerCase().match('bye|goodbye|quit|exit')`.
 `token.current` referenziert den `Anfrage formulieren`-UserTask.
@@ -53,6 +64,8 @@ Zudem beschriften wir den Pfad mit der Antwort `Ja` auf die Frage des Gateways.
 
 Wir erstellen einen ServiceTask mit dem Namen `Chatbot ansprechen`.
 Hierbei handelt es sich um die Schnittstelle zu dem bereitgestellten Dienst.
+
+<img src="./images/external_task_config.png" width="50%" />
 
 Wir stellen ein, dass es sich um einen ExternalTask handelt. Zudem
 definieren wir den Topicname `Chatbot` und übergeben als Payload
