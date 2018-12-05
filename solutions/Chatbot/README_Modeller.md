@@ -33,7 +33,7 @@ erstellen ein Formular mit einem Feld vom Typ `Text` und der ID
 Mit dem Label `You're talking to the chatbot. Please make a request.`
 bitten wir den Nutzer um eine Anfrage.
 
-## ExclusiveGateway
+### ExclusiveGateway
 
 Wir wollen mit dem ExclusiveGateway eine Möglichkeit bieten, abhängig
 von der Nutzereingabe, den Prozess zu beenden.
@@ -41,7 +41,7 @@ von der Nutzereingabe, den Prozess zu beenden.
 Daher erstellen wir folgend auf den UserTask ein ExclusiveGateway mit
 der Beschriftung `Verabschiedet Nutzer sich?`.
 
-## Prozessende
+### Prozessende
 
 Wir erstellen einen neuen UserTask mit der Beschriftung
 `Verabschiedung anzeigen`. Diesen machen wir zu einem Confirm-Dialog
@@ -60,7 +60,7 @@ ob der Nutzer sich verabschieden möchte.
 
 Zudem beschriften wir den Pfad mit der Antwort `Ja` auf die Frage des Gateways.
 
-## Antwort des Chatbots generieren
+### Antwort des Chatbots generieren
 
 Wir erstellen einen ServiceTask mit dem Namen `Chatbot ansprechen`.
 Hierbei handelt es sich um die Schnittstelle zu dem bereitgestellten Dienst.
@@ -80,7 +80,7 @@ Beschriftung `Nein` und der Condition
 `!token.current.form_fields.request.toLowerCase().match('bye|goodbye|quit|exit')`.
 Hierbei handelt es sich um die negierte Condition des Abbruch-Flows.
 
-## Antwort des Chatbots präsentieren / Schleife
+### Antwort des Chatbots präsentieren / Schleife
 
 Dem ServiceTask folgend erstellen wir einen UserTask zur Darstellung
 der Antwort. Hierbei handelt es sich um einen Confirm-UserTask mit dem
