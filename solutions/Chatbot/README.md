@@ -1,8 +1,5 @@
 # Chatbot
 
-Mit diesem Projekt wird eine ProcessEngine-Instanz mitsamt lauffähigem
-Beispieldiagramm gestartet.
-
 Mit dem Start des Diagramms wird ein Gespräch mit einem Chatbot
 begonnen.  Gespräch und Prozess kann mit einer Verabschiedung beendet
 werden (bye, goodbye, quit oder exit als Eingabe).
@@ -12,13 +9,9 @@ Für die Funktion des Chatbots wird
 
 ![Screenshot](diagram_screenshot.png)
 
-
 ## Voraussetzungen
 
 - [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet
-- Datenbank aus [ProcessEngine
-Skeleton](https://github.com/process-engine/skeleton/tree/develop/database)
-gestartet
 
 ## Setup
 
@@ -26,5 +19,4 @@ gestartet
 - Navigieren zum Projektordner: ```cd example_processes/solutions/Chatbot```
 - Installieren von Fremdbibliotheken: ```npm i```
 - Starten der Applikation `npm start`:
-- Das Beispieldiagramm steht nun unter dem Namen `chatbot` in dem
-  BPMN-Studio zur Verfügung.
+- Importieren des BPMN-Diagramms `bpmn/chatbot.bpmn` mit BPMN-Studio
