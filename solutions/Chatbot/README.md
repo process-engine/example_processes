@@ -1,22 +1,34 @@
 # Chatbot
 
-Mit dem Start des Diagramms wird ein Gespräch mit einem Chatbot
-begonnen.  Gespräch und Prozess kann mit einer Verabschiedung beendet
-werden (bye, goodbye, quit oder exit als Eingabe).
+Bei dem hier modellierten Prozess wird das Gespräch mit einem
+Chatbot eröffnet.
 
-Für die Funktion des Chatbots wird
-[elizabot](https://github.com/tkafka/node-elizabot) verwendet.
+Das Beispiel besteht nicht nur aus dem Diagramm, sondern auch aus
+einem Programm für den Chatbot.
 
-![Screenshot](diagram_screenshot.png)
+Es bildet sich die Brücke zwischen _Prozessmodellierung_ und
+_Softwareentwicklung_.
 
-## Voraussetzungen
+Um die saubere Trennung dieser Bereiche zu verdeutlichen, wird auch die
+Anleitung geteilt in:
+1. [Prozessmodellierung](./README_Modeller.md) und
+1. [Softwareentwicklung](./README_Programmer.md).
 
-- [BPMN-Studio](https://github.com/process-engine/bpmn-studio) installiert & gestartet
+## Lernziele
 
-## Setup
+- Bereitstellen von ExternalTasks
+- Aufrufen von ExternalTasks
 
-- Herunterladen des Repositorys: ```git clone git@github.com:process-engine/example_processes.git```
-- Navigieren zum Projektordner: ```cd example_processes/solutions/Chatbot```
-- Installieren von Fremdbibliotheken: ```npm i```
-- Starten der Applikation `npm start`:
-- Importieren des BPMN-Diagramms `bpmn/chatbot.bpmn` mit BPMN-Studio
+## Aufsetzen des Demoprojekts
+
+- Herunterladen des Repositories: `git clone git@github.com:process-engine/example_processes.git`
+- Navigieren zum Projektordner: `cd example_processes/solutions/Chatbot`
+- Installieren von Fremdbibliotheken: `npm i`
+- Starten der Applikation: `npm start`
+- Importieren des BPMN-Diagramms `example_processes/solutions/Chatbot/bpmn/chatbot.bpmn` mit BPMN-Studio
+
+## Ausführung
+
+Hier eine kurze Aufnahme vom Chatbot in Aktion:
+
+<img src="./images/chatbot.gif" width="100%" />
