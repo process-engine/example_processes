@@ -10,9 +10,9 @@ Es bildet sich die Brücke zwischen _Prozessmodellierung_ und
 _Softwareentwicklung_.
 
 Um die saubere Trennung dieser Bereiche zu verdeutlichen, wird auch die
-Anleitung geteilt.
-1. [Prozessmodellierung](./README_Modeller.md)
-1. [Softwareentwicklung](./README_Programmer.md)
+Anleitung geteilt in:
+1. [Prozessmodellierung](./README_Modeller.md) und
+1. [Softwareentwicklung](./README_Programmer.md).
 
 ## Lernziele
 

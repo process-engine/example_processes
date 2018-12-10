@@ -12,12 +12,14 @@ In diesem Beispiel wird ein minimaler Task definiert und registriert.
 Von Seiten der Prozessmodellierung kommen folgende Anforderungen:
 
 - der Task soll unter dem Topic `Chatbot` verfügbar sein,
-- als Payload erhält der Task die menschliche Nutzereingabe, auf die
-  der Chatbot reagieren soll,
+- als Payload erhält der Task die menschliche Nutzereingabe
+- auf diese Eingabe reagiert der Chatbot,
 - der Chatbot soll eine Antwort generieren und zurückgeben.
 
-Das hier vorgestellte Programm steht startbereit zur Verfügung unter
-https://github.com/process-engine/example_processes/tree/develop/solutions/Chatbot.
+Das vorgestellte Programm steht
+[hier](https://github.com/process-engine/example_processes/tree/develop/solutions/Chatbot)
+startbereit zur Verfügung.
+
 
 ## Voraussetzung
 
@@ -29,7 +31,8 @@ JavaScript-Lauftzeitumgebung `nodejs` installiert sein.
 Zunächst muss ein Projekt erstellt werden mit dem Befehl: `npm init`.
 
 Auf dem Projektpfad müssen die benötigten Programmbibliotheken
-erstellt werden:
+installiert werden:
+
 ```
 npm i --save elizabot @essential-projects/http @process-engine/external_task_api_client @process-engine/external_task_api_contracts
 ```

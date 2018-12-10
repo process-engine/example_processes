@@ -11,7 +11,7 @@ Modellierern und Programmierern.
 ## Lernziele
 
 - Verwendung eines ExternalTasks
-- Schleife mit Abbruchbedingung
+- Modellierung einer Schleife mit Abbruchbedingung
 
 ## Aufbau
 
