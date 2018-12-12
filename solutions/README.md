@@ -1,6 +1,6 @@
 # Solutions
 
-Hier werden einfach Beispiele zur Anwendung der ProcessEngine
+Hier werden einfache Beispiele zur Anwendung der ProcessEngine
 gesammelt.
 
 | Solution                              | Kurzzusammenfassung                                                |
