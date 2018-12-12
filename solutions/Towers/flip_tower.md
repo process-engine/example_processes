@@ -12,7 +12,7 @@ verschieben, bis der `fromIndex`-Turm leer ist.
 Genau wie der [`Move Element`-Prozess](./move_element.md) wird auch
 dieser Prozess über eine CallActivity aufgerufen.
 
-<image src="./images/flip_tower__start.png" />
+<image src="./images/flip_tower__start.png" width="50%" />
 
 Für unsere Übersicht behaften wir auch hier das StartEvent mit einer
 TextAnnotation, welche Aufschluss über die erwarteten
@@ -51,11 +51,11 @@ return {
 
 Wir vergeben den Namen `Prepare parameters`.
 
-<image src="./images/flip_tower__prepare_params.png" />
+<image src="./images/flip_tower__prepare_params.png" width="50%" />
 
 ## CallActivity `Move Element`
 
-<image src="./images/flip_tower__call_move_element.png" />
+<image src="./images/flip_tower__call_move_element.png" width="50%" />
 
 Anschließend erstellen wir die CallActivity. Wir verlinken das zuvor
 erstellte [`Move Element`-Diagramm](./move_element.md) und setzen den
@@ -66,7 +66,7 @@ Namen auf `Move Element` und die ID auf `callactivity_move_element`.
 Mit einem weiteren ScriptTask kontrollieren wir, ob wir den
 gewünschten Endzustand erreicht haben.
 
-<image src="./images/flip_tower__check_if_done.png" />
+<image src="./images/flip_tower__check_if_done.png" width="50%" />
 
 Der Prozess soll dann stoppen, wenn der Ausgangsturm an der Position
 `fromIndex` leer ist. Dies können wir mit folgendem Programmcode
@@ -102,7 +102,7 @@ return token.history.callactivity_move_element;
 
 Der ScriptTask erhält den Namen `Return towers`.
 
-<image src="./images/flip_tower__flow.png" />
+<image src="./images/flip_tower__flow.png" width="50%" />
 
 Wir fügen zudem einen Flow vom Gateway zum ScriptTask mit der Condition
 `token.history.servicetask_check_if_done === true` und dem Namen `yes`
