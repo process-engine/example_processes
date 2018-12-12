@@ -7,6 +7,11 @@ Ordnung und Austauschbarkeit.
 Das hier vorgestellte Beispiel demonstriert das Zusammensetzen
 mehrerer Diagramme zur Lösung eines Problems.
 
+## Lernziele
+
+- Umgang mit CallActivities
+- Verwendung von ScriptTasks
+
 ## Szenario
 
 In unserem Szenario wollen wir einen Stapelturm von Elementen
