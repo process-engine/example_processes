@@ -18,6 +18,8 @@ damit wir sehen können, dass es wirklich funktioniert.
 
 ## ScriptTask `Create towers`
 
+<image src="./images/move_tower__create_towers.png" />
+
 Wir erstellen die Türme mit einem ScriptTask mit dem Code:
 
 ```js
@@ -48,6 +50,8 @@ Schritten:
 
 ### ScriptTask `Prepare parameters`
 
+<image src="./images/move_tower__prepare_params.png" />
+
 Der ScriptTask enthält den Code:
 
 ```js
@@ -63,9 +67,10 @@ return {
 
 ### CallActivity `Flip Tower`
 
+<image src="./images/move_tower__call_flip_tower.png" />
+
 Die CallActivity erhält die ID `callactivity_flip_tower` und verweist
 auf den **Flip-Tower**-Prozess.
-
 
 ### UserTask `Confirm towers`
 
