@@ -1,7 +1,8 @@
 # **Move Tower**-Diagramm
 
-Mithilfe der beiden anderen Diagramme können wir nun den `Move
-Tower`-Prozess modellieren.
+Mithilfe der Diagramme [Move Element](./move_element.md) und
+[Flip Tower](./flip_tower.md) können wir den `Move Tower`-Prozess
+modellieren.
 
 Der Ablauf sieht folgendermaßen aus:
 
