@@ -15,7 +15,7 @@ Aber da dieser Prozess per CallActivity aufgerufen wird, wird das
 Token beim StartEvent dieses Prozesses den letzten Tokenwert tragen,
 welcher vor Aufruf der CallActivity bestand.
 
-<img src="./images/move_element__start.png" />
+<img src="./images/move_element__start.png" width="50%" />
 
 Für unsere Übersicht behaften wir das StartEvent mit einer
 TextAnnotation, welche auf die erwarteten Startparameter verweist.
@@ -37,7 +37,7 @@ wir eine neue ID `startevent_arguments`.
 
 Die eigentliche Funktionalität bewältigen wir mit ScriptTasks.
 
-<img src="./images/move_element__take_element.png" />
+<img src="./images/move_element__take_element.png" width="50%" />
 
 Wir hängen einen neuen ScriptTask an das StartEvent mit dem Namen
 `Take element of one tower` und der ID `scripttask_take_element`.
