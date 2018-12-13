@@ -54,7 +54,7 @@
       <bpmn:incoming>SequenceFlow_05xoymf</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1j19epc" name="n" sourceRef="ExclusiveGateway_1sqfcel" targetRef="Task_0p22rct">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">true</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">token.current.form_fields.Form != 'Hello';</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0ci060h" sourceRef="Task_1cmr6n7" targetRef="Task_1ewjsjo" />
     <bpmn:serviceTask id="Task_1cmr6n7" name="Append World" camunda:type="external" camunda:topic="AppendWorldTopic">
