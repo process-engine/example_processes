@@ -54,13 +54,15 @@
       <bpmn:incoming>SequenceFlow_05xoymf</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1j19epc" name="n" sourceRef="ExclusiveGateway_1sqfcel" targetRef="Task_0p22rct">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" />
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">true</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0ci060h" sourceRef="Task_1cmr6n7" targetRef="Task_1ewjsjo" />
     <bpmn:serviceTask id="Task_1cmr6n7" name="Append World" camunda:type="external" camunda:topic="AppendWorldTopic">
       <bpmn:extensionElements>
         <camunda:properties />
         <camunda:formData />
+        <camunda:properties />
+        <camunda:properties />
         <camunda:properties />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1mbpr4t</bpmn:incoming>
@@ -79,14 +81,18 @@
     <bpmn:sequenceFlow id="SequenceFlow_05xoymf" sourceRef="ExclusiveGateway_06zl2zx" targetRef="EndEvent_0eie6q6" />
     <bpmn:userTask id="Task_1ewjsjo" name="Display Hello World" camunda:formKey="Form Key">
       <bpmn:extensionElements>
-        <camunda:formData />
+        <camunda:formData>
+          <camunda:formField id="Form" label="${&#39;External Worker said: &#39; + token.current.hello_world}" type="boolean" defaultValue="true" />
+        </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0ci060h</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0og3wxa</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="Task_0p22rct" name="Display Universal Answer">
       <bpmn:extensionElements>
-        <camunda:formData />
+        <camunda:formData>
+          <camunda:formField id="Form_IsPKEzou" label="The Answer is 42" type="boolean" defaultValue="true" />
+        </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1j19epc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ecrkdp</bpmn:outgoing>
