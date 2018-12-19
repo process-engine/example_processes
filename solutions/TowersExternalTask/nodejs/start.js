@@ -7,7 +7,6 @@ const {
 
 const {TowerService} = require('./tower-service');
 
-
 const httpClient = new HttpClient();
 httpClient.config = {
   url: 'http://localhost:8000',
@@ -27,6 +26,7 @@ const longPollingTimeoutInMs = 10000;
 const towerService = new TowerService();
 
 function registerTask(topicName, callback) {
+
   externalTaskWorker.waitForAndHandle(
     identity,
     topicName,
@@ -37,5 +37,4 @@ function registerTask(topicName, callback) {
 
 registerTask('TakeElement', towerService.takeElement);
 registerTask('PutElement', towerService.putElement);
-registerTask('ShowTowers', towerService.showTowers);
 registerTask('CheckIfEmpty', towerService.checkIfEmpty);
