@@ -23,7 +23,7 @@ Der Zustand der Türme wird nicht mehr über die Prozesse
 weitergereicht. Daher können wir den Eintrag `tower` aus der
 Annotation löschen.
 
-<img src="./images/move_element__annotation.png" />
+<img src="./images/move_element__annotation.png" width="50%" />
 
 ## Take Element
 
@@ -36,7 +36,7 @@ konfigurieren ihn zum `ExternalTask`.  Als Topic wählen wir
 
 Hier ist ein Bild des konfigurierten Script-Tasks:
 
-<img src="./images/move_element__take_element.png" />
+<img src="./images/move_element__take_element.png" width="50%" />
 
 ## Put Element
 
@@ -58,4 +58,4 @@ muss, wählen wir die folgende Payload:
 
 So sieht der konfigurierte Task aus:
 
-<img src="./images/move_element__put_element.png" />
+<img src="./images/move_element__put_element.png" width="50%" />
