@@ -239,9 +239,9 @@ Put element A to 1.
 
 ### Export
 
+Um die Klasse in `start.js` verwenden zu können, muss sie noch
+exportiert werden:
+
 ```js
 module.exports.TowerService = TowerService;
 ```
-
-Um die Klasse in `start.js` verwenden zu können, muss sie noch
-exportiert werden.
