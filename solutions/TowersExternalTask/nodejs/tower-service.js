@@ -13,24 +13,23 @@ class TowerService {
   async takeElement(externalTask) {
 
     const fromIndex = externalTask.payload;
-    const element = this.towers[fromIndex].pop();
+    const element = this.towers[fromIndex].shift();
 
+    await this._sleepOneSecond();
     this._displayTowers(`Take element ${element} from ${fromIndex}.`);
+
     return new ExternalTaskFinished(externalTask.id, element);
   }
 
   async putElement(externalTask) {
 
     const {element, toIndex} = externalTask.payload;
-    this.towers[toIndex].push(element);
+    this.towers[toIndex].unshift(element);
 
+    await this._sleepOneSecond();
     this._displayTowers(`Put element ${element} to ${toIndex}.`);
+
     return new ExternalTaskFinished(externalTask.id);
-  }
-
-  async showTowers(externalTask) {
-
-    return new ExternalTaskFinished(externalTask.id, JSON.stringify(this.towers));
   }
 
   async checkIfEmpty(externalTask) {
@@ -41,35 +40,39 @@ class TowerService {
     return new ExternalTaskFinished(externalTask.id, towerIsEmpty);
   }
 
+  async _sleepOneSecond() {
+
+    return new Promise((resolve) => setTimeout(() => resolve(), 1000));
+  }
+
   _displayTowers(subtitle) {
+    const maxHeight = this.towers.reduce((size, tower) =>
+                               Math.max(tower.length, size), 0);
 
-    const lines = [];
-    for (let i = 1; true; i++) {
-      let newLine = this.towers.reduce((acc, cur) => {
-        const lastElement = cur[cur.length - i];
-        if (lastElement === undefined) {
-          return `${acc}  `;
-        }
-        return `${acc} ${lastElement}`;
-      }, '');
-      if (newLine.trim() === '') {
-        break;
-      }
-      lines.push(newLine);
+    const sameLengthTowers = this.towers.map((tower) => {
+      const emptySlotsLength = maxHeight - tower.length;
+      const emptySlots = Array(emptySlotsLength).fill(' ');
+      return emptySlots.concat(tower);
+    });
+
+    let lines = '';
+    for (let i = 0; i < maxHeight; i++) {
+
+      const newLine = sameLengthTowers
+            .reduce((text, tower) => `${text} ${tower[i]}`, '');
+      lines = `${lines}\n${newLine}`
     }
-    let output = lines.reduceRight((acc, cur) => {
-      return acc + '\n' + cur
-    },'');
-    const underscore =' ' + '-'.repeat(this.towers.length * 2 - 1);
-    const numbers = Array.from(this.towers.keys())
-      .reduce((acc, cur) => acc + ' ' + cur);
 
-    output = output + '\n'
-      + underscore + '\n '
-      + numbers + '\n'
-      + subtitle + '\n\n';
+    const underscore =' ' + '-'.repeat(sameLengthTowers.length * 2 - 1);
+    const numbers = Array.from(sameLengthTowers.keys())
+          .reduce((acc, cur) => acc + ' ' + cur);
 
-    console.log(output);
+    let output = lines + '\n'
+        + underscore + '\n '
+        + numbers + '\n'
+        + subtitle + '\n\n';
+
+    console.log(output)
   }
 }
 
