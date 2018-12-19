@@ -72,7 +72,7 @@ gleichnamigen Topics zugeschrieben.
 Die Klasse zum Bearbeiten der Tasks erstellen wir in einer
 gesonderten Datei `tower-service.js`.
 
-### Konstructor
+### Konstruktor
 
 ```js
 constructor() {
@@ -85,10 +85,10 @@ In dem Konstruktor wird der Startzustand der Türme in der
 Instanzvariable `towers` gespeichert.
 
 Zu Beginn soll der Startzustand der Türme in der Konsole dargestellt
-werden. Der Aufruf this._displayTowers('This is the start
-position.');``stellt die Türme mit der übergebenen Beschreibung dar.
+werden. Der Aufruf `this._displayTowers('This is the start
+position.');` stellt die Türme mit der übergebenen Beschreibung dar.
 
-Mit dem Erstellen des TowerService erhalten wir in der Konsole folgende Angabe:
+Mit dem Erstellen des TowerService erhalten wir in der Konsole folgende Ausgabe:
 
 ```
  A
@@ -124,7 +124,7 @@ Die Operation auf dem Turm geschieht mit der Anweisung `const element
 
 Damit wir den Progress langsam mitverfolgen können wird mittels `await
 this._sleepOneSecond();` die Funktion für eine Sekunde angehalten. Wir
-stellen wieder den Turmzustand mit einer Beschreibung der Aktion über
+stellen wieder den Turmzustand mit einer Beschreibung der Aktion mittels
 `_displayTowers` dar.
 
 Zuletzt wird das Element als Payload zurückgegeben.
@@ -145,7 +145,7 @@ async putElement(externalTask) {
 }
 ```
 
-Diese Funktion ähnelt `takeElement` stark.
+Diese Funktion ähnelt `takeElement` sehr.
 
 Es bestehen folgende Unterschiede:
 
@@ -174,10 +174,10 @@ Der Worker gibt `true` oder `false` zurück; je nachdem, ob der Turm leer ist.
 
 ### _sleepOneSecond
 
-```
+```js
 async _sleepOneSecond() {
 
-  return new Promise((resolve) => setTimeout(() => resolve(), 1000));
+  return new Promise((resolve) => setTimeout(resolve, 1000));
 }
 ```
 
@@ -186,35 +186,35 @@ Diese Hilfsfunktion wird genutzt um den Ablauf zu verzögern.
 ### _displayTowers
 
 ```js
-  _displayTowers(subtitle) {
-    const maxHeight = this.towers.reduce((size, tower) =>
-                               Math.max(tower.length, size), 0);
+_displayTowers(subtitle) {
+  const maxHeight = this.towers.reduce((size, tower) =>
+                             Math.max(tower.length, size), 0);
 
-    const sameLengthTowers = this.towers.map((tower) => {
-      const emptySlotsLength = maxHeight - tower.length;
-      const emptySlots = Array(emptySlotsLength).fill(' ');
-      return emptySlots.concat(tower);
-    });
+  const sameLengthTowers = this.towers.map((tower) => {
+    const emptySlotsLength = maxHeight - tower.length;
+    const emptySlots = Array(emptySlotsLength).fill(' ');
+    return emptySlots.concat(tower);
+  });
 
-    let lines = '';
-    for (let i = 0; i < maxHeight; i++) {
+  let lines = '';
+  for (let i = 0; i < maxHeight; i++) {
 
-      const newLine = sameLengthTowers
-            .reduce((text, tower) => `${text} ${tower[i]}`, '');
-      lines = `${lines}\n${newLine}`
-    }
-
-    const underscore =' ' + '-'.repeat(sameLengthTowers.length * 2 - 1);
-    const numbers = Array.from(sameLengthTowers.keys())
-          .reduce((acc, cur) => acc + ' ' + cur);
-
-    let output = lines + '\n'
-        + underscore + '\n '
-        + numbers + '\n'
-        + subtitle + '\n\n';
-
-    console.log(output)
+    const newLine = sameLengthTowers
+          .reduce((text, tower) => `${text} ${tower[i]}`, '');
+    lines = `${lines}\n${newLine}`
   }
+
+  const underscore =' ' + '-'.repeat(sameLengthTowers.length * 2 - 1);
+  const numbers = Array.from(sameLengthTowers.keys())
+        .reduce((acc, cur) => acc + ' ' + cur);
+
+  let output = lines + '\n'
+      + underscore + '\n '
+      + numbers + '\n'
+      + subtitle + '\n\n';
+
+  console.log(output)
+}
 ```
 
 `_displayTowers` dient der Darstellung der Türme.
