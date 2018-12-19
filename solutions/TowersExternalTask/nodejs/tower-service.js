@@ -42,7 +42,7 @@ class TowerService {
 
   async _sleepOneSecond() {
 
-    return new Promise((resolve) => setTimeout(() => resolve(), 1000));
+    return new Promise((resolve) => setTimeout(resolve, 1000));
   }
 
   _displayTowers(subtitle) {
