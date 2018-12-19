@@ -1,6 +1,6 @@
 # Towers mit ExternalTasks
 
-In dem vorherigen Beispiel haben wir es uns zur Aufgabe gemacht
+In dem vorherigen Beispiel haben wir es uns zur Aufgabe gemacht,
 Turmstapel auf den Kopf zu drehen. Die Komplexität konnten wir
 erfolgreich verringern, indem wir mehrere Diagramme erstellt und mit
 CallActivities verbunden haben.
