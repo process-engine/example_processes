@@ -13,8 +13,6 @@ gefordert werden:
 | PutElement   | Element; Index eines Turms |                            | Legt Element oben auf einen Turm ab |
 | CheckIfEmpty | Index eines Turms          | `true` oder `false`        |                                     |
 
-
-
 ## Worker registrieren
 
 In einer Datei `start.js` ergibt sich folgender Code zum Registrieren
