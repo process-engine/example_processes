@@ -36,7 +36,7 @@ return {
 }
 ```
 
-<img src="./images/flip_tower__script_task.png" />
+<img src="./images/flip_tower__script_task.png" width="50%" />
 
 ## **Check if empty**-External-Task
 
@@ -56,4 +56,4 @@ Hier ist die Konfiguration:
 
 In BPMN-Studio sieht der Task mitsamt Konfiguration so aus:
 
-<img src="./images/flip_tower__check_if_empty.png" />
+<img src="./images/flip_tower__check_if_empty.png" width="50%" />
