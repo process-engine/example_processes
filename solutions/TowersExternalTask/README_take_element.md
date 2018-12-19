@@ -1,1 +1,0 @@
-# Anleitung für **TakeElement**-Diagramm
