@@ -5,42 +5,32 @@ Turmstapel auf den Kopf zu drehen. Die Komplexität konnten wir
 erfolgreich verringern, indem wir mehrere Diagramme erstellt und mit
 CallActivities verbunden haben.
 
-Ein Faktor hat das Beispiel blieb jedoch verwirrend: der Zustand der
+Ein Faktor blieb jedoch verwirrend: der Zustand der
 Türme wurde innerhalb des Prozesses erstellt und gepflegt. Es wurde
 immer nur im Token festgehalten, wie die Türme aussehen. Es bestand
-keine Kommunikation nach außen. In einer richtigen Lagerhalle hat der
-Prozess so keinen Wert.
+keine Kommunikation nach außen.
 
 Wir erweitern das Beispiel so, dass der Zustand der Türme extern
 verwaltet wird. Dies erreichen wir mit ExternalTasks.
 
-## Programmierteil (nodejs)
+Dieses Beispiel demonstriert die Austauschbarkeit technischer Elemente
+bei Prozessen.
 
-In diesem Teil erklären wir, ohne ins Detail zu gehen,
-die Implementierung eines ExternalTasks mit nodejs.
+Auch hier werden Prozessmodellierung und Softwareentwicklung getrennt
+betrachtet:
 
-ExternalTasks sind nicht an nodejs gebunden.
+- Prozessmodellierung
+  - [Move Element](./README_move_element.md)
+  - [Flip Tower](./README_flip_tower.md)
+  - [Move Tower](./README_move_tower.md)
+- [Softwareentwicklung](./README_programmer.md)
 
-Zunächst erstellen wir ein NodeProjekt.
+## Lernziele
 
-Installieren `@process-engine/external_task_api_client`.
+- Austauschen von technischen Aspekten bei Diagrammen
 
-Aus dem installierten Paket beziehen wir die Klassen:
+## Ablauf
 
-```js
-const {
-  ExternalTaskApiClientService,
-  ExternalTaskApiExternalAccessor,
-  ExternalTaskWorker,
-} = require('@process-engine/external_task_api_client');
-```
+So sieht der Ablauf der Applikation aus:
 
-
-ExternalTaskApiClientService
-ExternalTaskApiExternalAccessor
-ExternalTaskWorker
-
-### TurmService
-
-
-### Konfiguration der Tasks
+<img src="./images/execution.gif"></img>
