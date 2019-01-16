@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definition_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="BPMN Studio" exporterVersion="1">
+  <bpmn:collaboration id="Collaboration_1cidyxu" name="">
+    <bpmn:extensionElements>
+      <camunda:formData />
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_0px403d" name="Registration" processRef="Registration" />
+  </bpmn:collaboration>
+  <bpmn:process id="Registration" name="Registration" isExecutable="true">
+    <bpmn:laneSet>
+      <bpmn:lane id="Lane_1xzf0d3" name="">
+        <bpmn:flowNodeRef>StartEvent_1mox3jl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1rb0vqd</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0utflpj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1leoauu</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_0eie6q6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0u5zv2j</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_0eqraoh</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1mox3jl" name="">
+      <bpmn:outgoing>SequenceFlow_1jdocur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1jdocur" sourceRef="StartEvent_1mox3jl" targetRef="Task_1rb0vqd" />
+    <bpmn:sequenceFlow id="SequenceFlow_0wovzu7" sourceRef="Task_1rb0vqd" targetRef="Task_0u5zv2j" />
+    <bpmn:sequenceFlow id="SequenceFlow_1helh63" sourceRef="BoundaryEvent_0eqraoh" targetRef="Task_0utflpj" />
+    <bpmn:callActivity id="Task_1rb0vqd" name="Request User Data" calledElement="Registration User Input">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1jdocur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0wovzu7</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:boundaryEvent id="BoundaryEvent_0eqraoh" name="" attachedToRef="Task_1rb0vqd">
+      <bpmn:outgoing>SequenceFlow_1helh63</bpmn:outgoing>
+      <bpmn:errorEventDefinition errorRef="Error_L9gRXNzj" />
+    </bpmn:boundaryEvent>
+    <bpmn:userTask id="Task_0utflpj" name="Confirm Input Error" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="Form_DgAGKgHI" label="there was an error" type="boolean" defaultValue="" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="preferredControl" value="confirm" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1helh63</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0wpgken</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0wpgken" sourceRef="Task_0utflpj" targetRef="EndEvent_1leoauu" />
+    <bpmn:endEvent id="EndEvent_1leoauu">
+      <bpmn:incoming>SequenceFlow_0wpgken</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_0eie6q6" name="">
+      <bpmn:incoming>SequenceFlow_1bx8u6b</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1bx8u6b" sourceRef="Task_0u5zv2j" targetRef="EndEvent_0eie6q6" />
+    <bpmn:userTask id="Task_0u5zv2j" name="Confirm Input Success" camunda:formKey="Form Key">
+      <bpmn:extensionElements>
+        <camunda:formData />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0wovzu7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1bx8u6b</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmn:error id="Error_L9gRXNzj" name="input_error" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cidyxu">
+      <bpmndi:BPMNShape id="Participant_0px403d_di" bpmnElement="Participant_0px403d">
+        <dc:Bounds x="3" y="27" width="704" height="249" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3">
+        <dc:Bounds x="33" y="27" width="674" height="249" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1mox3jl_di" bpmnElement="StartEvent_1mox3jl">
+        <dc:Bounds x="83" y="69" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0eie6q6_di" bpmnElement="EndEvent_0eie6q6">
+        <dc:Bounds x="649" y="69" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="710" y="105" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jdocur_di" bpmnElement="SequenceFlow_1jdocur">
+        <di:waypoint x="119" y="87" />
+        <di:waypoint x="253" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wovzu7_di" bpmnElement="SequenceFlow_0wovzu7">
+        <di:waypoint x="353" y="87" />
+        <di:waypoint x="448" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="CallActivity_1x3d8gu_di" bpmnElement="Task_1rb0vqd">
+        <dc:Bounds x="253" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_1466uew_di" bpmnElement="BoundaryEvent_0eqraoh">
+        <dc:Bounds x="335" y="109" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1helh63_di" bpmnElement="SequenceFlow_1helh63">
+        <di:waypoint x="353" y="145" />
+        <di:waypoint x="353" y="191" />
+        <di:waypoint x="448" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_002892t_di" bpmnElement="Task_0utflpj">
+        <dc:Bounds x="448" y="151" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wpgken_di" bpmnElement="SequenceFlow_0wpgken">
+        <di:waypoint x="548" y="191" />
+        <di:waypoint x="649" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1leoauu_di" bpmnElement="EndEvent_1leoauu">
+        <dc:Bounds x="649" y="173" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1bx8u6b_di" bpmnElement="SequenceFlow_1bx8u6b">
+        <di:waypoint x="548" y="87" />
+        <di:waypoint x="649" y="87" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_07hokon_di" bpmnElement="Task_0u5zv2j">
+        <dc:Bounds x="448" y="47" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
