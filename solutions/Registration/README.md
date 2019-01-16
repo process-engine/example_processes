@@ -21,3 +21,18 @@ Prozess führen soll.
 
 - Umgang mit ErrorEndEvents und BoundaryEvents
 - Verständnis für Unterschied / Anwendungsgebiete von ExclusiveGateways und BoundaryEvents
+
+## Aufbau
+
+Wir erstellen zwei Diagramme: `Registration` und `Registration User
+Input`.  `Registration` ist hierbei der grundlegende Prozess zur
+Erstellung von Nutzern, in dessen Rahmen `Registration User Input`
+aufgerufen wird.
+
+Hier sind die Anleitungen zum Nachbau der Diagramme:
+
+- [Registration](./registration.md) beschreibt den grundlegenden
+  Ablauf zum Registrieren von Nutzern und
+- [Registration User Input](./registration_user_input.md) behandelt
+  die Nutzereingabe bei der Registration und kann bei Fehleingabe
+  scheitern.
