@@ -46,19 +46,19 @@ const longPollingTimeoutInMs = 10000;
 
 const towerService = new TowerService();
 
-function registerTask(topicName, callback) {
+function assignTopicToHandler(topicName, handlerCallback) {
 
   externalTaskWorker.waitForAndHandle(
     identity,
     topicName,
     maxNumberOfTasksToGet,
     longPollingTimeoutInMs,
-    callback.bind(towerService));
+    handlerCallback.bind(towerService));
 }
 
-registerTask('TakeElement', towerService.takeElement);
-registerTask('PutElement', towerService.putElement);
-registerTask('CheckIfEmpty', towerService.checkIfEmpty);
+assignTopicToHandler('TakeElement', towerService.takeElement);
+assignTopicToHandler('PutElement', towerService.putElement);
+assignTopicToHandler('CheckIfEmpty', towerService.checkIfEmpty);
 ```
 
 Hier wird den Funktionen `takeElement`, `putElement` und `checkIfEmpty`
