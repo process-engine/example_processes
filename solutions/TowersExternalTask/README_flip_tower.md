@@ -1,7 +1,7 @@
 # Anleitung für **Flip Tower**-Diagramm
 
 Diese Anleitung beschreibt das Anpassen des **Flip Tower**-Diagramms
-zum External-Task Muster.
+zum ExternalTask Muster.
 
 So sieht das ursprüngliche Diagramm aus:
 
@@ -23,9 +23,9 @@ Applikation gepflegt und der Eintrag kann gelöscht werden.
 > Auswirkung. Hier wurde die Annotation genutzt, um den Typ der
 > erwarteten Payload des Prozesses zu kennzeichnen.
 
-## **Prepare Parameters**-Script-Task
+## **Prepare Parameters**-ScriptTask
 
-Auch beim Script-Task kann der Parameter `tower` entfernt werden.
+Auch beim ScriptTask kann der Parameter `tower` entfernt werden.
 
 Somit ergibt die sich folgendes Script:
 
@@ -38,12 +38,12 @@ return {
 
 <img src="./images/flip_tower__script_task.png" width="50%" />
 
-## **Check if empty**-External-Task
+## **Check if empty**-ExternalTask
 
-Der Script-Task zur Kontrolle, ob ein Turm abgebaut ist, kann nun
+Der ScriptTask zur Kontrolle, ob ein Turm abgebaut ist, kann nun
 ersetzt werden.
 
-Wir verwenden stattdessen einen Service-Task und konfigurieren ihn zum ExternalTask.
+Wir verwenden stattdessen einen ServiceTask und konfigurieren ihn zum ExternalTask.
 
 Hier ist die Konfiguration:
 

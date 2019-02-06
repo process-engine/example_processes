@@ -19,11 +19,11 @@ Nach Umbau sieht das Diagramm so aus:
 Es können alle Elemente außer StartEvent, EndEvent, den ScriptTasks
 und den CallActivities gelöscht werden.
 
-## **Prepare Parameters**-Script-Tasks
+## **Prepare Parameters**-ScriptTasks
 
 Bei den ScriptTasks kann die Eigenschaft `tower` aus den Parametern entfernt werden.
 
-Für den ersten Script-Task ergibt sich:
+Für den ersten ScriptTask ergibt sich:
 
 ```js
 return {
