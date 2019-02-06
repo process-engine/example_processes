@@ -1,11 +1,11 @@
 # Anleitung für **Move Element**-Diagramm
 
-In dieser Anleitung wird beschrieben, wie wir die Script-Tasks des
-ursprünglichen **MoveElement**-Diagramms mit External-Tasks ersetzen
+In dieser Anleitung wird beschrieben, wie wir die ScriptTasks des
+ursprünglichen **MoveElement**-Diagramms mit ExternalTasks ersetzen
 können.
 
-Die Script-Tasks beinhalteten komplexe Logik um die Türme zu
-manipulieren. Das External-Task-Muster erlaubt uns diese Logik auf
+Die ScriptTasks beinhalteten komplexe Logik um die Türme zu
+manipulieren. Das ExternalTask-Muster erlaubt uns diese Logik auf
 einen Server auszulagern. Somit überlassen wir dem Diagramm allein die
 Steuerung des Prozesses, und nicht die Umsetzung.
 
@@ -29,19 +29,19 @@ Annotation löschen.
 
 Der Scriptask `Take element of one tower` kann gelöscht werden.
 
-Zum Ersatz erstellen wir einen gleichnamigen Service-Task und
+Zum Ersatz erstellen wir einen gleichnamigen ServiceTask und
 konfigurieren ihn zum `ExternalTask`.  Als Topic wählen wir
 `TakeElement` und wir benutzen
 `token.history.start_arguments.fromIndex` als Payload.
 
-Hier ist ein Bild des konfigurierten Script-Tasks:
+Hier ist ein Bild des konfigurierten ScriptTasks:
 
 <img src="./images/move_element__take_element.png" width="50%" />
 
 ## Put Element
 
-Der folgende Script-Task `Put element` wird ebenfalls mit einem
-External-Task ersetzt.
+Der folgende ScriptTask `Put element` wird ebenfalls mit einem
+ExternalTask ersetzt.
 
 Das Topic `PutElement` wird benötigt, damit der Worker sich unter
 diesem Namen für den Task registrieren kann.
