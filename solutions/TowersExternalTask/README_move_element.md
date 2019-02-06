@@ -43,8 +43,9 @@ Hier ist ein Bild des konfigurierten ScriptTasks:
 Der folgende ScriptTask `Put element` wird ebenfalls mit einem
 ExternalTask ersetzt.
 
-Das Topic `PutElement` wird benötigt, damit der Worker sich unter
-diesem Namen für den Task registrieren kann.
+`PutElement` ist das Topic unter dem sich der ExternalTask in der
+Queue registriert.  Der Worker, der für dieses Topic zuständig ist,
+kann dadurch den ExternalTask finden und für sich reservieren.
 
 Um zu beschreiben, welches Element auf welchen Turm gelegt werden
 muss, wählen wir die folgende Payload:
