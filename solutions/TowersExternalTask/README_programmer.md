@@ -1,4 +1,4 @@
-# Towers - Anleitung für Programmierer(nodejs)
+# Towers - Anleitung für Programmierer (NodeJS)
 
 Das Registrieren von Workern mit NodeJS wurde bereits in dem
 Chatbot-Beispiel erklärt. Die Grundlagen aus dem Chatbot-Beispiel
@@ -13,9 +13,9 @@ gefordert werden:
 | PutElement   | Element; Index eines Turms |                            | Legt Element oben auf einen Turm ab |
 | CheckIfEmpty | Index eines Turms          | `true` oder `false`        |                                     |
 
-## Worker registrieren
+## Worker initialisieren
 
-In einer Datei `start.js` ergibt sich folgender Code zum Registrieren
+In einer neuen Datei `start.js` ergibt sich folgender Code zum Initialisieren
 der Worker.
 
 ```js
@@ -61,9 +61,11 @@ registerTask('PutElement', towerService.putElement);
 registerTask('CheckIfEmpty', towerService.checkIfEmpty);
 ```
 
-Hier wird den Methoden `takeElement`, `putElement` und `checkIfEmpty`
-einer Klasse `TowerService` die Funktionalität zu Tasks mit den
-gleichnamigen Topics zugeschrieben.
+Hier wird den Funktionen `takeElement`, `putElement` und `checkIfEmpty`
+der `TowerService`-Klasse jeweils ein gleichnamiges Topic zugewiesen.
+
+Unter diesem Topic können die Handler dann jeweils die ExternalTasks finden,
+für welche sie verantwortlich sind.
 
 ## TowerService
 
