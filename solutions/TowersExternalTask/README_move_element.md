@@ -27,7 +27,7 @@ Annotation löschen.
 
 ## Take Element
 
-Der Scriptask `Take element of one tower` kann gelöscht werden.
+Der ScriptTask `Take element of one tower` kann gelöscht werden.
 
 Zum Ersatz erstellen wir einen gleichnamigen ServiceTask und
 konfigurieren ihn zum `ExternalTask`.  Als Topic wählen wir
