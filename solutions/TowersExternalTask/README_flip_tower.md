@@ -20,8 +20,8 @@ Applikation gepflegt und der Eintrag kann gelöscht werden.
 <img src="./images/flip_tower__annotation.png" />
 
 > Annotationen dienen der eigenen Übersicht und haben keine technische
-> Auswirkung. Hier wurde die Annotation genutzt, um den Typ der
-> erwarteten Payload des Prozesses zu kennzeichnen.
+> Auswirkung. Hier wurde die Annotation genutzt, um den Typ des
+> erwarteten Payloads des Prozesses zu kennzeichnen.
 
 ## **Prepare Parameters**-ScriptTask
 
