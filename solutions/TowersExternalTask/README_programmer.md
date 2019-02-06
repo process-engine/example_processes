@@ -69,7 +69,7 @@ für welche sie verantwortlich sind.
 
 ## TowerService
 
-Die Klasse zum Bearbeiten der Tasks erstellen wir in einer
+Die Klasse zum Bearbeiten der ExternalTasks erstellen wir in einer
 gesonderten Datei `tower-service.js`.
 
 ### Konstruktor
@@ -122,12 +122,12 @@ dieses Tasks den Index des Turms und wird daher in der Variable
 Die Operation auf dem Turm geschieht mit der Anweisung `const element
 = this.towers[fromIndex].shift();`.
 
-Damit wir den Progress langsam mitverfolgen können wird mittels `await
-this._sleepOneSecond();` die Funktion für eine Sekunde angehalten. Wir
+Damit wir den Fortschritt langsam mitverfolgen können, wird mittels `await
+this._sleepOneSecond();` die Ausführung für eine Sekunde angehalten. Wir
 stellen wieder den Turmzustand mit einer Beschreibung der Aktion mittels
 `_displayTowers` dar.
 
-Zuletzt wird das Element als Payload zurückgegeben.
+Zuletzt wird das entnommene Element als Payload zurückgegeben.
 
 
 ### putElement
@@ -151,7 +151,8 @@ Es bestehen folgende Unterschiede:
 
 - die übergebende Payload ist hier ein Objekt und liefert Element und
   Zielturm,
-- es wird die Arrayfunktion `unshift` genutzt um das element auf den Zielturm abzulegen und
+- es wird die Arrayfunktion `unshift` genutzt um das Element auf den
+  Zielturm abzulegen und
 - es wird kein Wert als Payload zurückgegeben.
 
 
@@ -169,7 +170,7 @@ async checkIfEmpty(externalTask) {
 
 Auch `checkIfEmpty` weist keine neuen Konzepte auf.
 
-In der übergebenden Payload steht der Index des zu kontrollierenden Turms.
+In dem übergebenden Payload steht der Index des zu kontrollierenden Turms.
 Der Worker gibt `true` oder `false` zurück; je nachdem, ob der Turm leer ist.
 
 ### _sleepOneSecond
@@ -181,7 +182,8 @@ async _sleepOneSecond() {
 }
 ```
 
-Diese Hilfsfunktion wird genutzt um den Ablauf zu verzögern.
+Diese Hilfsfunktion wird genutzt um den Ablauf zwischen den einzelnen
+Prozessschritten zu verzögern.
 
 ### _displayTowers
 
@@ -219,9 +221,10 @@ _displayTowers(subtitle) {
 
 `_displayTowers` dient der Darstellung der Türme.
 
-Im ersten Schritt werden die Türme auf diesselbe Lange gebracht, indem
-kürzere Türme mit Leerzeichen gefüllt werden. Aus `[['B', 'C'],
-['A'], []]` entsteht so `[['B', 'C'], [' ', 'A'], [' ', ' ']]`.
+Im ersten Schritt werden die Arrays, welche die Türme beinhalten, auf
+diesselbe Länge gebracht, indem kürzere Türme mit Leerzeichen gefüllt
+werden. Aus `[['B', 'C'], ['A'], []]` entsteht so `[['B', 'C'], [' ',
+'A'], [' ', ' ']]`.
 
 Dann werden die einzelnen Zeilen der Turmdarstellung generiert. Die
 Elemente aller Türme am Index `i` ergeben eine Zeile.
