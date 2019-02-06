@@ -187,8 +187,8 @@ Diese Hilfsfunktion wird genutzt um den Ablauf zu verzögern.
 
 ```js
 _displayTowers(subtitle) {
-  const maxHeight = this.towers.reduce((size, tower) =>
-                             Math.max(tower.length, size), 0);
+  const maxHeight =
+    this.towers.reduce((size, tower) => Math.max(tower.length, size), 0);
 
   const sameLengthTowers = this.towers.map((tower) => {
     const emptySlotsLength = maxHeight - tower.length;
@@ -199,21 +199,21 @@ _displayTowers(subtitle) {
   let lines = '';
   for (let i = 0; i < maxHeight; i++) {
 
-    const newLine = sameLengthTowers
-          .reduce((text, tower) => `${text} ${tower[i]}`, '');
+    const newLine =
+      sameLengthTowers.reduce((text, tower) => `${text} ${tower[i]}`, '');
     lines = `${lines}\n${newLine}`
   }
 
   const underscore =' ' + '-'.repeat(sameLengthTowers.length * 2 - 1);
-  const numbers = Array.from(sameLengthTowers.keys())
-        .reduce((acc, cur) => acc + ' ' + cur);
+  const numbers =
+    Array.from(sameLengthTowers.keys()).reduce((acc, cur) => acc + ' ' + cur);
 
   let output = lines + '\n'
       + underscore + '\n '
       + numbers + '\n'
       + subtitle + '\n\n';
 
-  console.log(output)
+  console.log(output);
 }
 ```
 
